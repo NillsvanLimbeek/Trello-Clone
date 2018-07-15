@@ -79,16 +79,19 @@ export default new Vuex.Store({
             {
                 title: 'Card 1',
                 itemId: 1,
+                columnId: 1,
                 id: 1
             },
             {
                 title: 'Card 2',
                 itemId: 1,
+                columnId: 1,
                 id: 2
             },
             {
                 title: 'Card 3',
                 itemId: 2,
+                columnId: 2,
                 id: 3
             },
         ]
@@ -112,12 +115,30 @@ export default new Vuex.Store({
             state.cards.push(payload)
         },
         deleteColumn(state, payload) {
-            state.columns = state.columns.filter(column => column.id !== payload)
+            state.columns = state.columns.filter(column => column.id !== payload.id)
+        },
+        deleteItem(state, payload) {
+            state.items = state.items.filter(item => item.id !== payload.id)
+        },
+        deleteCard(state, payload) {
+            state.cards = state.cards.filter(card => card.columnId !== payload.id)
         }
     },
     actions: {
         toggleSidebar({ commit }) {
             commit('toggleSidebar')
         },
+        deleteElement({ commit }, payload) {
+            if (payload.type === 'column') {
+                commit('deleteColumn', payload)
+                commit('deleteItem', payload)
+                commit('deleteCard', payload)
+            } else if (payload.type === 'item') {
+                commit('deleteItem', payload)
+                commit('deleteCard', payload)
+            } else {
+                commit('deleteCard', payload)
+            }
+        }
     }
 })

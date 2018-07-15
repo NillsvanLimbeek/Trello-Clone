@@ -8,6 +8,7 @@
         <Dropdown
             v-if="itemDropdown"
             type="item"
+            @global-delete="deleteItem"
         />
 
         <div class="item__body">
@@ -38,6 +39,10 @@
             itemId: {
                 required: true,
                 type: [String, Number]
+            },
+            columnId: {
+                required: true,
+                type: [String, Number]
             }
         },
         data() {
@@ -60,7 +65,10 @@
             addCard() {
                 const randomId = this.randomId()
 
-                this.$store.commit('addCard', { title: 'Card', itemId: this.itemId, id: `card${randomId}` })
+                this.$store.commit('addCard', { title: 'Card', itemId: this.itemId, columnId: this.columnId , id: `card${randomId}` })
+            },
+            deleteItem() {
+                this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId })
             },
             randomId() {
                 return Math.ceil(Math.random() * 100)

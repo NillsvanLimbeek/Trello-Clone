@@ -8,13 +8,14 @@
                 <Dropdown
                     v-if="columnDropdown"
                     type="column"
-                    @delete-column="deleteColumn"/>
+                    @global-delete="deleteColumn"/>
             </transition>
         </div>
 
         <Item v-for="item in filterItems"
               :key="item.id"
-              :itemId="item.id">
+              :itemId="item.id"
+              :columnId="columnId">
             <input class="item__input" v-model="item.title">
         </Item>
 
@@ -46,7 +47,7 @@
                 this.columnDropdown = !this.columnDropdown
             },
             deleteColumn() {
-                this.$store.commit('deleteColumn', this.columnId)
+                this.$store.dispatch('deleteElement', { type: 'column', id: this.columnId })
             },
             randomId() {
                 return Math.ceil(Math.random() * 100)

@@ -1,5 +1,6 @@
 .dropdown {
     position: absolute;
+    z-index: 100;
 
     box-shadow: var(--drop-shadow);
 
@@ -43,6 +44,6 @@
 }
 
 .position-item {
-    top: 10.5rem;
-    right: 1rem;
+    top: 4.5rem;
+    right: -1rem;
 }

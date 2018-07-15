@@ -34,7 +34,7 @@
                 this.$emit('close-dropdown')
             },
             deleteColumn() {
-                this.$emit('delete-column')
+                this.$emit('global-delete')
             }
         }
     }
