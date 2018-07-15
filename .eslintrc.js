@@ -13,7 +13,8 @@ module.exports = {
         'indent': 'off',
         'semi': ['error', 'never'],
         'linebreak-style': 'off',
-        'comma-dangle': 'off'
+        'comma-dangle': 'off',
+        'prefer-destructuring': 'off'
     },
     parserOptions: {
         parser: 'babel-eslint'

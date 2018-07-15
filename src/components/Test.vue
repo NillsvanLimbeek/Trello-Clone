@@ -1,7 +1,5 @@
 <template>
     <div>
-        Test
-
         <Workspace />
     </div>
 </template>

@@ -59,22 +59,39 @@ export default new Vuex.Store({
             }
         ],
         items: [
-        {
-            title: 'Item 1',
-            columnId: 1,
-            id: 1
-        },
-        {
-            title: 'Item 2',
-            columnId: 2,
-            id: 2
-        },
-        {
-            title: 'Item 3',
-            columnId: 3,
-            id: 3
-        }
-    ]
+            {
+                title: 'Item 1',
+                columnId: 1,
+                id: 1
+            },
+            {
+                title: 'Item 2',
+                columnId: 2,
+                id: 2
+            },
+            {
+                title: 'Item 3',
+                columnId: 3,
+                id: 3
+            },
+        ],
+        cards: [
+            {
+                title: 'Card 1',
+                itemId: 1,
+                id: 1
+            },
+            {
+                title: 'Card 2',
+                itemId: 1,
+                id: 2
+            },
+            {
+                title: 'Card 3',
+                itemId: 2,
+                id: 3
+            },
+        ]
     },
     getters: {
         getColumnTitle: state => {
@@ -90,11 +107,17 @@ export default new Vuex.Store({
         },
         addItem (state, payload) {
             state.items.push(payload)
+        },
+        addCard (state, payload) {
+            state.cards.push(payload)
+        },
+        deleteColumn(state, payload) {
+            state.columns = state.columns.filter(column => column.id !== payload)
         }
     },
     actions: {
         toggleSidebar({ commit }) {
             commit('toggleSidebar')
-        }
-    },
+        },
+    }
 })

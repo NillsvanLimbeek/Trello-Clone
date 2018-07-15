@@ -1,7 +1,5 @@
 .dropdown {
     position: absolute;
-    top: 5rem;
-    right: 1rem;
 
     box-shadow: var(--drop-shadow);
 
@@ -12,11 +10,9 @@
         align-items: space-between;
 
         width: 13rem;
-        height: 11rem;
-        // padding: 1rem;
+        padding: 1rem 0;
         border-radius: .5rem;
         background: var(--color-white);
-
     }
 
     &__item {
@@ -33,10 +29,20 @@
 
     &__arrow {
         position: absolute;
-        right: 5px;
+        right: 2rem;
         top: -1.5rem;
 
         font-size: 2.5rem;
         color: var(--color-white);
     }
+}
+
+.position-column {
+    top: 5rem;
+    right: -5px;
+}
+
+.position-item {
+    top: 10.5rem;
+    right: 1rem;
 }

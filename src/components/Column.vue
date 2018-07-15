@@ -2,11 +2,13 @@
     <div class="column">
         <div class="column__header">
             <slot class="column__title"></slot>
-            <i class="fas fa-ellipsis-v" @click="openDropdown"></i>
+            <i class="column__dropdown-btn fas fa-ellipsis-v" @click="openDropdown"></i>
 
             <transition name="fade">
                 <Dropdown
-                    v-if="showDropdown"/>
+                    v-if="columnDropdown"
+                    type="column"
+                    @delete-column="deleteColumn"/>
             </transition>
         </div>
 
@@ -32,15 +34,22 @@
     export default {
         data() {
             return {
-                showDropdown: false
+                columnDropdown: false
             }
         },
         methods: {
             addItem() {
-                this.$store.commit('addItem', { title: 'Item', columnId: this.columnId, id: this.items.length + 1 })
+                const randomId = this.randomId()
+                this.$store.commit('addItem', { title: 'Item', columnId: this.columnId, id: `item${randomId}` })
             },
             openDropdown() {
-                this.showDropdown = !this.showDropdown
+                this.columnDropdown = !this.columnDropdown
+            },
+            deleteColumn() {
+                this.$store.commit('deleteColumn', this.columnId)
+            },
+            randomId() {
+                return Math.ceil(Math.random() * 100)
             }
         },
         computed: {
@@ -48,7 +57,6 @@
                 'items'
             ]),
             filterItems() {
-                // eslint-disable-next-line
                 const items = this.items
                 const column = this.columnId
 
@@ -59,9 +67,12 @@
             Item,
             Dropdown
         },
-        props: [
-            'columnId'
-        ]
+        props: {
+            columnId: {
+                required: true,
+                type: [String, Number]
+            }
+        }
     }
 </script>
 

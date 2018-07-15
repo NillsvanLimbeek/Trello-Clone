@@ -23,7 +23,11 @@
     export default {
         methods: {
             addColumn() {
-                this.$store.commit('addColumn', { title: 'Column', id: this.columns.length + 1 })
+                const randomId = this.randomId()
+                this.$store.commit('addColumn', { title: 'Column', id: `column${randomId}` })
+            },
+            randomId() {
+                return Math.ceil(Math.random() * 100)
             }
         },
         computed: {
