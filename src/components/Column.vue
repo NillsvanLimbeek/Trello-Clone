@@ -41,13 +41,18 @@
         methods: {
             addItem() {
                 const randomId = this.randomId()
-                this.$store.commit('addItem', { title: 'Item', columnId: this.columnId, id: `item${randomId}` })
+                this.$store.commit('addItem', {
+                    title: 'Item',
+                    columnId: this.columnId,
+                    id: `item${randomId}`,
+                    cardIds: []
+                })
             },
             openDropdown() {
                 this.columnDropdown = !this.columnDropdown
             },
             deleteColumn() {
-                this.$store.dispatch('deleteElement', { type: 'column', id: this.columnId })
+                this.$store.dispatch('deleteElement', this.columnId)
             },
             randomId() {
                 return Math.ceil(Math.random() * 100)

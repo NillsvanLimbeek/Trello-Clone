@@ -24,7 +24,12 @@
         methods: {
             addColumn() {
                 const randomId = this.randomId()
-                this.$store.commit('addColumn', { title: 'Column', id: `column${randomId}` })
+                this.$store.commit('addColumn', {
+                    title: 'Column',
+                    id: `column${randomId}`,
+                    itemIds: [],
+                    cardIds: []
+                })
             },
             randomId() {
                 return Math.ceil(Math.random() * 100)

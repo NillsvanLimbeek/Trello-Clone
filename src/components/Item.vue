@@ -65,7 +65,13 @@
             addCard() {
                 const randomId = this.randomId()
 
-                this.$store.commit('addCard', { title: 'Card', itemId: this.itemId, columnId: this.columnId , id: `card${randomId}` })
+                this.$store.commit('addCard', {
+                    title: 'Card',
+                    itemId: this.itemId,
+                    columnId: this.columnId,
+                    id: `card${randomId}`,
+                    cardIds: []
+                })
             },
             deleteItem() {
                 this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId })

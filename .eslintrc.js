@@ -14,7 +14,8 @@ module.exports = {
         'semi': ['error', 'never'],
         'linebreak-style': 'off',
         'comma-dangle': 'off',
-        'prefer-destructuring': 'off'
+        'prefer-destructuring': 'off',
+        'object-curly-newline': 'off'
     },
     parserOptions: {
         parser: 'babel-eslint'
