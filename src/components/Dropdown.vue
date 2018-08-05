@@ -26,18 +26,18 @@
         props: {
             type: {
                 required: true,
-                type: String
-            }
+                type: String,
+            },
         },
         methods: {
             close() {
-                this.$emit('close-dropdown')
+                this.$emit('close-dropdown');
             },
             deleteColumn() {
-                this.$emit('global-delete')
-            }
-        }
-    }
+                this.$emit('global-delete');
+            },
+        },
+    };
 </script>
 
 <style lang="scss">

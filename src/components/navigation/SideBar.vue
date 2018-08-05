@@ -17,25 +17,25 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import { mapState } from 'vuex';
 
     export default {
         data() {
             return {
 
-            }
+            };
         },
         methods: {
             toggleSidebar() {
-                this.$store.dispatch('toggleSidebar')
-            }
+                this.$store.dispatch('toggleSidebar');
+            },
         },
         computed: {
             ...mapState([
-                'sidebarStatus'
-            ])
-        }
-    }
+                'sidebarStatus',
+            ]),
+        },
+    };
 
 </script>
 

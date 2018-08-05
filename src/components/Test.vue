@@ -5,13 +5,13 @@
 </template>
 
 <script>
-    import Workspace from '@/components/Workspace.vue'
+    import Workspace from '@/components/Workspace.vue';
 
     export default {
         components: {
-            Workspace
-        }
-    }
+            Workspace,
+        },
+    };
 
 </script>
 

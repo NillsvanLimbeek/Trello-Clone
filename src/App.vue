@@ -10,15 +10,15 @@
 </template>
 
 <script>
-    import SideBar from '@/components/navigation/SideBar.vue'
-    import Header from '@/components/navigation/Header.vue'
+    import SideBar from '@/components/navigation/SideBar.vue';
+    import Header from '@/components/navigation/Header.vue';
 
     export default {
         components: {
             SideBar,
-            Header
-        }
-    }
+            Header,
+        },
+    };
 </script>
 
 <style lang="scss">

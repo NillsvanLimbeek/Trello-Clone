@@ -16,32 +16,33 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import { mapState } from 'vuex';
 
-    import Column from './Column.vue'
+    import Column from './Column.vue';
 
     export default {
         methods: {
             addColumn() {
-                const randomId = this.randomId()
+                const randomId = this.randomId();
+
                 this.$store.commit('addColumn', {
                     title: 'Column',
                     id: `column${randomId}`,
                     itemIds: [],
-                    cardIds: []
-                })
+                    cardIds: [],
+                });
             },
             randomId() {
-                return Math.ceil(Math.random() * 100)
-            }
+                return Math.ceil(Math.random() * 100);
+            },
         },
         computed: {
             ...mapState([
-                'columns'
-            ])
+                'columns',
+            ]),
         },
         components: {
-            Column
-        }
-    }
+            Column,
+        },
+    };
 </script>

@@ -27,59 +27,60 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import { mapState } from 'vuex';
 
-    import Item from './Item.vue'
-    import Dropdown from './Dropdown.vue'
+    import Item from './Item.vue';
+    import Dropdown from './Dropdown.vue';
 
     export default {
         data() {
             return {
-                columnDropdown: false
-            }
+                columnDropdown: false,
+            };
         },
         methods: {
             addItem() {
-                const randomId = this.randomId()
+                const randomId = this.randomId();
+
                 this.$store.commit('addItem', {
                     title: 'Item',
                     columnId: this.columnId,
                     id: `item${randomId}`,
-                    cardIds: []
-                })
+                    cardIds: [],
+                });
             },
             openDropdown() {
-                this.columnDropdown = !this.columnDropdown
+                this.columnDropdown = !this.columnDropdown;
             },
             deleteColumn() {
-                this.$store.dispatch('deleteElement', this.columnId)
+                this.$store.dispatch('deleteElement', this.columnId);
             },
             randomId() {
-                return Math.ceil(Math.random() * 100)
-            }
+                return Math.ceil(Math.random() * 100);
+            },
         },
         computed: {
             ...mapState([
-                'items'
+                'items',
             ]),
             filterItems() {
-                const items = this.items
-                const column = this.columnId
+                const items = this.items;
+                const column = this.columnId;
 
-                return items.filter(item => column === item.columnId)
-            }
+                return items.filter( (item) => column === item.columnId);
+            },
         },
         components: {
             Item,
-            Dropdown
+            Dropdown,
         },
         props: {
             columnId: {
                 required: true,
-                type: [String, Number]
-            }
-        }
-    }
+                type: [String, Number],
+            },
+        },
+    };
 </script>
 
 <style lang="scss">

@@ -29,65 +29,66 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import { mapState } from 'vuex';
 
-    import Dropdown from './Dropdown.vue'
-    import Card from './Card.vue'
+    import Dropdown from './Dropdown.vue';
+    import Card from './Card.vue';
 
     export default {
         props: {
             itemId: {
                 required: true,
-                type: [String, Number]
+                type: [String, Number],
             },
             columnId: {
                 required: true,
-                type: [String, Number]
-            }
+                type: [String, Number],
+            },
         },
         data() {
             return {
-                itemDropdown: false
-            }
+                itemDropdown: false,
+            };
         },
         computed: {
             ...mapState([
-                'cards'
+                'cards',
             ]),
             filterCards() {
-                const cards = this.cards
-                const item = this.itemId
+                const cards = this.cards;
+                const item = this.itemId;
 
-                return cards.filter(card => item === card.itemId)
-            }
+                return cards.filter( (card) => item === card.itemId);
+            },
         },
         methods: {
             addCard() {
-                const randomId = this.randomId()
+                const randomId = this.randomId();
 
                 this.$store.commit('addCard', {
                     title: 'Card',
                     itemId: this.itemId,
                     columnId: this.columnId,
                     id: `card${randomId}`,
-                    cardIds: []
-                })
+                    cardIds: [],
+                } );
             },
+
             deleteItem() {
-                this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId })
+                this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
             },
             randomId() {
-                return Math.ceil(Math.random() * 100)
+                return Math.ceil(Math.random() * 100);
             },
             openDropdown() {
-                this.itemDropdown = !this.itemDropdown
-            }
+                this.itemDropdown = !this.itemDropdown;
+            },
         },
         components: {
             Card,
-            Dropdown
-        }
-    }
+            Dropdown,
+        },
+    };
 </script>
 
 <style lang="scss">
