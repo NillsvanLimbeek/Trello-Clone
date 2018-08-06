@@ -28,67 +28,75 @@
     </div>
 </template>
 
-<script>
-    import { mapState } from 'vuex';
+<script lang="ts">
+    import { Vue, Component, Prop } from 'vue-property-decorator';
 
     import Dropdown from './Dropdown.vue';
     import Card from './Card.vue';
 
-    export default {
-        props: {
-            itemId: {
-                required: true,
-                type: [String, Number],
-            },
-            columnId: {
-                required: true,
-                type: [String, Number],
-            },
-        },
-        data() {
-            return {
-                itemDropdown: false,
-            };
-        },
-        computed: {
-            ...mapState([
-                'cards',
-            ]),
-            filterCards() {
-                const cards = this.cards;
-                const item = this.itemId;
-
-                return cards.filter( (card) => item === card.itemId);
-            },
-        },
-        methods: {
-            addCard() {
-                const randomId = this.randomId();
-
-                this.$store.commit('addCard', {
-                    title: 'Card',
-                    itemId: this.itemId,
-                    columnId: this.columnId,
-                    id: `card${randomId}`,
-                    cardIds: [],
-                } );
-            },
-
-            deleteItem() {
-                this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
-            },
-            randomId() {
-                return Math.ceil(Math.random() * 100);
-            },
-            openDropdown() {
-                this.itemDropdown = !this.itemDropdown;
-            },
-        },
+    @Component({
         components: {
-            Card,
             Dropdown,
+            Card,
         },
-    };
+    })
+
+    export default class Item extends Vue {
+        // props
+        @Prop([String, Number]) private itemId!: string | number;
+        @Prop([String, Number]) private columnId!: string | number;
+
+        // data
+        private itemDropdown = false;
+
+        // computed
+        get filterCards() {
+            const cards = this.cards;
+            const item = this.itemId;
+
+            return cards.filter((card) => item === card.itemId);
+        }
+    }
+
+    //     computed: {
+    //         ...mapState([
+    //             'cards',
+    //         ]),
+    //         filterCards() {
+    //             const cards = this.cards;
+    //             const item = this.itemId;
+
+    //             return cards.filter( (card) => item === card.itemId);
+    //         },
+    //     },
+    //     methods: {
+    //         addCard() {
+    //             const randomId = this.randomId();
+
+    //             this.$store.commit('addCard', {
+    //                 title: 'Card',
+    //                 itemId: this.itemId,
+    //                 columnId: this.columnId,
+    //                 id: `card${randomId}`,
+    //                 cardIds: [],
+    //             } );
+    //         },
+
+    //         deleteItem() {
+    //             this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
+    //         },
+    //         randomId() {
+    //             return Math.ceil(Math.random() * 100);
+    //         },
+    //         openDropdown() {
+    //             this.itemDropdown = !this.itemDropdown;
+    //         },
+    //     },
+    //     components: {
+    //         Card,
+    //         Dropdown,
+    //     },
+    // };
 </script>
 
 <style lang="scss">

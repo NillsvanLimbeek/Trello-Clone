@@ -4,11 +4,12 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+    import { Vue, Component } from 'vue-property-decorator';
 
-    export default {
+    @Component({})
 
-    };
+    export default class Card extends Vue {}
 
 </script>
 
