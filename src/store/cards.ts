@@ -1,5 +1,5 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
-import { CardState } from './types';
+import { RootState, CardState } from '@/store/types';
 
 // state
 const state: CardState = {
@@ -23,7 +23,7 @@ const state: CardState = {
 };
 
 // getters
-const getters: GetterTree<CardState, any> = {
+const getters: GetterTree<CardState, RootState> = {
 
 };
 
@@ -31,11 +31,28 @@ const getters: GetterTree<CardState, any> = {
 const mutations: MutationTree<CardState> = {
     deleteCard: (state, id) => state.cards.filter((card) => card.id !== id),
 
-    addCard: (state, payload) => {
+    // addCard: (state, payload) => {
+    //     const { columnId, itemId, id } = payload;
+
+    //     // add to column
+    //     const column = state.columns.filter((column) => column.id === columnId);
+    //     column[0].cardIds.push(id);
+
+    //     // add to item
+    //     const item = state.items.filter((item) => item.id === itemId);
+    //     column[0].cardIds.push(id);
+
+    //     state.cards.push(payload);
+    // },
+};
+
+// actions
+const actions: ActionTree<CardState, RootState> = {
+    addCard: ({ rootState }, state, payload) => {
         const { columnId, itemId, id } = payload;
 
         // add to column
-        const column = state.columns.filter((column) => column.id === columnId);
+        const column = rootState.columns.filter((column) => column.id === columnId);
         column[0].cardIds.push(id);
 
         // add to item
@@ -46,13 +63,8 @@ const mutations: MutationTree<CardState> = {
     },
 };
 
-// actions
-const actions: ActionTree<CardState, any> = {
-
-};
-
 // export module
-export const cards: Module<CardState, any> = {
+export const cards: Module<CardState, RootState> = {
     state,
     getters,
     mutations,
