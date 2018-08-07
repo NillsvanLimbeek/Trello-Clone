@@ -1,7 +1,7 @@
 <template>
     <div class="workspace">
         <ul class="workspace__list">
-            <Column v-for="column in columns"
+            <Column v-for="column in columns.columns"
                     :key="column.id"
                     :columnId="column.id">
                 <input class="column__input" type="text" v-model="column.title">
@@ -15,34 +15,38 @@
     </div>
 </template>
 
-<script>
-    import { mapState } from 'vuex';
+<script lang="ts">
+    import { Vue, Component, Prop } from 'vue-property-decorator';
+    import { State } from 'vuex-class';
 
     import Column from './Column.vue';
 
-    export default {
-        methods: {
-            addColumn() {
-                const randomId = this.randomId();
+    import { ItemState, IItem } from '@/store/types';
 
-                this.$store.commit('addColumn', {
-                    title: 'Column',
-                    id: `column${randomId}`,
-                    itemIds: [],
-                    cardIds: [],
-                });
-            },
-            randomId() {
-                return Math.ceil(Math.random() * 100);
-            },
-        },
-        computed: {
-            ...mapState([
-                'columns',
-            ]),
-        },
+    @Component({
         components: {
             Column,
         },
-    };
+    })
+
+    export default class Workspace extends Vue {
+        // state
+        @State('columns') private columns!: ItemState;
+
+        // methods
+        private addColumn() {
+            const randomId = this.randomId();
+
+            // this.$store.commit('addColumn', {
+            //     title: 'Column',
+            //     id: `column${randomId}`,
+            //     itemIds: [],
+            //     cardIds: [],
+            // });
+        }
+
+        private randomId() {
+            return Math.ceil(Math.random() * 100);
+        }
+    }
 </script>

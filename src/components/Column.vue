@@ -26,61 +26,64 @@
     </div>
 </template>
 
-<script>
-    import { mapState } from 'vuex';
+<script lang="ts">
+    import { Vue, Component, Prop } from 'vue-property-decorator';
+    import { State } from 'vuex-class';
 
-    import Item from './Item.vue';
     import Dropdown from './Dropdown.vue';
+    import Item from './Item.vue';
 
-    export default {
-        data() {
-            return {
-                columnDropdown: false,
-            };
-        },
-        methods: {
-            addItem() {
-                const randomId = this.randomId();
+    import { ItemState, IItem } from '@/store/types';
 
-                this.$store.commit('addItem', {
-                    title: 'Item',
-                    columnId: this.columnId,
-                    id: `item${randomId}`,
-                    cardIds: [],
-                });
-            },
-            openDropdown() {
-                this.columnDropdown = !this.columnDropdown;
-            },
-            deleteColumn() {
-                this.$store.dispatch('deleteElement', this.columnId);
-            },
-            randomId() {
-                return Math.ceil(Math.random() * 100);
-            },
-        },
-        computed: {
-            ...mapState([
-                'items',
-            ]),
-            filterItems() {
-                const items = this.items;
-                const column = this.columnId;
-
-                return items.filter( (item) => column === item.columnId);
-            },
-        },
+    @Component({
         components: {
             Item,
             Dropdown,
         },
-        props: {
-            columnId: {
-                required: true,
-                type: [String, Number],
-            },
-        },
-    };
+    })
+
+    export default class Column extends Vue {
+        // props
+        @Prop([String, Number]) private columnId!: string | number;
+
+        // state
+        @State('items') private items!: ItemState;
+
+        // data
+        private columnDropdown = false;
+
+        // computed
+        private get filterItems() {
+            const items = this.items.items;
+            const column = this.columnId;
+
+            return items.filter((item: IItem) => column === item.columnId);
+        }
+
+        // methods
+        private openDropdown() {
+            this.columnDropdown = !this.columnDropdown;
+        }
+
+        private randomId() {
+            return Math.ceil(Math.random() * 100);
+        }
+
+        deleteColumn() {
+            // this.$store.dispatch('deleteElement', this.columnId);
+        }
+
+        addItem() {
+            // const randomId = this.randomId();
+
+            // this.$store.commit('addItem', {
+            //     title: 'Item',
+            //     columnId: this.columnId,
+            //     id: `item${randomId}`,
+            //     cardIds: [],
+            // });
+        }
+    }
 </script>
 
 <style lang="scss">

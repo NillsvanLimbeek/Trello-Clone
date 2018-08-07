@@ -6,18 +6,18 @@ export interface RootState {
 }
 
 export interface ColumnState {
-    columns: Column[];
+    columns: IColumn[];
 }
 
 export interface ItemState {
-    items: Item[];
+    items: IItem[];
 }
 export interface CardState {
-    cards: Card[];
+    cards: ICard[];
 }
 
 // models
-export interface Column {
+export interface IColumn {
     title: string;
     workspaceIds: number;
     id: number;
@@ -25,13 +25,13 @@ export interface Column {
     cardIds: number[];
 }
 
-export interface Item {
+export interface IItem {
     title: string;
     columnId: number;
     id: number;
     cardIds: number[];
 }
-export interface Card {
+export interface ICard {
     title: string;
     itemId: number;
     id: number;

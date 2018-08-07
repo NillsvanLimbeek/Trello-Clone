@@ -30,6 +30,9 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
+    import { State } from 'vuex-class';
+
+    import { ICard, CardState } from '@/store/types';
 
     import Dropdown from './Dropdown.vue';
     import Card from './Card.vue';
@@ -46,49 +49,45 @@
         @Prop([String, Number]) private itemId!: string | number;
         @Prop([String, Number]) private columnId!: string | number;
 
+        // state
+        @State('cards') private cards!: CardState;
+
         // data
         private itemDropdown = false;
+
+        // computed
+        private get filterCards() {
+            const cards = this.cards.cards;
+            const item = this.itemId;
+
+            return cards.filter((card: ICard) => item === card.itemId);
+        }
+
+        // methods
+        private openDropdown() {
+            this.itemDropdown = !this.itemDropdown;
+        }
+
+        addCard() {
+            const randomId = this.randomId();
+
+            // this.$store.commit('addCard', {
+            //     title: 'Card',
+            //     itemId: this.itemId,
+            //     columnId: this.columnId,
+            //     id: `card${randomId}`,
+            //     cardIds: [],
+            // } );
+        }
+
+        deleteItem() {
+            // this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
+        }
+
+        randomId() {
+            return Math.ceil(Math.random() * 100);
+        }
     }
-
-    //     computed: {
-    //         ...mapState([
-    //             'cards',
-    //         ]),
-    //         filterCards() {
-    //             const cards = this.cards;
-    //             const item = this.itemId;
-
-    //             return cards.filter( (card) => item === card.itemId);
-    //         },
-    //     },
-    //     methods: {
-    //         addCard() {
-    //             const randomId = this.randomId();
-
-    //             this.$store.commit('addCard', {
-    //                 title: 'Card',
-    //                 itemId: this.itemId,
-    //                 columnId: this.columnId,
-    //                 id: `card${randomId}`,
-    //                 cardIds: [],
-    //             } );
-    //         },
-
-    //         deleteItem() {
-    //             this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
-    //         },
-    //         randomId() {
-    //             return Math.ceil(Math.random() * 100);
-    //         },
-    //         openDropdown() {
-    //             this.itemDropdown = !this.itemDropdown;
-    //         },
-    //     },
-    //     components: {
-    //         Card,
-    //         Dropdown,
-    //     },
-    // };
 </script>
 
 <style lang="scss">

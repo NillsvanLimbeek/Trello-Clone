@@ -1,5 +1,5 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
-import { RootState, CardState, ColumnState, ItemState, Item, Column } from '@/store/types';
+import { RootState, CardState, ColumnState, ItemState, IItem, IColumn } from '@/store/types';
 
 // state
 const state: CardState = {
