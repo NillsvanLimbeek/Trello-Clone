@@ -69,11 +69,11 @@
             return Math.ceil(Math.random() * 100);
         }
 
-        deleteColumn() {
+        private deleteColumn() {
             // this.$store.dispatch('deleteElement', this.columnId);
         }
 
-        addItem() {
+        private addItem() {
             // const randomId = this.randomId();
 
             // this.$store.commit('addItem', {

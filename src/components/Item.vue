@@ -68,7 +68,7 @@
             this.itemDropdown = !this.itemDropdown;
         }
 
-        addCard() {
+        private addCard() {
             const randomId = this.randomId();
 
             // this.$store.commit('addCard', {
@@ -80,11 +80,11 @@
             // } );
         }
 
-        deleteItem() {
+        private deleteItem() {
             // this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
         }
 
-        randomId() {
+        private randomId() {
             return Math.ceil(Math.random() * 100);
         }
     }
