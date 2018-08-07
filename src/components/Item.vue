@@ -48,14 +48,6 @@
 
         // data
         private itemDropdown = false;
-
-        // computed
-        get filterCards() {
-            const cards = this.cards;
-            const item = this.itemId;
-
-            return cards.filter((card) => item === card.itemId);
-        }
     }
 
     //     computed: {

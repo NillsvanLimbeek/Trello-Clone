@@ -1,5 +1,5 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
-import { RootState, CardState } from '@/store/types';
+import { RootState, CardState, ColumnState, ItemState, Item, Column } from '@/store/types';
 
 // state
 const state: CardState = {
@@ -8,16 +8,19 @@ const state: CardState = {
             title: 'Card 1',
             itemId: 1,
             id: 1,
+            columnId: 1,
         },
         {
             title: 'Card 2',
             itemId: 1,
             id: 2,
+            columnId: 1,
         },
         {
             title: 'Card 3',
             itemId: 2,
             id: 3,
+            columnId: 1,
         },
     ],
 };
@@ -30,37 +33,23 @@ const getters: GetterTree<CardState, RootState> = {
 // mutations
 const mutations: MutationTree<CardState> = {
     deleteCard: (state, id) => state.cards.filter((card) => card.id !== id),
-
-    // addCard: (state, payload) => {
-    //     const { columnId, itemId, id } = payload;
-
-    //     // add to column
-    //     const column = state.columns.filter((column) => column.id === columnId);
-    //     column[0].cardIds.push(id);
-
-    //     // add to item
-    //     const item = state.items.filter((item) => item.id === itemId);
-    //     column[0].cardIds.push(id);
-
-    //     state.cards.push(payload);
-    // },
 };
 
 // actions
 const actions: ActionTree<CardState, RootState> = {
-    addCard: ({ rootState }, state, payload) => {
-        const { columnId, itemId, id } = payload;
+    // addCard: ({ rootState }: RootState, state: Card, payload: Card) => {
+    //     const { columnId, itemId, id } = payload;
 
-        // add to column
-        const column = rootState.columns.filter((column) => column.id === columnId);
-        column[0].cardIds.push(id);
+    //     // add to column
+    //     const column = rootState.columns.filter((column: Column) => column.id === columnId);
+    //     column[0].cardIds.push(id);
 
-        // add to item
-        const item = state.items.filter((item) => item.id === itemId);
-        column[0].cardIds.push(id);
+    //     // add to item
+    //     const item = rootState.items.filter((item: Item) => item.id === itemId);
+    //     column[0].cardIds.push(id);
 
-        state.cards.push(payload);
-    },
+    //     state.cards.push(payload);
+    // },
 };
 
 // export module

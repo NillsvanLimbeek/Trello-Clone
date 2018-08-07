@@ -35,5 +35,6 @@ export interface Card {
     title: string;
     itemId: number;
     id: number;
+    columnId: number;
 }
 
