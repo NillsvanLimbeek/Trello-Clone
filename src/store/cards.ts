@@ -1,5 +1,5 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
-import { RootState, CardState, ColumnState, ItemState, IItem, IColumn } from '@/store/types';
+import { RootState, CardState, ColumnState, ItemState, IItem, IColumn, ICard } from '@/store/types';
 
 // state
 const state: CardState = {
@@ -23,6 +23,7 @@ const state: CardState = {
             columnId: 1,
         },
     ],
+    loading: false,
 };
 
 // getters
@@ -37,15 +38,15 @@ const mutations: MutationTree<CardState> = {
 
 // actions
 const actions: ActionTree<CardState, RootState> = {
-    // addCard: ({ rootState }: RootState, state: Card, payload: Card) => {
+    // addCard: (rootState: RootState, state: CardState, payload: ICard) => {
     //     const { columnId, itemId, id } = payload;
 
     //     // add to column
-    //     const column = rootState.columns.filter((column: Column) => column.id === columnId);
+    //     const column = rootState.columns.columns.filter((column: IColumn) => column.id === columnId);
     //     column[0].cardIds.push(id);
 
     //     // add to item
-    //     const item = rootState.items.filter((item: Item) => item.id === itemId);
+    //     const item = rootState.items.items.filter((item: IItem) => item.id === itemId);
     //     column[0].cardIds.push(id);
 
     //     state.cards.push(payload);

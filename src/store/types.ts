@@ -14,6 +14,7 @@ export interface ItemState {
 }
 export interface CardState {
     cards: ICard[];
+    loading: boolean;
 }
 
 // models

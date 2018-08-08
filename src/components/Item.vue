@@ -30,7 +30,7 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State } from 'vuex-class';
+    import { State, Mutation } from 'vuex-class';
 
     import { ICard, CardState } from '@/store/types';
 
@@ -50,14 +50,16 @@
         @Prop([String, Number]) private columnId!: string | number;
 
         // state
-        @State('cards') private cards!: CardState;
+        @State('cards') private _cards!: CardState;
+
+        // @Mutation('items') private addCard();
 
         // data
         private itemDropdown = false;
 
         // computed
         private get filterCards() {
-            const cards = this.cards.cards;
+            const  { cards } = this._cards;
             const item = this.itemId;
 
             return cards.filter((card: ICard) => item === card.itemId);
