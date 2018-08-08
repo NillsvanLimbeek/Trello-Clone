@@ -17,11 +17,11 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State } from 'vuex-class';
+    import { State, Action } from 'vuex-class';
 
     import Column from './Column.vue';
 
-    import { ItemState, IItem } from '@/store/types';
+    import {ColumnState, ItemState, IItem, IColumn } from '@/store/types';
 
     @Component({
         components: {
@@ -31,18 +31,19 @@
 
     export default class Workspace extends Vue {
         // state
-        @State('columns') private columns!: ItemState;
+        @State('columns') private columns!: ColumnState;
 
         // methods
         private addColumn() {
-            const randomId = this.randomId();
+            const newColumn: IColumn = {
+                title: 'Column',
+                id: `column${this.randomId()}`,
+                itemIds: [],
+                cardIds: [],
+                workspaceIds: `${this.randomId()}`,
+            };
 
-            // this.$store.commit('addColumn', {
-            //     title: 'Column',
-            //     id: `column${randomId}`,
-            //     itemIds: [],
-            //     cardIds: [],
-            // });
+            this.$store.dispatch('addColumn', newColumn);
         }
 
         private randomId() {

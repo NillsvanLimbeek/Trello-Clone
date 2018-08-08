@@ -28,7 +28,7 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State } from 'vuex-class';
+    import { State, Action } from 'vuex-class';
 
     import Dropdown from './Dropdown.vue';
     import Item from './Item.vue';
@@ -54,7 +54,7 @@
 
         // computed
         private get filterItems() {
-            const items = this.items.items;
+            const { items } = this.items;
             const column = this.columnId;
 
             return items.filter((item: IItem) => column === item.columnId);
@@ -69,19 +69,15 @@
             return Math.ceil(Math.random() * 100);
         }
 
-        private deleteColumn() {
-            // this.$store.dispatch('deleteElement', this.columnId);
-        }
-
         private addItem() {
-            // const randomId = this.randomId();
+            const newItem: IItem = {
+                title: 'Item',
+                columnId: this.columnId,
+                id: `item${this.randomId()}`,
+                cardIds: [],
+            };
 
-            // this.$store.commit('addItem', {
-            //     title: 'Item',
-            //     columnId: this.columnId,
-            //     id: `item${randomId}`,
-            //     cardIds: [],
-            // });
+            this.$store.dispatch('addItem', newItem);
         }
     }
 </script>

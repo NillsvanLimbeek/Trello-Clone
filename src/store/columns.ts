@@ -1,6 +1,6 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { ColumnState } from '@/store/types';
+import { ColumnState, RootState } from '@/store/types';
 
 // state
 const state: ColumnState = {
@@ -36,14 +36,15 @@ const getters: GetterTree<ColumnState, any> = {
 
 // mutations
 const mutations: MutationTree<ColumnState> = {
-    addColumn: (state, payload) => state.columns.push(payload),
-
     deleteColumn: (state, id) => state.columns = state.columns.filter((column) => column.id !== id),
 };
 
 // actions
-const actions: ActionTree<ColumnState, any> = {
-
+const actions: ActionTree<ColumnState, RootState> = {
+    addColumn: ({rootState}, payload) => {
+        const { columns } = rootState.columns;
+        columns.push(payload);
+    },
 };
 
 // export module

@@ -20,22 +20,22 @@ export interface CardState {
 // models
 export interface IColumn {
     title: string;
-    workspaceIds: number;
-    id: number;
+    id: number | string;
     itemIds: number[];
     cardIds: number[];
+    workspaceIds: number | string;
 }
 
 export interface IItem {
     title: string;
-    columnId: number;
-    id: number;
+    columnId: number | string;
+    id: number | string;
     cardIds: number[];
 }
 export interface ICard {
     title: string;
-    itemId: number;
-    id: number;
-    columnId: number;
+    itemId: number | string;
+    id: number | string;
+    columnId: number | string;
 }
 

@@ -43,15 +43,16 @@ const mutations: MutationTree<ItemState> = {
 
 // actions
 const actions: ActionTree<ItemState, RootState> = {
-    // addItem(rootState: RootState, state: ItemState, payload: Item) {
-    //     const { columnId, id } = payload;
+    addItem({rootState}, payload) {
+        const { columnId, id } = payload;
 
-    //     // add to column
-    //     const column = rootState.columns.filter((column: Column) => column.id === columnId);
-    //     column[0].itemIds.push(id);
+        // add to column
+        const { columns } = rootState.columns;
+        const column = columns.find((column: IColumn) => column.id === columnId);
+        column!.itemIds.push(id);
 
-    //     state.items.push(payload);
-    // },
+        state.items.push(payload);
+    },
 };
 
 // export module

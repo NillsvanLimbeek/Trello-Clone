@@ -30,7 +30,7 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State, Mutation } from 'vuex-class';
+    import { State, Mutation, Action } from 'vuex-class';
 
     import { ICard, CardState } from '@/store/types';
 
@@ -50,16 +50,14 @@
         @Prop([String, Number]) private columnId!: string | number;
 
         // state
-        @State('cards') private _cards!: CardState;
-
-        // @Mutation('items') private addCard();
+        @State('cards') private cards!: CardState;
 
         // data
         private itemDropdown = false;
 
         // computed
         private get filterCards() {
-            const  { cards } = this._cards;
+            const  { cards } = this.cards;
             const item = this.itemId;
 
             return cards.filter((card: ICard) => item === card.itemId);
@@ -71,23 +69,18 @@
         }
 
         private addCard() {
-            const randomId = this.randomId();
+            const newCard: ICard = {
+                title: 'Item',
+                columnId: this.columnId,
+                itemId: this.itemId,
+                id: `item${this.randomId()}`,
+            };
 
-            // this.$store.commit('addCard', {
-            //     title: 'Card',
-            //     itemId: this.itemId,
-            //     columnId: this.columnId,
-            //     id: `card${randomId}`,
-            //     cardIds: [],
-            // } );
-        }
-
-        private deleteItem() {
-            // this.$store.dispatch('deleteElement', { type: 'item', id: this.itemId });
+            this.$store.dispatch('addCard', newCard);
         }
 
         private randomId() {
-            return Math.ceil(Math.random() * 100);
+            return Math.ceil(Math.random() * 1000);
         }
     }
 </script>

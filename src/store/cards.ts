@@ -33,24 +33,28 @@ const getters: GetterTree<CardState, RootState> = {
 
 // mutations
 const mutations: MutationTree<CardState> = {
-    deleteCard: (state, id) => state.cards.filter((card) => card.id !== id),
+    deleteCard: (state, id) => {
+        state.cards.filter((card) => card.id !== id);
+    },
 };
 
 // actions
 const actions: ActionTree<CardState, RootState> = {
-    // addCard: (rootState: RootState, state: CardState, payload: ICard) => {
-    //     const { columnId, itemId, id } = payload;
+    addCard: ({rootState}, payload) => {
+        const { columnId, itemId, id } = payload;
 
-    //     // add to column
-    //     const column = rootState.columns.columns.filter((column: IColumn) => column.id === columnId);
-    //     column[0].cardIds.push(id);
+        // add to column
+        const { columns } = rootState.columns;
+        const column = columns.find((column: IColumn) => column.id === columnId);
+        column!.cardIds.push(id);
 
-    //     // add to item
-    //     const item = rootState.items.items.filter((item: IItem) => item.id === itemId);
-    //     column[0].cardIds.push(id);
+        // add to item
+        const { items } = rootState.items;
+        const item = items.find((item: IItem) => item.id === itemId);
+        item!.cardIds.push(id);
 
-    //     state.cards.push(payload);
-    // },
+        state.cards.push(payload);
+    },
 };
 
 // export module
