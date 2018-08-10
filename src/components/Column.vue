@@ -65,19 +65,26 @@
             this.columnDropdown = !this.columnDropdown;
         }
 
-        private randomId() {
-            return Math.ceil(Math.random() * 100);
-        }
-
         private addItem() {
+            const randomId = this.randomId();
+
             const newItem: IItem = {
                 title: 'Item',
                 columnId: this.columnId,
-                id: `item${this.randomId()}`,
+                id: `item${randomId}`,
                 cardIds: [],
             };
 
             this.$store.dispatch('addItem', newItem);
+            this.$store.dispatch('deleteItems', this.columnId);
+        }
+
+        private randomId() {
+            return Math.ceil(Math.random() * 100);
+        }
+
+        private deleteElement() {
+            this.$store.dispatch('deleteItems', this.columnId);
         }
     }
 </script>

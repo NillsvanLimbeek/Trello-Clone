@@ -5,6 +5,10 @@ export interface RootState {
     cards: CardState;
 }
 
+export interface GlobalState {
+    global: object[];
+}
+
 export interface ColumnState {
     columns: IColumn[];
 }

@@ -35,9 +35,11 @@
 
         // methods
         private addColumn() {
+            const randomId = this.randomId();
+
             const newColumn: IColumn = {
                 title: 'Column',
-                id: `column${this.randomId()}`,
+                id: `column${randomId}`,
                 itemIds: [],
                 cardIds: [],
                 workspaceIds: `${this.randomId()}`,

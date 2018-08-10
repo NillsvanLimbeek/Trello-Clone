@@ -69,11 +69,13 @@
         }
 
         private addCard() {
+            const randomId = this.randomId();
+
             const newCard: ICard = {
                 title: 'Item',
                 columnId: this.columnId,
                 itemId: this.itemId,
-                id: `item${this.randomId()}`,
+                id: `card${randomId}`,
             };
 
             this.$store.dispatch('addCard', newCard);
