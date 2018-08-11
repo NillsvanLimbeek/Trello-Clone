@@ -7,7 +7,7 @@
         <div class="dropdown__body" @mouseleave="close">
             <p
                 class="dropdown__item"
-                @click="deleteColumn">
+                @click="globalDelete">
                 <i class="dropdown__icon fas fa-trash"/>
                 Delete
             </p>
@@ -21,23 +21,19 @@
 
 </template>
 
-<script>
-    export default {
-        props: {
-            type: {
-                required: true,
-                type: String,
-            },
-        },
-        methods: {
-            close() {
-                this.$emit('close-dropdown');
-            },
-            deleteColumn() {
-                this.$emit('global-delete');
-            },
-        },
-    };
+<script lang="ts">
+    import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
+
+    @Component({})
+
+    export default class Dropdown extends Vue {
+        // props
+        @Prop(String) private type!: string;
+
+        @Emit() private close() {}
+        @Emit() private globalDelete() {}
+    }
+
 </script>
 
 <style lang="scss">

@@ -39,13 +39,13 @@
 
             const newColumn: IColumn = {
                 title: 'Column',
-                id: `column${randomId}`,
+                id: randomId,
                 itemIds: [],
                 cardIds: [],
-                workspaceIds: `${this.randomId()}`,
+                // workspaceIds: randomId,
             };
 
-            this.$store.dispatch('addColumn', newColumn);
+            this.$store.commit('addColumn', newColumn);
         }
 
         private randomId() {

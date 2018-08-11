@@ -8,7 +8,7 @@
                 <Dropdown
                     v-if="columnDropdown"
                     type="column"
-                    @global-delete="deleteColumn"/>
+                    @global-delete="deleteElement"/>
             </transition>
         </div>
 
@@ -44,7 +44,7 @@
 
     export default class Column extends Vue {
         // props
-        @Prop([String, Number]) private columnId!: string | number;
+        @Prop(Number) private columnId!: number;
 
         // state
         @State('items') private items!: ItemState;
@@ -71,20 +71,19 @@
             const newItem: IItem = {
                 title: 'Item',
                 columnId: this.columnId,
-                id: `item${randomId}`,
+                id: randomId,
                 cardIds: [],
             };
 
             this.$store.dispatch('addItem', newItem);
-            this.$store.dispatch('deleteItems', this.columnId);
         }
 
         private randomId() {
-            return Math.ceil(Math.random() * 100);
+            return Math.ceil(Math.random() * 1000);
         }
 
         private deleteElement() {
-            this.$store.dispatch('deleteItems', this.columnId);
+            this.$store.dispatch('deleteElements', { type: 'column', id: this.columnId });
         }
     }
 </script>

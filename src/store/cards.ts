@@ -23,7 +23,6 @@ const state: CardState = {
             columnId: 1,
         },
     ],
-    loading: false,
 };
 
 // getters
@@ -33,28 +32,14 @@ const getters: GetterTree<CardState, RootState> = {
 
 // mutations
 const mutations: MutationTree<CardState> = {
-    deleteCard: (state, id) => {
-        state.cards.filter((card) => card.id !== id);
-    },
+    addCard: (state, payload) => state.cards.push(payload),
+
+    deleteCard: (state, id) => state.cards.filter((card) => card.id !== id),
 };
 
 // actions
 const actions: ActionTree<CardState, RootState> = {
-    addCard: ({rootState}, payload) => {
-        const { columnId, itemId, id } = payload;
 
-        // add to column
-        const { columns } = rootState.columns;
-        const column = columns.find((column: IColumn) => column.id === columnId);
-        column!.cardIds.push(id);
-
-        // add to item
-        const { items } = rootState.items;
-        const item = items.find((item: IItem) => item.id === itemId);
-        item!.cardIds.push(id);
-
-        state.cards.push(payload);
-    },
 };
 
 // export module

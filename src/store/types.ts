@@ -18,28 +18,27 @@ export interface ItemState {
 }
 export interface CardState {
     cards: ICard[];
-    loading: boolean;
 }
 
 // models
 export interface IColumn {
     title: string;
-    id: number | string;
+    id: number;
     itemIds: number[];
     cardIds: number[];
-    workspaceIds: number | string;
+    // workspaceIds: number;
 }
 
 export interface IItem {
     title: string;
-    columnId: number | string;
-    id: number | string;
+    columnId: number;
+    id: number;
     cardIds: number[];
 }
 export interface ICard {
     title: string;
-    itemId: number | string;
-    id: number | string;
-    columnId: number | string;
+    itemId: number;
+    id: number;
+    columnId: number;
 }
 

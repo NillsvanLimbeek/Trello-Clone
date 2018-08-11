@@ -39,20 +39,13 @@ const getters: GetterTree<ItemState, RootState> = {
 // mutations
 const mutations: MutationTree<ItemState> = {
     deleteItem: (state, id) => state.items = state.items.filter((item) => item.id !== id),
+
+    addItem: (state, payload) => state.items.push(payload),
 };
 
 // actions
 const actions: ActionTree<ItemState, RootState> = {
-    addItem({rootState}, payload) {
-        const { columnId, id } = payload;
 
-        // add to column
-        const { columns } = rootState.columns;
-        const column = columns.find((column: IColumn) => column.id === columnId);
-        column!.itemIds.push(id);
-
-        state.items.push(payload);
-    },
 };
 
 // export module

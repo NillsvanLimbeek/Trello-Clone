@@ -8,7 +8,7 @@
         <Dropdown
             v-if="itemDropdown"
             type="item"
-            @global-delete="deleteItem"
+            @global-delete="deleteElement"
         />
 
         <div class="item__body">
@@ -46,8 +46,8 @@
 
     export default class Item extends Vue {
         // props
-        @Prop([String, Number]) private itemId!: string | number;
-        @Prop([String, Number]) private columnId!: string | number;
+        @Prop(Number) private itemId!: number;
+        @Prop(Number) private columnId!: number;
 
         // state
         @State('cards') private cards!: CardState;
@@ -75,7 +75,7 @@
                 title: 'Item',
                 columnId: this.columnId,
                 itemId: this.itemId,
-                id: `card${randomId}`,
+                id: randomId,
             };
 
             this.$store.dispatch('addCard', newCard);
@@ -83,6 +83,10 @@
 
         private randomId() {
             return Math.ceil(Math.random() * 1000);
+        }
+
+        private deleteElement() {
+            this.$store.dispatch('deleteElements', { type: 'item', id: this.itemId });
         }
     }
 </script>

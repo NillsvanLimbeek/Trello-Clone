@@ -7,21 +7,21 @@ const state: ColumnState = {
     columns: [
         {
             title: 'Column 1',
-            workspaceIds: 1,
+            // workspaceIds: 1,
             id: 1,
             itemIds: [1],
             cardIds: [1, 2],
         },
         {
             title: 'Column 2',
-            workspaceIds: 2,
+            // workspaceIds: 2,
             id: 2,
             itemIds: [2, 4],
             cardIds: [3],
         },
         {
             title: 'Column 3',
-            workspaceIds: 3,
+            // workspaceIds: 3,
             id: 3,
             itemIds: [3],
             cardIds: [],
@@ -36,15 +36,14 @@ const getters: GetterTree<ColumnState, any> = {
 
 // mutations
 const mutations: MutationTree<ColumnState> = {
+    addColumn: (state, payload) => state.columns.push(payload),
+
     deleteColumn: (state, id) => state.columns = state.columns.filter((column) => column.id !== id),
 };
 
 // actions
 const actions: ActionTree<ColumnState, RootState> = {
-    addColumn: ({rootState}, payload) => {
-        const { columns } = rootState.columns;
-        columns.push(payload);
-    },
+
 };
 
 // export module

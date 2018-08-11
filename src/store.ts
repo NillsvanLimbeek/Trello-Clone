@@ -4,18 +4,47 @@ import Vuex from 'vuex';
 import { cards } from './store/cards';
 import { items } from './store/items';
 import { columns } from './store/columns';
-import { global } from './store/global';
+
+import { IItem, ICard } from '@/store/types';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
+    actions: {
+        addItem: ({rootState, commit}, newItem: IItem) => {
+            // add to state
+            commit('addItem', newItem);
+
+            // add id to column
+            const column = rootState.columns.columns.find((column) => column.id === newItem.columnId);
+            column!.itemIds.push(newItem.id);
+        },
+
+        addCard: ({rootState, commit}, newCard: ICard) => {
+            // add to state
+            commit('addCard', newCard);
+
+            // add id to item
+            const item = rootState.items.items.find((item) => item.id === newCard.itemId);
+            item!.cardIds.push(newCard.id);
+
+            // add id to column
+            const column = rootState.columns.columns.find((column) => column.id === newCard.columnId);
+            column!.cardIds.push(newCard.id);
+        },
+
+        deleteElement({rootState, commit}, payload) {
+
+        },
+    },
     modules: {
         columns,
         items,
         cards,
-        global,
     },
 });
+
+export default store;
 
 //     actions: {
 //         deleteElement({ state, commit }, payload) {
