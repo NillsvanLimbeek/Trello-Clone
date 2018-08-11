@@ -38,7 +38,9 @@ const getters: GetterTree<ItemState, RootState> = {
 
 // mutations
 const mutations: MutationTree<ItemState> = {
-    deleteItem: (state, id) => state.items = state.items.filter((item) => item.id !== id),
+    deleteItem: (state, id) => {
+        state.items = state.items.filter((item) => item.id !== id);
+    },
 
     addItem: (state, payload) => state.items.push(payload),
 };

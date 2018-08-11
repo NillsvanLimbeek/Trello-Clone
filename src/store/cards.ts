@@ -34,7 +34,13 @@ const getters: GetterTree<CardState, RootState> = {
 const mutations: MutationTree<CardState> = {
     addCard: (state, payload) => state.cards.push(payload),
 
-    deleteCard: (state, id) => state.cards.filter((card) => card.id !== id),
+    deleteCardColumn: (state, id) => {
+        state.cards = state.cards.filter((card) => card.columnId !== id);
+    },
+
+    deleteCardItem: (state, id) => {
+        state.cards = state.cards.filter((card) => card.itemId !== id);
+    },
 };
 
 // actions

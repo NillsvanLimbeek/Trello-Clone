@@ -12,15 +12,20 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
     actions: {
         addItem: ({rootState, commit}, newItem: IItem) => {
+            const { columns } = rootState.columns;
+
             // add to state
             commit('addItem', newItem);
 
             // add id to column
-            const column = rootState.columns.columns.find((column) => column.id === newItem.columnId);
+            const column = columns.find((column) => column.id === newItem.columnId);
             column!.itemIds.push(newItem.id);
         },
 
         addCard: ({rootState, commit}, newCard: ICard) => {
+            const { columns } = rootState.columns;
+            const { items } = rootState.items;
+
             // add to state
             commit('addCard', newCard);
 
@@ -29,12 +34,41 @@ export const store = new Vuex.Store({
             item!.cardIds.push(newCard.id);
 
             // add id to column
-            const column = rootState.columns.columns.find((column) => column.id === newCard.columnId);
+            const column = columns.find((column) => column.id === newCard.columnId);
             column!.cardIds.push(newCard.id);
         },
 
-        deleteElement({rootState, commit}, payload) {
+        deleteElements({rootState, commit}, payload) {
+            const { type, id } = payload;
 
+            const { columns } = rootState.columns;
+            const { items } = rootState.items;
+
+            if (type === 'column') {
+                // delete cards
+                commit('deleteCardColumn', id);
+
+                // delete items
+                commit('deleteItem', id);
+
+                // delete column
+                commit('deleteColumn', id);
+            }
+
+            if (type === 'item') {
+                const column = columns.find((column) => column.id === id);
+                const item = items.find((item) => item.id === id);
+
+                console.log(item);
+
+                // delete cards
+                commit('deleteCardItem', id);
+
+                // delete column
+                commit('deleteItem', id);
+
+                // delete ids from column
+            }
         },
     },
     modules: {
