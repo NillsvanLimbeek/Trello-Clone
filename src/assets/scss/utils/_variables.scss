@@ -1,21 +1,15 @@
 :root {
-    //colors
-    --color-black: #000;
-    --color-white: #fff;
+    // colors
+    --color-white: #ffffff;
+    --color-grey: #cecece;
 
-    --text-black: #000;
-    --text-column: #333333;
+    --color-bg: #f6f7fc;
 
-    --column-bg: #e2e4e6;
-    --column-bg-light: #f3f3f2;
+    --border-radius: .5rem;
+    --border: 1px solid #efefef;
 
-    --item-header: #fe9c9c;
-
-    --input-border: lightblue;
-    --input-boxshadow : #75ddff;
-
-    --input-item: #ffcccc;
-
-    //drop shadow
     --drop-shadow: 3px 3px .75rem rgba(0, 0, 0, .15);
+
+    --transition-2: all .2s ease-in-out;
+    --transition-3: all .3s ease-in-out;
 }

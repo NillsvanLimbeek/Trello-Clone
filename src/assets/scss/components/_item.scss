@@ -4,9 +4,9 @@
     width: 100%;
 
     margin-bottom: 2rem;
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     background: var(--color-white);
-    box-shadow: var(--drop-shadow);
+    border: var(--border);
 
     &__header {
         display: flex;
@@ -19,9 +19,9 @@
     }
 
     &__input {
-        font-family: 'Source Sans Pro';
+        font-family: 'Raleway';
         font-size: 1.5rem;
-        font-weight: 600;
+        font-weight: 500;
 
         width: 90%;
 

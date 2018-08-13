@@ -4,27 +4,6 @@
             <slot class="item__title"></slot>
             <i class="fas fa-ellipsis-v" @click="openDropdown"/>
         </div>
-
-        <Dropdown
-            v-if="itemDropdown"
-            type="item"
-            @global-delete="deleteElement"
-        />
-
-        <div class="item__body">
-            <Card
-                v-for="card in filterCards"
-                :key="card.id"
-                :cardId="card.id">
-
-                <p>{{ card.title }}</p>
-            </Card>
-
-            <div class="item__button"
-                 @click="addCard">
-                <i class="fas fa-plus item__icon"></i>
-            </div>
-        </div>
     </div>
 </template>
 
@@ -35,12 +14,10 @@
     import { ICard, CardState } from '@/store/types';
 
     import Dropdown from './Dropdown.vue';
-    import Card from './Card.vue';
 
     @Component({
         components: {
             Dropdown,
-            Card,
         },
     })
 
@@ -66,23 +43,6 @@
         // methods
         private openDropdown() {
             this.itemDropdown = !this.itemDropdown;
-        }
-
-        private addCard() {
-            const randomId = this.randomId();
-
-            const newCard: ICard = {
-                title: 'Item',
-                columnId: this.columnId,
-                itemId: this.itemId,
-                id: randomId,
-            };
-
-            this.$store.dispatch('addCard', newCard);
-        }
-
-        private randomId() {
-            return Math.ceil(Math.random() * 1000);
         }
 
         private deleteElement() {

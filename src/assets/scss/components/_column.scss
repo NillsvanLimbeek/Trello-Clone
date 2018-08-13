@@ -6,8 +6,8 @@
     align-self: flex-start;
 
     padding: 1rem 2rem 2rem 2rem;
-    border-radius: 1rem;
-    background: var(--column-bg);
+    border-radius: var(--border-radius);
+    background: var(--color-white);
     margin-right: 1.5rem;
 
     &__header {
@@ -17,29 +17,33 @@
         margin-bottom: 1rem;
     }
 
+    &__circle {
+        fill: var(--color-grey);
+        height: .7rem;
+    }
+
     &__input {
-        font-family: 'Source Sans Pro';
+        font-family: 'Raleway';
         font-size: 1.6rem;
-        font-weight: 600;
+        font-weight: 500;
 
-        width: 90%;
+        width: 80%;
 
-        border-radius: .5rem;
+        border-radius: .25rem;
         padding: .75rem;
         background: transparent;
         border: 1px solid transparent;
-        transition: all .3s;
+        transition:var(--transition);
 
         &:focus {
-            background: var(--column-bg-light);
+            border: 1px solid rgba(206, 206, 206, 0.5);
             outline: none;
-
-            border: 1px solid var(--input-border);
-            box-shadow: 0 0 1rem var(--input-boxshadow);
         }
     }
 
-    &__dropdown-btn {
+    &__btn {
+        width: 1.5rem;
+        fill: var(--color-grey);
         cursor: pointer;
     }
 

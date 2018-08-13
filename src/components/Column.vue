@@ -1,8 +1,27 @@
 <template>
     <div class="column">
         <div class="column__header">
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                class="column__circle">
+
+                <path class="st0" d="M256 6C117.9 6 6 117.9 6 256s111.9 250 250 250 250-111.9 250-250S394.1 6 256 6zM256 427.6c-94.7 0-171.6-76.8-171.6-171.6 0-94.7 76.8-171.6 171.6-171.6S427.6 161.3 427.6 256 350.7 427.6 256 427.6z"/>
+            </svg>
+
             <slot class="column__title"></slot>
-            <i class="column__dropdown-btn fas fa-ellipsis-v" @click="openDropdown"></i>
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 60 60"
+                class="column__btn"
+                @click="openDropdown">
+
+                <path d="M8 22c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8S12.4 22 8 22z"/>
+                <path d="M52 22c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8S56.4 22 52 22z"/>
+                <path d="M30 22c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8S34.4 22 30 22z"/>
+            </svg>
 
             <transition name="fade">
                 <Dropdown
@@ -16,12 +35,12 @@
               :key="item.id"
               :itemId="item.id"
               :columnId="columnId">
-            <input class="item__input" v-model="item.title">
+            <p class="item__input">{{ item.title }}</p>
         </Item>
 
         <div class="column__add-item"
              @click="addItem">
-            <i class="fa fa-plus column__icon"></i>
+            <p>Add Card</p>
         </div>
     </div>
 </template>
