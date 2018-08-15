@@ -22,7 +22,8 @@
 
     import Column from './Column.vue';
 
-    import {ColumnState, ItemState, IItem, IColumn } from '@/store/types';
+    import { ColumnState } from '@/store/models/state';
+    import { IItem, IColumn } from '@/models/types';
 
     @Component({
         components: {
@@ -43,7 +44,6 @@
                 id: randomId,
                 itemIds: [],
                 state: 'inactive',
-                // workspaceIds: randomId,
             };
 
             this.$store.commit('addColumn', newColumn);

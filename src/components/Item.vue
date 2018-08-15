@@ -1,5 +1,8 @@
 <template>
     <div class="item">
+
+        <CardColorLabel :labels="getColorLabels"/>
+
         <div class="item__header">
             <slot class="item__title"></slot>
             <i class="fas fa-ellipsis-v" @click="openDropdown"/>
@@ -9,13 +12,15 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State, Mutation, Action } from 'vuex-class';
+    import { State, Getter } from 'vuex-class';
 
     import Dropdown from './Dropdown.vue';
+    import CardColorLabel from './CardColorLabel.vue';
 
     @Component({
         components: {
             Dropdown,
+            CardColorLabel,
         },
     })
 
@@ -25,6 +30,7 @@
         @Prop(Number) private columnId!: number;
 
         // state
+        @Getter('getColorLabels') private getColorLabels!: number[];
 
         // data
         private itemDropdown = false;

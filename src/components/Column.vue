@@ -11,7 +11,8 @@
                     yellow: state === 'warning',
                     red: state === 'danger' }">
 
-                <path class="st0" d="M256 6C117.9 6 6 117.9 6 256s111.9 250 250 250 250-111.9 250-250S394.1 6 256 6zM256 427.6c-94.7 0-171.6-76.8-171.6-171.6 0-94.7 76.8-171.6 171.6-171.6S427.6 161.3 427.6 256 350.7 427.6 256 427.6z"/>
+                <path class="st0" d="M256,6C117.9,6,6,117.9,6,256s111.9,250,250,250s250-111.9,250-250S394.1,6,256,6z M256,414.1
+			c-87.2,0-158.1-70.7-158.1-158.1c0-87.2,70.7-158.1,158.1-158.1S414.1,168.8,414.1,256S343.2,414.1,256,414.1z"/>
             </svg>
 
             <slot class="column__title" />
@@ -56,7 +57,8 @@
     import Dropdown from './Dropdown.vue';
     import Item from './Item.vue';
 
-    import { ItemState, IItem } from '@/store/types';
+    import { ItemState } from '@/store/models/state';
+    import { IItem } from '@/models/types';
 
     @Component({
         components: {

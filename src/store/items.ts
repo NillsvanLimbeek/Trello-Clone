@@ -1,5 +1,7 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
-import { RootState, ColumnState, ItemState, IItem, IColumn } from '@/store/types';
+
+import { RootState, ItemState } from '@/store/models/state';
+import { IItem } from '@/models/types';
 
 // state
 const state: ItemState = {
@@ -8,7 +10,7 @@ const state: ItemState = {
             title: 'Item 1',
             columnId: 1,
             id: 1,
-            colorLabels: [],
+            colorLabels: [1, 2],
             members: [],
             attachment: [],
         },
@@ -16,7 +18,7 @@ const state: ItemState = {
             title: 'Item 2',
             columnId: 2,
             id: 2,
-            colorLabels: [],
+            colorLabels: [1, 3],
             members: [],
             attachment: [],
         },
@@ -24,7 +26,7 @@ const state: ItemState = {
             title: 'Item 3',
             columnId: 3,
             id: 3,
-            colorLabels: [],
+            colorLabels: [4, 5],
             members: [],
             attachment: [],
         },
@@ -32,7 +34,7 @@ const state: ItemState = {
             title: 'Item 4',
             columnId: 2,
             id: 4,
-            colorLabels: [],
+            colorLabels: [6],
             members: [],
             attachment: [],
         },
@@ -41,7 +43,11 @@ const state: ItemState = {
 
 // getters
 const getters: GetterTree<ItemState, RootState> = {
-
+    getColorLabels: (state) => {
+        return state.items.filter((item) => {
+            return item.colorLabels;
+        });
+    },
 };
 
 // mutations

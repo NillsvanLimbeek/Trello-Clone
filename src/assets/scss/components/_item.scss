@@ -4,6 +4,7 @@
     width: 100%;
 
     margin-bottom: 2rem;
+    padding: 1rem;
     border-radius: var(--border-radius);
     background: var(--color-white);
     border: var(--border);
@@ -12,32 +13,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
-        padding: 1rem 1.5rem;
-        border-radius: 1rem 1rem 0 0;
-        background: var(--item-header);
     }
 
     &__input {
-        font-family: 'Raleway';
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         font-weight: 500;
-
-        width: 90%;
-
-        border-radius: .5rem;
-        padding: .5rem;
-        background: transparent;
-        border: 1px solid transparent;
-        transition: all .3s;
-
-        &:focus {
-            background: var(--input-item);
-            outline: none;
-
-            border: 1px solid var(--input-border);
-            box-shadow: 0 0 1rem var(--input-boxshadow);
-        }
     }
 
     &__body {
