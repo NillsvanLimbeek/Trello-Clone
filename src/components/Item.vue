@@ -11,8 +11,6 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Mutation, Action } from 'vuex-class';
 
-    import { ICard, CardState } from '@/store/types';
-
     import Dropdown from './Dropdown.vue';
 
     @Component({
@@ -27,18 +25,9 @@
         @Prop(Number) private columnId!: number;
 
         // state
-        @State('cards') private cards!: CardState;
 
         // data
         private itemDropdown = false;
-
-        // computed
-        private get filterCards() {
-            const  { cards } = this.cards;
-            const item = this.itemId;
-
-            return cards.filter((card: ICard) => item === card.itemId);
-        }
 
         // methods
         private openDropdown() {

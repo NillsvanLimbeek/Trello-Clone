@@ -14,8 +14,9 @@
         width: 25rem;
 
         padding: 2rem;
-        border-radius: 1rem;
-        background: var(--column-bg);
+        border-radius: var(--border-radius);
+        background: var(--color-white);
+        box-shadow: var(--drop-shadow);
         cursor: pointer;
     }
 }

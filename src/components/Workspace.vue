@@ -3,14 +3,15 @@
         <ul class="workspace__list">
             <Column v-for="column in columns.columns"
                     :key="column.id"
-                    :columnId="column.id">
+                    :columnId="column.id"
+                    :state="column.state">
                 <input class="column__input" type="text" v-model="column.title">
             </Column>
         </ul>
 
         <div class="workspace__add-button"
              @click="addColumn">
-            <i class="fas fa-plus"></i>
+             <p>Add List</p>
         </div>
     </div>
 </template>
@@ -41,7 +42,7 @@
                 title: 'Column',
                 id: randomId,
                 itemIds: [],
-                cardIds: [],
+                state: 'inactive',
                 // workspaceIds: randomId,
             };
 
