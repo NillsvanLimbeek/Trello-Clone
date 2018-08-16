@@ -1,4 +1,4 @@
-enum ColorLabel {
+export enum ColorLabel {
     Green = 1,
     Yellow = 2,
     Orange = 3,

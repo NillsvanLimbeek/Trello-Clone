@@ -1,7 +1,8 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { RootState, ItemState } from '@/store/models/state';
-import { IItem } from '@/models/types';
+import { RootState } from '@/store/state/rootState';
+import { ItemState } from '@/store/state/state';
+import { IItem } from '@/data/models/types';
 
 // state
 const state: ItemState = {
@@ -43,11 +44,7 @@ const state: ItemState = {
 
 // getters
 const getters: GetterTree<ItemState, RootState> = {
-    getColorLabels: (state) => {
-        return state.items.filter((item) => {
-            return item.colorLabels;
-        });
-    },
+
 };
 
 // mutations

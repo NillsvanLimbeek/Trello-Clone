@@ -11,8 +11,10 @@
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { IItem } from '@/models/types';
     import { State } from 'vuex-class';
+
+    import { IItem } from '@/data/models/types';
+    import { ColorLabel } from '@/data/enums/enum';
 
     @Component({})
 
@@ -20,8 +22,11 @@
         // props
         @Prop() private labels!: IItem;
 
+        // data
+        private colorLabels = this.labels.colorLabels;
+
         private created() {
-            console.log(this.labels);
+            console.log(this.colorLabels);
         }
     }
 </script>

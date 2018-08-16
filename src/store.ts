@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 import { items } from './store/items';
 import { columns } from './store/columns';
 
-import { IItem } from '@/models/types';
+import { IItem } from '@/data/models/types';
 
 Vue.use(Vuex);
 

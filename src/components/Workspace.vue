@@ -22,8 +22,8 @@
 
     import Column from './Column.vue';
 
-    import { ColumnState } from '@/store/models/state';
-    import { IItem, IColumn } from '@/models/types';
+    import { ColumnState } from '@/store/state/state';
+    import { IItem, IColumn } from '@/data/models/types';
 
     @Component({
         components: {

@@ -57,8 +57,8 @@
     import Dropdown from './Dropdown.vue';
     import Item from './Item.vue';
 
-    import { ItemState } from '@/store/models/state';
-    import { IItem } from '@/models/types';
+    import { ItemState } from '@/store/state/state';
+    import { IItem } from '@/data/models/types';
 
     @Component({
         components: {
