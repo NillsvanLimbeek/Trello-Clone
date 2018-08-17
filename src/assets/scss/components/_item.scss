@@ -37,7 +37,13 @@
         cursor: pointer;
     }
 
-    &__icon {
+    &__labels {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 5px;
 
+        &:not(:last-child) {
+            margin-right: 5px;
+        }
     }
 }

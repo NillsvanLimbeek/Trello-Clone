@@ -1,12 +1,15 @@
 <template>
-    <div class="color-label__wrapper">
-        <div class="color-label label-green"></div>
-        <div class="color-label label-yellow"></div>
-        <div class="color-label label-orange"></div>
-        <div class="color-label label-red"></div>
-        <div class="color-label label-purple"></div>
-        <div class="color-label label-blue"></div>
-    </div>
+    <div
+        class="color-label"
+        :class="{
+            'label-green': label === 1,
+            'label-yellow': label === 2,
+            'label-orange': label === 3,
+            'label-red': label === 4,
+            'label-purple': label === 5,
+            'label-blue': label === 6
+        }"
+    />
 </template>
 
 <script lang="ts">
@@ -20,14 +23,7 @@
 
     export default class CardColorLabel extends Vue {
         // props
-        @Prop() private labels!: IItem;
-
-        // data
-        private colorLabels = this.labels.colorLabels;
-
-        private created() {
-            console.log(this.colorLabels);
-        }
+        @Prop() private label!: number;
     }
 </script>
 

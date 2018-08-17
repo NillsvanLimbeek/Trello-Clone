@@ -1,7 +1,16 @@
 <template>
     <div class="item">
 
-        <CardColorLabel :labels="filterLabels"/>
+        <div
+            class="item__labels"
+            v-if="filterLabels.length >= 1">
+
+            <CardColorLabel
+                v-for="label in filterLabels"
+                :key="label.id"
+                :label="label"
+                />
+        </div>
 
         <div class="item__header">
             <slot class="item__title"></slot>
@@ -43,8 +52,9 @@
 
         private get filterLabels() {
             const { items } = this.items;
+            const item = items.find((item) => item.id === this.itemId);
 
-            return items.find((item) => item.id === this.itemId);
+            return item!.colorLabels;
         }
 
         private deleteElement() {

@@ -1,16 +1,8 @@
 .color-label {
-    width: 5rem;
-    height: 3px;
+    width: 3.5rem;
+    height: 2.5px;
     border-radius: 3px;
-
-    &:not(:last-child) {
-        margin-right: 5px;
-    }
-
-    &__wrapper {
-        display: flex;
-        margin-bottom: 1rem;
-    }
+    margin-right: 5px;
 }
 
 .label-green {
