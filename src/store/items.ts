@@ -27,7 +27,7 @@ const state: ItemState = {
             title: 'Item 3',
             columnId: 3,
             id: 3,
-            colorLabels: [4, 5],
+            colorLabels: [4, 5, 6],
             members: [],
             attachment: [],
         },

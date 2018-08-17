@@ -17,7 +17,6 @@
     import { State } from 'vuex-class';
 
     import { IItem } from '@/data/models/types';
-    import { ColorLabel } from '@/data/enums/enum';
 
     @Component({})
 
