@@ -1,7 +1,7 @@
 <template>
     <div
-        class="sidebar boards-menu"
-        :class="{ 'boards-closed': !getBoardsMenuStatus }">
+        class="sidebar user-menu"
+        :class="{ 'user-closed': !getUserMenuStatus }">
 
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -11,14 +11,6 @@
 
             <polygon points="31.1 1.4 29.7 0 15.6 14.1 1.4 0 0 1.4 14.1 15.6 0 29.7 1.4 31.1 15.6 17 29.7 31.1 31.1 29.7 17 15.6 "/>
         </svg>
-
-        <h1>SideBar</h1>
-
-        <ul>
-            <li>Workspace #1</li>
-            <li>Workspace #2</li>
-            <li>Workspace #3</li>
-        </ul>
     </div>
 </template>
 
@@ -28,16 +20,15 @@
 
     @Component({})
 
-    export default class Sidebar extends Vue {
-        // state
-        @Getter('getBoardsMenuStatus') private getBoardsMenuStatus!: boolean;
+    export default class UserMenu extends Vue {
+        // props
+        @Getter('getUserMenuStatus') private getUserMenuStatus!: boolean;
 
         // methods
         private closeSidebar() {
-            this.$store.commit('closeSidebar', 'boardsMenu');
+            this.$store.commit('closeSidebar', 'userMenu');
         }
     }
-
 </script>
 
 <style lang="scss">

@@ -13,7 +13,7 @@ const state: ItemState = {
             id: 1,
             colorLabels: [1, 2],
             members: [],
-            attachment: [],
+            attachment: 1,
         },
         {
             title: 'Item 2',
@@ -21,7 +21,7 @@ const state: ItemState = {
             id: 2,
             colorLabels: [1, 3],
             members: [],
-            attachment: [],
+            attachment: 2,
         },
         {
             title: 'Item 3',
@@ -29,7 +29,7 @@ const state: ItemState = {
             id: 3,
             colorLabels: [4, 5, 6],
             members: [],
-            attachment: [],
+            attachment: 3,
         },
         {
             title: 'Item 4',
@@ -37,23 +37,33 @@ const state: ItemState = {
             id: 4,
             colorLabels: [6],
             members: [],
-            attachment: [],
+            attachment: 0,
         },
     ],
 };
 
 // getters
 const getters: GetterTree<ItemState, RootState> = {
+    getColorlabels: (state) => (itemId: number) => {
+        const item = state.items.find((item) => item.id === itemId);
 
+        return item!.colorLabels;
+    },
+
+    getAttachment: (state) => (itemId: number) => {
+        const item = state.items.find((item) => item.id === itemId);
+
+        return item!.attachment;
+    },
 };
 
 // mutations
 const mutations: MutationTree<ItemState> = {
-    deleteItem: (state, id) => {
+    deleteItem: (state, id: number) => {
         state.items = state.items.filter((item) => item.id !== id);
     },
 
-    deleteItemColumn: (state, id) => {
+    deleteItemColumn: (state, id: number) => {
         state.items = state.items.filter((item) => item.columnId !== id);
     },
 

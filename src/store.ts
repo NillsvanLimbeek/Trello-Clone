@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 
 import { items } from './store/items';
 import { columns } from './store/columns';
+import { sidebar } from './store/sidebar';
 
 import { IItem } from '@/data/models/types';
 
@@ -49,6 +50,7 @@ const store = new Vuex.Store({
     modules: {
         columns,
         items,
+        sidebar,
     },
 });
 

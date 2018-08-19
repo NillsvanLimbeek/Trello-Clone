@@ -12,5 +12,10 @@ export interface IItem {
     id: number;
     colorLabels: number[];
     members: object[];
-    attachment: object[];
+    attachment: number;
+}
+
+export interface ISidebar {
+    boardsStatus: boolean;
+    userStatus: boolean;
 }

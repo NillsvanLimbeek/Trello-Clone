@@ -1,6 +1,8 @@
 .workspace {
     display: flex;
 
+    padding: 4rem;
+
     &__list {
         display: flex;
         flex-wrap: nowrap;

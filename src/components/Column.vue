@@ -100,7 +100,7 @@
                 id: randomId,
                 colorLabels: [],
                 members: [],
-                attachment: [],
+                attachment: 0,
             };
 
             this.$store.dispatch('addItem', newItem);
