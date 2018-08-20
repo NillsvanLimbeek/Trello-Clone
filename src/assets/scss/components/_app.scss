@@ -1,11 +1,16 @@
 #app {
+    position: relative;
+    left: 0;
+    top: 0;
+
     height: 100vh;
 
     display: flex;
     background: var(--color-bg);
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 .main {
     width: 100%;
+    overflow: auto;
 }

@@ -41,7 +41,9 @@
 }
 
 .user-closed {
-    display: none;
-    width: 0;
     transform: translateX(35rem);
+}
+
+.hide {
+    display: none;
 }
