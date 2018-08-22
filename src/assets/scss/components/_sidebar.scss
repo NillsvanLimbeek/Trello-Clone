@@ -15,12 +15,19 @@
     background: var(--color-white);
     transition: transform .5s ease-in-out .2s, width .1s;
 
-    &__icon {
+    &__close-icon {
         position: absolute;
         top: 2rem;
         right: 2rem;
+
+        width: 1.5rem;
+        fill: var(--color-grey);
         cursor: pointer;
-        width: 2rem;
+        transition: var(--transition-3);
+
+        &:hover {
+            fill: var(--color-black);
+        }
     }
 }
 

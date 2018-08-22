@@ -1,0 +1,51 @@
+.recent-boards {
+    position: relative;
+
+    width: 90%;
+
+    &__header {
+        font-size: 1.3rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        color: #b5b5b5;
+        margin-bottom: 2.5rem;
+    }
+
+    &__element {
+        display: flex;
+        align-items: center;
+    }
+
+    &__square {
+        width: 3rem;
+
+        fill: var(--label-blue);
+        margin-right: 2rem;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 1.5rem;
+    }
+
+    &__actions {
+        position: absolute;
+        right: 0;
+
+        transition: var(--transition-3);
+    }
+
+    &__thrash {
+        width: 1.75rem;
+    }
+
+    &__star {
+        width: 1.75rem;
+    }
+}
+
+.hide {
+    opacity: 0;
+}

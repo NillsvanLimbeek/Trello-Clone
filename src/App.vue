@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <SideBar />
+        <BoardsMenu />
         <UserMenu />
 
         <div class="main">
@@ -13,13 +13,13 @@
 <script lang="ts">
     import { Vue, Component } from 'vue-property-decorator';
 
-    import SideBar from '@/components/navigation/SideBar.vue';
+    import BoardsMenu from '@/components/navigation/BoardsMenu.vue';
     import Header from '@/components/navigation/Header.vue';
     import UserMenu from '@/components/navigation/UserMenu.vue';
 
     @Component({
         components: {
-            SideBar,
+            BoardsMenu,
             Header,
             UserMenu,
         },
