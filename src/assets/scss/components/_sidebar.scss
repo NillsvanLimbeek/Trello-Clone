@@ -27,12 +27,12 @@
 // specific styles for both menus
 .user-menu {
     right: 0;
-    box-shadow: -2rem 0 3rem rgba(206, 206, 206, .5);
+    box-shadow: -1rem 0 2rem rgba(206, 206, 206, .5);
 }
 
 .boards-menu {
     left: 0;
-    box-shadow: 2rem 0 3rem rgba(206, 206, 206, .5);
+    box-shadow: 1rem 0 2rem rgba(206, 206, 206, .5);
 }
 
 // styles for closed state
@@ -42,8 +42,4 @@
 
 .user-closed {
     transform: translateX(35rem);
-}
-
-.hide {
-    display: none;
 }

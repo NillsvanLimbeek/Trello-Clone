@@ -44,17 +44,21 @@ const state: ItemState = {
 
 // getters
 const getters: GetterTree<ItemState, RootState> = {
-    getColorlabels: (state) => (itemId: number) => {
-        const item = state.items.find((item) => item.id === itemId);
-
-        return item!.colorLabels;
+    getItem: (state) => (itemId: number) => {
+        return state.items.find((item) => item.id === itemId);
     },
 
-    getAttachment: (state) => (itemId: number) => {
-        const item = state.items.find((item) => item.id === itemId);
+//     getColorlabels: (state) => (itemId: number) => {
+//         const item = state.items.find((item) => item.id === itemId);
 
-        return item!.attachment;
-    },
+//         return item!.colorLabels;
+//     },
+
+//     getAttachment: (state) => (itemId: number) => {
+//         const item = state.items.find((item) => item.id === itemId);
+
+//         return item!.attachment;
+//     },
 };
 
 // mutations

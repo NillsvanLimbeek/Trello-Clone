@@ -1,0 +1,39 @@
+.boards-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20rem;
+    height: 100%;
+
+    &__btn {
+        display: flex;
+
+        padding: 1rem;
+        cursor: pointer;
+
+        &:hover > .boards-btn__icon {
+            fill: rgb(90, 90, 90);
+
+        }
+
+        &:hover > .boards-btn__text {
+            color: rgb(90, 90, 90);
+        }
+    }
+
+    &__icon {
+        height: 1.75rem;
+        margin: 0 1rem;
+        fill: var(--color-grey);
+
+        transition: var(--transition-3);
+    }
+
+    &__text {
+        color: var(--color-grey);
+        font-weight: 500;
+
+        transition: var(--transition-3);
+    }
+}

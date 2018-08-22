@@ -1,0 +1,21 @@
+.user-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 9rem;
+    height: 100%;
+
+    border-left: var(--border);
+
+    &__icon {
+        height: 1.75rem;
+        fill: var(--color-grey);
+        cursor: pointer;
+        transition: var(--transition-3);
+
+        &:hover {
+            fill: rgb(90, 90, 90);
+        }
+    }
+}
