@@ -1,4 +1,4 @@
-import { IColumn, IItem, ISidebar } from '@/data/models/types';
+import { IColumn, IItem, ISidebar, IBoard } from '@/data/models/types';
 
 export interface ColumnState {
     columns: IColumn[];
@@ -10,4 +10,8 @@ export interface ItemState {
 
 export interface SidebarState {
     sidebar: ISidebar;
+}
+
+export interface BoardsState {
+    boards: IBoard[];
 }

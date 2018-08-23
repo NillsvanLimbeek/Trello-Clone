@@ -47,18 +47,6 @@ const getters: GetterTree<ItemState, RootState> = {
     getItem: (state) => (itemId: number) => {
         return state.items.find((item) => item.id === itemId);
     },
-
-//     getColorlabels: (state) => (itemId: number) => {
-//         const item = state.items.find((item) => item.id === itemId);
-
-//         return item!.colorLabels;
-//     },
-
-//     getAttachment: (state) => (itemId: number) => {
-//         const item = state.items.find((item) => item.id === itemId);
-
-//         return item!.attachment;
-//     },
 };
 
 // mutations

@@ -1,27 +1,14 @@
-.recent-boards {
-    position: relative;
+.board-item {
+    display: flex;
+    align-items: center;
 
-    width: 90%;
-
-    &__header {
-        font-size: 1.3rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-
-        color: #b5b5b5;
+    &:not(:last-child) {
         margin-bottom: 2.5rem;
-    }
-
-    &__element {
-        display: flex;
-        align-items: center;
     }
 
     &__square {
         width: 3rem;
 
-        fill: var(--label-blue);
         margin-right: 2rem;
     }
 

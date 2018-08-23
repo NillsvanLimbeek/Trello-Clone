@@ -19,3 +19,13 @@ export interface ISidebar {
     boardsStatus: boolean;
     userStatus: boolean;
 }
+
+export interface IBoard {
+    color: string;
+    title: string;
+    favorite: boolean;
+    personal: boolean;
+    recent: boolean;
+    // user: string;
+    // date: string;
+}
