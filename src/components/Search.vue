@@ -1,9 +1,12 @@
 <template>
-    <div class="search">
+    <div
+        class="search"
+        :class="{ 'boards-menu-margin': boardsMenu }">
+
         <input
             type="text"
             class="search__input"
-            placeholder="Search board..."
+            :placeholder="placeholder"
         >
 
         <svg
@@ -17,11 +20,14 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
+    import { Vue, Component, Prop } from 'vue-property-decorator';
 
     @Component({})
 
-    export default class Search extends Vue {}
+    export default class Search extends Vue {
+        @Prop() private boardsMenu!: boolean;
+        @Prop() private placeholder!: string;
+    }
 </script>
 
 <style lang="scss">

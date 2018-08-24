@@ -2,6 +2,12 @@
     <div class="header">
 
         <BoardsBtn />
+
+        <Search
+            :boards-menu="false"
+            placeholder="Search..."
+        />
+
         <UserBtn />
 
     </div>
@@ -12,11 +18,13 @@
 
     import BoardsBtn from './header/BoardsBtn.vue';
     import UserBtn from './header/UserBtn.vue';
+    import Search from '@/components/Search.vue';
 
     @Component({
         components: {
             BoardsBtn,
             UserBtn,
+            Search,
         },
     })
 

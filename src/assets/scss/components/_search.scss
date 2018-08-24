@@ -4,9 +4,10 @@
     display: flex;
     justify-content: center;
 
-    width: 100%;
+    width: 250px;
+    height: 35px;
 
-    margin: 5rem 0;
+    // margin: 5rem 0;
 
     &__input {
         font-family: 'Raleway';
@@ -45,4 +46,8 @@
         fill: var(--color-grey);
         transition: var(--transition-3);
     }
+}
+
+.boards-menu-margin {
+    margin: 5rem 0;
 }
