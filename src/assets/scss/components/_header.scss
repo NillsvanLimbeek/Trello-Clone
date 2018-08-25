@@ -11,4 +11,8 @@
 
     background: var(--color-white);
     box-shadow: 0 1rem 1rem rgba(206, 206, 206, .5);
+
+    &__left-menu {
+        display: flex;
+    }
 }

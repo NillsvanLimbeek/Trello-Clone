@@ -12,6 +12,7 @@ const state: BoardsState = {
             favorite: true,
             personal: false,
             recent: true,
+            id: 1,
         },
         {
             title: 'Summary board',
@@ -19,6 +20,7 @@ const state: BoardsState = {
             favorite: false,
             personal: false,
             recent: true,
+            id: 2,
         },
         {
             title: 'Project board',
@@ -26,6 +28,7 @@ const state: BoardsState = {
             favorite: false,
             personal: true,
             recent: false,
+            id: 3,
         },
         {
             title: 'Internal board',
@@ -33,6 +36,7 @@ const state: BoardsState = {
             favorite: false,
             personal: true,
             recent: false,
+            id: 4,
         },
         {
             title: 'Player board',
@@ -40,6 +44,7 @@ const state: BoardsState = {
             favorite: false,
             personal: true,
             recent: false,
+            id: 5,
         },
     ],
 };

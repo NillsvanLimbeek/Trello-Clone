@@ -9,28 +9,28 @@ const state: ColumnState = {
     columns: [
         {
             title: 'Column 1',
-            // workspaceIds: 1,
+            // boardId: 1,
             id: 1,
             itemIds: [1],
             state: 'inactive',
         },
         {
             title: 'Column 2',
-            // workspaceIds: 2,
+            // boardId: 1,
             id: 2,
             itemIds: [2, 4],
             state: 'active',
         },
         {
             title: 'Column 3',
-            // workspaceIds: 3,
+            // boardId: 1,
             id: 3,
             itemIds: [3],
             state: 'warning',
         },
         {
             title: 'Column 4',
-            // workspaceIds: 3,
+            // boardId: 1,
             id: 4,
             itemIds: [],
             state: 'danger',

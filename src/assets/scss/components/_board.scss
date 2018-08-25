@@ -1,7 +1,12 @@
-.workspace {
+.board {
     display: flex;
+    flex-direction: column;
 
     padding: 4rem;
+
+    &__board-list {
+        display: flex;
+    }
 
     &__list {
         display: flex;
@@ -12,7 +17,7 @@
         display: flex;
         justify-content: center;
 
-        height: 100%;
+        height: fit-content;
         width: 25rem;
 
         padding: 2rem;

@@ -1,12 +1,15 @@
 <template>
     <div class="header">
 
-        <BoardsBtn />
+        <div class="header__left-menu">
+            <BoardsBtn />
 
-        <Search
-            :boards-menu="false"
-            placeholder="Search..."
-        />
+            <Search
+                :boards-menu="false"
+                placeholder="Search..."
+            />
+        </div>
+
 
         <UserBtn />
 

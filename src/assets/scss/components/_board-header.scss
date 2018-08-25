@@ -1,0 +1,15 @@
+.board-header {
+    display: flex;
+    align-items: center;
+
+    margin: 0 0 3rem 0;
+
+    &__square {
+        width: 4rem;
+        margin-right: 2rem;
+    }
+
+    &__title {
+        font-weight: 500;
+    }
+}

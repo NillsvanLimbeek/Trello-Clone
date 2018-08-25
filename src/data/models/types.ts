@@ -26,6 +26,7 @@ export interface IBoard {
     favorite: boolean;
     personal: boolean;
     recent: boolean;
+    id: number;
     // user: string;
     // date: string;
 }
