@@ -13,6 +13,7 @@ const state: BoardsState = {
             personal: false,
             recent: true,
             id: 1,
+            columnIds: [1, 2, 3, 4],
         },
         {
             title: 'Summary board',
@@ -21,6 +22,7 @@ const state: BoardsState = {
             personal: false,
             recent: true,
             id: 2,
+            columnIds: [5],
         },
         {
             title: 'Project board',
@@ -29,6 +31,7 @@ const state: BoardsState = {
             personal: true,
             recent: false,
             id: 3,
+            columnIds: [],
         },
         {
             title: 'Internal board',
@@ -37,6 +40,7 @@ const state: BoardsState = {
             personal: true,
             recent: false,
             id: 4,
+            columnIds: [],
         },
         {
             title: 'Player board',
@@ -45,6 +49,7 @@ const state: BoardsState = {
             personal: true,
             recent: false,
             id: 5,
+            columnIds: [],
         },
     ],
 };
@@ -56,6 +61,10 @@ const getters: GetterTree<BoardsState, RootState> = {
 
     getPersonalBoards: (state) => {
         return state.boards.filter((board) => board.personal === true);
+    },
+
+    getBoard: (state, id: number) => {
+        return state.boards.find((board) => board.id === id);
     },
 };
 

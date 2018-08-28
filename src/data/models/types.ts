@@ -4,6 +4,7 @@ export interface IColumn {
     id: number;
     itemIds: number[];
     state: string;
+    boardId: number;
 }
 
 export interface IItem {
@@ -27,6 +28,7 @@ export interface IBoard {
     personal: boolean;
     recent: boolean;
     id: number;
+    columnIds: number[];
     // user: string;
     // date: string;
 }

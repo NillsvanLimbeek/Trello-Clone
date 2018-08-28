@@ -61,6 +61,7 @@
                 id: randomId,
                 itemIds: [],
                 state: 'inactive',
+                boardId: 1,
             };
 
             this.$store.commit('addColumn', newColumn);

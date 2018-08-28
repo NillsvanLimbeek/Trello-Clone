@@ -13,9 +13,9 @@
                 <path d="M408 0H51C23 0 0 23 0 51v357c0 28.1 23 51 51 51h357c28.1 0 51-22.9 51-51V51C459 23 436.1 0 408 0z"/>
             </svg>
 
-            <router-link :to="{ name:'board', params: { id: board.id }}">
+            <p @click="clickLink">
                 {{ board.title }}
-            </router-link>
+            </p>
 
             <div
                 class="board-item__actions"
@@ -57,6 +57,14 @@
 
         // data
         private hideActions = false;
+
+        // methods
+        private clickLink() {
+            const boardId = this.board.id;
+
+            this.$router.push({ name: 'board', params: { id: boardId.toString() }});
+            this.$store.commit('closeSidebar', 'boardsMenu');
+        }
     }
 </script>
 
