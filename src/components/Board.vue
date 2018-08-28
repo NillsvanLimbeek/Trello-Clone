@@ -23,7 +23,8 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from 'vue-property-decorator';
+    import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
+    import { Route } from 'vue-router';
     import { State } from 'vuex-class';
 
     import Column from './Column.vue';
@@ -43,6 +44,14 @@
         // state
         @State('boards') private boards!: BoardsState;
         @State('columns') private columns!: ColumnState;
+
+        // watch
+        @Watch('$route', { immediate: true, deep: true })
+        private watchRoute(oldVal: Route) {
+            const { params } = oldVal;
+
+            console.log(params);
+        }
 
         // computed
         private get getBoard() {
