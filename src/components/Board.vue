@@ -3,6 +3,8 @@
 
         <BoardHeader :board="getBoard"/>
 
+        {{ board }}
+
         <div class="board__board-list">
             <ul class="board__list">
                 <Column v-for="column in columns.columns"
@@ -41,16 +43,22 @@
     })
 
     export default class Board extends Vue {
+        // data
+        public board: IBoard | undefined;
+
         // state
         @State('boards') private boards!: BoardsState;
         @State('columns') private columns!: ColumnState;
 
         // watch
         @Watch('$route', { immediate: true, deep: true })
-        private watchRoute(oldVal: Route) {
-            const { params } = oldVal;
+        private watchRoute(boardId: Route) {
+            const { params } = boardId;
+            const { boards } = this.boards;
 
-            console.log(params);
+            this.board = boards.find((board: IBoard) => board.id === parseFloat(params.id));
+
+            console.log(this.board);
         }
 
         // computed
