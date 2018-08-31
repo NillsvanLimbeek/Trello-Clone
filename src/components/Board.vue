@@ -3,11 +3,9 @@
 
         <BoardHeader :board="getBoard"/>
 
-        {{ board }}
-
         <div class="board__board-list">
             <ul class="board__list">
-                <Column v-for="column in columns.columns"
+                <Column v-for="column in getColumns"
                         :key="column.id"
                         :columnId="column.id"
                         :state="column.state">
@@ -43,30 +41,39 @@
     })
 
     export default class Board extends Vue {
-        // data
-        public board: IBoard | undefined;
-
         // state
         @State('boards') private boards!: BoardsState;
         @State('columns') private columns!: ColumnState;
 
-        // watch
-        @Watch('$route', { immediate: true, deep: true })
-        private watchRoute(boardId: Route) {
-            const { params } = boardId;
-            const { boards } = this.boards;
-
-            this.board = boards.find((board: IBoard) => board.id === parseFloat(params.id));
-
-            console.log(this.board);
+        // computed
+        private get getBoardId() {
+            const { id } = this.$route.params;
+            return parseFloat(id);
         }
 
-        // computed
         private get getBoard() {
             const { id } = this.$route.params;
-            const { boards } = this.boards;
+            const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
 
-            return boards.find((board: IBoard) => board.id === parseFloat(id));
+            return board;
+        }
+
+        private get getColumns() {
+            const { columns } = this.columns;
+            const { id } = this.$route.params;
+            const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
+
+            const columnsArr: IColumn[] = [];
+
+            board.columnIds.forEach((columnId) => {
+                const column = columns.find((column) => column.id === columnId);
+
+                if (column) {
+                    columnsArr.push(column);
+                }
+            });
+
+            return columnsArr;
         }
 
         // methods
@@ -78,7 +85,7 @@
                 id: randomId,
                 itemIds: [],
                 state: 'inactive',
-                boardId: 1,
+                boardId: this.getBoardId,
             };
 
             this.$store.commit('addColumn', newColumn);

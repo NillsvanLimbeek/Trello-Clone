@@ -63,8 +63,8 @@ const getters: GetterTree<BoardsState, RootState> = {
         return state.boards.filter((board) => board.personal === true);
     },
 
-    getBoard: (state, id: number) => {
-        return state.boards.find((board) => board.id === id);
+    getBoard: (state) => (boardId: number) => {
+        return state.boards.find((board) => board.id === boardId);
     },
 };
 
