@@ -89,10 +89,16 @@
             };
 
             this.$store.commit('addColumn', newColumn);
+
+            const board: IBoard = this.$store.getters.getBoard(this.getBoardId);
+
+            if (board) {
+                board.columnIds.push(randomId);
+            }
         }
 
         private randomId() {
-            return Math.ceil(Math.random() * 100);
+            return Math.ceil(Math.random() * 1000);
         }
     }
 </script>
