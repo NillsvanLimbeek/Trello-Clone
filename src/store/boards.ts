@@ -7,7 +7,7 @@ import { IBoard } from '@/data/models/types';
 const state: BoardsState = {
     boards: [
         {
-            title: 'Planner board',
+            title: 'Planner Board',
             color: '#0079bf',
             favorite: true,
             personal: false,
@@ -16,7 +16,7 @@ const state: BoardsState = {
             columnIds: [1, 2, 3, 4],
         },
         {
-            title: 'Summary board',
+            title: 'Summary Board',
             color: '#eb5a46',
             favorite: false,
             personal: false,
@@ -25,7 +25,7 @@ const state: BoardsState = {
             columnIds: [5],
         },
         {
-            title: 'Project board',
+            title: 'Project Board',
             color: '#ff9f1a',
             favorite: false,
             personal: true,
@@ -34,7 +34,7 @@ const state: BoardsState = {
             columnIds: [],
         },
         {
-            title: 'Internal board',
+            title: 'Internal Board',
             color: '#61bd4f',
             favorite: false,
             personal: true,
@@ -43,7 +43,7 @@ const state: BoardsState = {
             columnIds: [],
         },
         {
-            title: 'Player board',
+            title: 'Player Board',
             color: '#c377e0',
             favorite: false,
             personal: true,
