@@ -23,6 +23,7 @@ export interface ISidebar {
 
 export interface IBoard {
     color: string;
+    colorFaded: string;
     title: string;
     favorite: boolean;
     personal: boolean;

@@ -1,14 +1,11 @@
 <template>
     <div class="board-header">
-        <div class="board-header__svg" :style="{ background: board.color, boxShadow: boxShadow + board.color }">
-            <!-- <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 459 459"
-                class="board-header__square"
-                :style="{ fill: board.color, boxShadow: boxShadow + board.color }">
-
-                <path d="M408 0H51C23 0 0 23 0 51v357c0 28.1 23 51 51 51h357c28.1 0 51-22.9 51-51V51C459 23 436.1 0 408 0z"/> -->
-            </svg>
+        <div
+            class="board-header__svg"
+            :style="{
+                background: board.color,
+                boxShadow: boxShadow + board.colorFaded
+                }">
         </div>
 
         <div class="board-header__info">

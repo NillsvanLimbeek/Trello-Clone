@@ -9,6 +9,7 @@ const state: BoardsState = {
         {
             title: 'Planner Board',
             color: '#0079bf',
+            colorFaded: '#0077bc80',
             favorite: true,
             personal: false,
             recent: true,
@@ -18,6 +19,7 @@ const state: BoardsState = {
         {
             title: 'Summary Board',
             color: '#eb5a46',
+            colorFaded: '#eb594680 ',
             favorite: false,
             personal: false,
             recent: true,
@@ -27,6 +29,7 @@ const state: BoardsState = {
         {
             title: 'Project Board',
             color: '#ff9f1a',
+            colorFaded: '#ffa01a80',
             favorite: false,
             personal: true,
             recent: false,
@@ -36,6 +39,7 @@ const state: BoardsState = {
         {
             title: 'Internal Board',
             color: '#61bd4f',
+            colorFaded: '#61bd4f80',
             favorite: false,
             personal: true,
             recent: false,
@@ -45,6 +49,7 @@ const state: BoardsState = {
         {
             title: 'Player Board',
             color: '#c377e0',
+            colorFaded: '#c277e080',
             favorite: false,
             personal: true,
             recent: false,
