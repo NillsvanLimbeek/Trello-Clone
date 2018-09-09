@@ -11,7 +11,11 @@
         </div>
 
 
-        <UserBtn />
+        <div class="header__right-menu">
+            <UserBtn />
+            <NotificationsBtn />
+            <UserMenuBtn />
+        </div>
 
     </div>
 </template>
@@ -20,14 +24,18 @@
     import { Vue, Component } from 'vue-property-decorator';
 
     import BoardsBtn from './header/BoardsBtn.vue';
-    import UserBtn from './header/UserBtn.vue';
+    import UserMenuBtn from './header/UserMenuBtn.vue';
     import Search from '@/components/Search.vue';
+    import UserBtn from '@/components/user/UserBtn.vue';
+    import NotificationsBtn from '@/components/notifications/NotificationsBtn.vue';
 
     @Component({
         components: {
             BoardsBtn,
-            UserBtn,
+            UserMenuBtn,
             Search,
+            UserBtn,
+            NotificationsBtn,
         },
     })
 
@@ -37,6 +45,7 @@
 
 <style lang="scss">
 
+    @import '../../assets/scss/main';
     @import '../../assets/scss/components/header';
 
 </style>

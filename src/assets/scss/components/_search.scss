@@ -1,13 +1,10 @@
 .search {
     position: relative;
 
-    display: flex;
-    justify-content: center;
+    @include flex-center;
 
     width: 250px;
     height: 35px;
-
-    // margin: 5rem 0;
 
     &__input {
         font-family: 'Raleway';

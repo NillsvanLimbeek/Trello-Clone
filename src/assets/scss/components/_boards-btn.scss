@@ -15,12 +15,12 @@
         cursor: pointer;
 
         &:hover > .boards-btn__icon {
-            fill: rgb(90, 90, 90);
+            fill: var(--color-hover);
 
         }
 
         &:hover > .boards-btn__text {
-            color: rgb(90, 90, 90);
+            color: var(--color-hover);
         }
     }
 

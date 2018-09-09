@@ -10,9 +10,9 @@
     border: var(--border);
 
     &__header {
-        display: flex;
+        @include flex-align;
         justify-content: space-between;
-        align-items: center;
+
         margin-bottom: 1rem;
     }
 
@@ -29,11 +29,8 @@
         width: 100%;
         height: 3.5rem;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center-align;
 
-        border-radius: 1rem;
         background: var(--item-header);
         cursor: pointer;
     }

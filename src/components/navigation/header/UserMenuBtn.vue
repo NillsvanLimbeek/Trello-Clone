@@ -1,9 +1,9 @@
 <template>
-    <div class="user-btn">
+    <div class="user-menu-btn">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 50 50"
-            class="user-btn__icon"
+            class="user-menu-btn__icon"
             @click="openUserMenu">
 
             <rect y="2" width="50" height="4"/>
@@ -19,7 +19,7 @@
 
     @Component({})
 
-    export default class UserBtn extends Vue {
+    export default class UserMenuBtn extends Vue {
         // methods
         private openUserMenu() {
             this.$store.commit('openSidebar', 'userMenu');
@@ -29,6 +29,6 @@
 
 <style lang="scss">
 
-    @import '../../../assets/scss/components/user-btn';
+    @import '../../../assets/scss/components/user-menu-btn';
 
 </style>

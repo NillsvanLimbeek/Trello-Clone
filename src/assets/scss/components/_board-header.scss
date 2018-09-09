@@ -31,7 +31,7 @@
     &__board-owner {
         font-size: 1.4rem;
         font-weight: 500;
-        color: var(--color-grey-light);
+        color: var(--color-grey-dark);
     }
 
     &__visible {
@@ -45,10 +45,10 @@
         width: 2.25rem;
 
         margin-right: .5rem;
-        fill: var(--color-grey-light);
+        fill: var(--color-grey-dark);
     }
 
     &__text {
-        color: var(--color-grey-light);
+        color: var(--color-grey-dark);
     }
 }

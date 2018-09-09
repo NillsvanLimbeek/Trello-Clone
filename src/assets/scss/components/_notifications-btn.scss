@@ -1,0 +1,29 @@
+.notifications-btn {
+    position: relative;
+
+    margin-top: 1rem;
+    cursor: pointer;
+
+    &:hover > .notifications-btn__icon {
+        transition: var(--transition-3);
+        fill: var(--color-hover);
+    }
+
+    &__icon {
+        width: 2.25rem;
+
+        margin: 0 3rem;
+        fill: var(--color-grey);
+        transition: var(--transition-3);
+    }
+
+    &__circle {
+        position: absolute;
+        top: -5px;
+        right: 2.5rem;
+
+        width: .8rem;
+
+        fill: var(--label-blue);
+    }
+}
