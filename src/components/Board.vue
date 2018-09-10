@@ -4,19 +4,21 @@
         <BoardHeader :board="getBoard"/>
 
         <div class="board__board-list">
-            <ul class="board__list">
-                <Column v-for="column in getColumns"
+
+            <draggable v-model="columnsArray" class="board__list">
+                <Column v-for="column in columnsArray"
                         :key="column.id"
                         :columnId="column.id"
                         :state="column.state">
                     <input class="column__input" type="text" v-model="column.title">
                 </Column>
-            </ul>
+            </draggable>
 
             <div class="board__add-button"
                 @click="addColumn">
                 <p>Add List</p>
             </div>
+
         </div>
 
     </div>
@@ -26,6 +28,8 @@
     import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
     import { Route } from 'vue-router';
     import { State } from 'vuex-class';
+
+    import draggable from 'vuedraggable';
 
     import Column from './Column.vue';
     import BoardHeader from './BoardHeader.vue';
@@ -37,6 +41,7 @@
         components: {
             Column,
             BoardHeader,
+            draggable,
         },
     })
 
@@ -44,6 +49,9 @@
         // state
         @State('boards') private boards!: BoardsState;
         @State('columns') private columns!: ColumnState;
+
+        // data
+        private columnsArray: IColumn[] = [];
 
         // computed
         private get getBoardId() {
@@ -57,8 +65,14 @@
 
             return board;
         }
+        // methods
+        private created() {
+            this.getColumns();
+        }
 
-        private get getColumns() {
+        private getColumns() {
+            this.columnsArray = [];
+
             const { columns } = this.columns;
             const { id } = this.$route.params;
             const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
@@ -73,10 +87,9 @@
                 }
             });
 
-            return columnsArr;
+            this.columnsArray = columnsArr;
         }
 
-        // methods
         private addColumn() {
             const randomId = this.randomId();
 
@@ -95,6 +108,8 @@
             if (board) {
                 board.columnIds.push(randomId);
             }
+
+            this.getColumns();
         }
 
         private randomId() {

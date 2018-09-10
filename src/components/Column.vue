@@ -36,12 +36,14 @@
             </transition>
         </div>
 
-        <Item v-for="item in filterItems"
-              :key="item.id"
-              :itemId="item.id"
-              :columnId="columnId">
-            <p class="item__input">{{ item.title }}</p>
-        </Item>
+        <draggable v-model="items">
+            <Item v-for="item in filterItems"
+                :key="item.id"
+                :itemId="item.id"
+                :columnId="columnId">
+                <p class="item__input">{{ item.title }}</p>
+            </Item>
+        </draggable>
 
         <div class="column__add-item"
              @click="addItem">
@@ -54,6 +56,8 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Action } from 'vuex-class';
 
+    import draggable from 'vuedraggable';
+
     import Dropdown from './Dropdown.vue';
     import Item from './Item.vue';
 
@@ -64,6 +68,7 @@
         components: {
             Item,
             Dropdown,
+            draggable,
         },
     })
 
