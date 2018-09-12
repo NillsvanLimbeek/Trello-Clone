@@ -36,14 +36,14 @@
             </transition>
         </div>
 
-        <!-- <draggable v-model="items"> -->
-            <Item v-for="item in filterItems"
+        <draggable v-model="getAllItems">
+            <Item v-for="item in getAllItems"
                 :key="item.id"
                 :itemId="item.id"
                 :columnId="columnId">
                 <p class="item__input">{{ item.title }}</p>
             </Item>
-        <!-- </draggable> -->
+        </draggable>
 
         <div class="column__add-item"
              @click="addItem">
@@ -62,7 +62,7 @@
     import Item from './Item.vue';
 
     import { ItemState } from '@/store/state/state';
-    import { IItem } from '@/data/models/types';
+    import { IItem, IColumn } from '@/data/models/types';
 
     @Component({
         components: {
@@ -84,6 +84,14 @@
         private columnDropdown = false;
 
         // computed
+        public get getAllItems() {
+            return this.$store.getters.getAllItems(this.columnId);
+        }
+
+        public set getAllItems(value: IItem[]) {
+            this.$store.commit('setItems', value);
+        }
+
         private get filterItems() {
             const { items } = this.items;
             const column = this.columnId;

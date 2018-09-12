@@ -53,7 +53,7 @@
         @State('columns') private columns!: ColumnState;
 
         public get getAllColumns() {
-            return this.$store.getters.getAllColumns;
+            return this.$store.getters.getAllColumns(this.getBoardId);
         }
 
         public set getAllColumns(value: IBoard[]) {
@@ -62,7 +62,6 @@
 
         private get getBoardId() {
             const { id } = this.$route.params;
-            // this.getAllColumns = '';
             return parseFloat(id);
         }
 

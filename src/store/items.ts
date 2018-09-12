@@ -1,3 +1,4 @@
+import { columns } from './columns';
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
 import { RootState } from '@/store/state/rootState';
@@ -47,6 +48,10 @@ const getters: GetterTree<ItemState, RootState> = {
     getItem: (state) => (itemId: number) => {
         return state.items.find((item) => item.id === itemId);
     },
+
+    getAllItems: (state) => (columnId: number) => {
+        return state.items.filter((item) => item.columnId === columnId);
+    },
 };
 
 // mutations
@@ -60,6 +65,10 @@ const mutations: MutationTree<ItemState> = {
     },
 
     addItem: (state, payload) => state.items.push(payload),
+
+    setItems: (state, payload: IItem[]) => {
+        state.items = payload;
+    },
 };
 
 // actions

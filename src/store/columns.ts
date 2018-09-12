@@ -2,7 +2,7 @@ import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
 import { RootState } from '@/store/state/rootState';
 import { ColumnState } from '@/store/state/state';
-import { IColumn } from '@/data/models/types';
+import { IColumn, IItem } from '@/data/models/types';
 
 // state
 const state: ColumnState = {
@@ -47,8 +47,15 @@ const state: ColumnState = {
 
 // getters
 const getters: GetterTree<ColumnState, any> = {
-    getAllColumns: (state) => {
-        return state.columns;
+    getAllColumns: (state) => (boardId: number) => {
+        state.columns.forEach((column) => {
+            const arr = new Array();
+
+            arr.push(state.columns.filter((column) => column.boardId === boardId));
+
+            console.log(arr);
+        });
+        // return state.columns.filter((column) => column.boardId === boardId);
     },
 };
 
