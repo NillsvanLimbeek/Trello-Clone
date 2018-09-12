@@ -48,14 +48,7 @@ const state: ColumnState = {
 // getters
 const getters: GetterTree<ColumnState, any> = {
     getAllColumns: (state) => (boardId: number) => {
-        state.columns.forEach((column) => {
-            const arr = new Array();
-
-            arr.push(state.columns.filter((column) => column.boardId === boardId));
-
-            console.log(arr);
-        });
-        // return state.columns.filter((column) => column.boardId === boardId);
+        return state.columns.filter((column) => column.boardId === boardId);
     },
 };
 
