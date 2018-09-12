@@ -36,14 +36,14 @@
             </transition>
         </div>
 
-        <draggable v-model="items">
+        <!-- <draggable v-model="items"> -->
             <Item v-for="item in filterItems"
                 :key="item.id"
                 :itemId="item.id"
                 :columnId="columnId">
                 <p class="item__input">{{ item.title }}</p>
             </Item>
-        </draggable>
+        <!-- </draggable> -->
 
         <div class="column__add-item"
              @click="addItem">

@@ -5,14 +5,16 @@
 
         <div class="board__board-list">
 
-            <draggable v-model="columnsArray" class="board__list">
-                <Column v-for="column in columnsArray"
+            <Draggable
+                v-model="getAllColumns"
+                class="board__list">
+                <Column v-for="column in getAllColumns"
                         :key="column.id"
                         :columnId="column.id"
                         :state="column.state">
                     <input class="column__input" type="text" v-model="column.title">
                 </Column>
-            </draggable>
+            </Draggable>
 
             <div class="board__add-button"
                 @click="addColumn">
@@ -27,9 +29,9 @@
 <script lang="ts">
     import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
     import { Route } from 'vue-router';
-    import { State } from 'vuex-class';
+    import { State, Getter } from 'vuex-class';
 
-    import draggable from 'vuedraggable';
+    import Draggable from 'vuedraggable';
 
     import Column from './Column.vue';
     import BoardHeader from './BoardHeader.vue';
@@ -41,7 +43,7 @@
         components: {
             Column,
             BoardHeader,
-            draggable,
+            Draggable,
         },
     })
 
@@ -50,12 +52,17 @@
         @State('boards') private boards!: BoardsState;
         @State('columns') private columns!: ColumnState;
 
-        // data
-        private columnsArray: IColumn[] = [];
+        public get getAllColumns() {
+            return this.$store.getters.getAllColumns;
+        }
 
-        // computed
+        public set getAllColumns(value: IBoard[]) {
+            this.$store.commit('setColumns', value);
+        }
+
         private get getBoardId() {
             const { id } = this.$route.params;
+            // this.getAllColumns = '';
             return parseFloat(id);
         }
 
@@ -65,14 +72,8 @@
 
             return board;
         }
-        // methods
-        private created() {
-            this.getColumns();
-        }
 
-        private getColumns() {
-            this.columnsArray = [];
-
+        private get getColumns() {
             const { columns } = this.columns;
             const { id } = this.$route.params;
             const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
@@ -87,7 +88,7 @@
                 }
             });
 
-            this.columnsArray = columnsArr;
+            return columnsArr;
         }
 
         private addColumn() {
@@ -108,8 +109,6 @@
             if (board) {
                 board.columnIds.push(randomId);
             }
-
-            this.getColumns();
         }
 
         private randomId() {

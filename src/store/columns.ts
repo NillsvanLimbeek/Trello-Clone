@@ -47,7 +47,9 @@ const state: ColumnState = {
 
 // getters
 const getters: GetterTree<ColumnState, any> = {
-
+    getAllColumns: (state) => {
+        return state.columns;
+    },
 };
 
 // mutations
@@ -55,6 +57,10 @@ const mutations: MutationTree<ColumnState> = {
     addColumn: (state, payload) => state.columns.push(payload),
 
     deleteColumn: (state, id) => state.columns = state.columns.filter((column) => column.id !== id),
+
+    setColumns: (state, payload: IColumn[]) => {
+        state.columns = payload;
+    },
 };
 
 // actions
