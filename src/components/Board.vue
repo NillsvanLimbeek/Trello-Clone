@@ -72,24 +72,6 @@
             return board;
         }
 
-        private get getColumns() {
-            const { columns } = this.columns;
-            const { id } = this.$route.params;
-            const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
-
-            const columnsArr: IColumn[] = [];
-
-            board.columnIds.forEach((columnId) => {
-                const column = columns.find((column) => column.id === columnId);
-
-                if (column) {
-                    columnsArr.push(column);
-                }
-            });
-
-            return columnsArr;
-        }
-
         private addColumn() {
             const randomId = this.randomId();
 
@@ -112,6 +94,10 @@
 
         private randomId() {
             return Math.ceil(Math.random() * 1000);
+        }
+
+        private created() {
+
         }
     }
 </script>
