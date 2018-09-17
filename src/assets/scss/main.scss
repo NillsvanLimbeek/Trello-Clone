@@ -1,12 +1,5 @@
-//base
-@import './base/reset';
-@import './base/typography';
-
-//utils
-@import './utils/variables';
-@import './utils/mixins';
-@import './utils/utility';
-@import './utils/animations';
+@import 'utils/all';
+@import 'base/all';
 
 //components
 @import './components/app';

@@ -65,10 +65,6 @@ const mutations: MutationTree<ItemState> = {
     },
 
     addItem: (state, payload) => state.items.push(payload),
-
-    setItems: (state, payload: IItem[]) => {
-        state.items = payload;
-    },
 };
 
 // actions

@@ -95,16 +95,12 @@
         private randomId() {
             return Math.ceil(Math.random() * 1000);
         }
-
-        private created() {
-
-        }
     }
 </script>
 
 <style lang="scss">
 
-    @import '../assets/scss/components/board';
+    @import './src/assets/scss/components/board';
 
 </style>
 

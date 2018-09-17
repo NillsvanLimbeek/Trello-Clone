@@ -2,7 +2,13 @@
     display: flex;
     align-items: center;
 
+    @include display-flex;
+
     margin: 0 0 3rem 0;
+
+    &__left {
+        display: flex;
+    }
 
     &__svg {
         height: 4rem;
