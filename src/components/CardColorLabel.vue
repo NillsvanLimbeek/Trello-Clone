@@ -25,9 +25,3 @@
         @Prop() private label!: number;
     }
 </script>
-
-<style lang="scss">
-
-    @import '../assets/scss/components/card-color-label.scss';
-
-</style>

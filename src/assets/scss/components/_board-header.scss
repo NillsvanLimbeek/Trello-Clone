@@ -1,8 +1,5 @@
 .board-header {
-    display: flex;
-    align-items: center;
-
-    @include display-flex;
+    @include flex-align;
 
     margin: 0 0 3rem 0;
 

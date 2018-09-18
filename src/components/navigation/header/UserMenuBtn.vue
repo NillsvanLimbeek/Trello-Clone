@@ -26,9 +26,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-
-    @import '../../../assets/scss/components/user-menu-btn';
-
-</style>

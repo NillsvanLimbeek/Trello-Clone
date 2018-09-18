@@ -29,10 +29,3 @@
         @Prop() private placeholder!: string;
     }
 </script>
-
-<style lang="scss">
-
-    @import '../assets/scss/main';
-    @import '../assets/scss/components/search';
-
-</style>

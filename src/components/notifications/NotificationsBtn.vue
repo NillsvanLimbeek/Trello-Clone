@@ -28,9 +28,3 @@
     }
 
 </script>
-
-<style lang="scss">
-
-    @import './src/assets/scss/components/notifications-btn';
-
-</style>

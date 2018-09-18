@@ -97,10 +97,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-
-    @import './src/assets/scss/components/board';
-
-</style>
-

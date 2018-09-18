@@ -67,9 +67,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-
-    @import '../../assets/scss/components/board-item';
-
-</style>

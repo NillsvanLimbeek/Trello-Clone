@@ -36,9 +36,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-
-    @import '../../../assets/scss/components/boards-btn';
-
-</style>

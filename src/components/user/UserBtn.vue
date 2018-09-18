@@ -19,10 +19,3 @@
 
     }
 </script>
-
-<style lang="scss">
-
-    @import './src/assets/scss/main';
-    @import './src/assets/scss/components/user-btn';
-
-</style>

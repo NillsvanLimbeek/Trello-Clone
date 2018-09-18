@@ -82,10 +82,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-
-    @import '../assets/scss/main';
-    @import '../assets/scss/components/item';
-
-</style>

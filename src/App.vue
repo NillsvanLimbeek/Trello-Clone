@@ -31,8 +31,8 @@
 
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 
-    @import '../src/assets/scss/main.scss';
+    @import 'assets/scss/main';
 
 </style>

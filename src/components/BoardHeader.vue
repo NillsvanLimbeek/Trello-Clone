@@ -48,9 +48,3 @@
         private boxShadow = `0 .5rem 3rem .1rem`;
     }
 </script>
-
-<style lang="scss">
-
-    @import './src/assets/scss/components/board-header';
-
-</style>
