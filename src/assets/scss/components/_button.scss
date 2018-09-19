@@ -1,0 +1,13 @@
+.button {
+    @include flex-center-align;
+
+    font-size: 1rem;
+
+    padding: 1rem 2rem;
+
+    &__icon {
+        width: 2rem;
+
+        transform: rotate(-90deg);
+    }
+}

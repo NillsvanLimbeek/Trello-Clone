@@ -28,8 +28,23 @@
         </div>
 
         <div class="board-header__right">
-            <button class="board-header__button">Boards</button>
-            <button class="board-header__button">Calendar</button>
+            <div class="button">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 385 385"
+                    class="button__icon">
+
+                    <path d="M12 120.3h360.9c6.6 0 12-5.4 12-12 0-6.6-5.4-12-12-12H12c-6.6 0-12 5.4-12 12C0 114.9 5.4 120.3 12 120.3z"/>
+                    <path d="M372.9 180.5H12c-6.6 0-12 5.4-12 12s5.4 12 12 12h360.9c6.6 0 12-5.4 12-12S379.6 180.5 372.9 180.5z"/>
+                    <path d="M372.9 264.7H132.3c-6.6 0-12 5.4-12 12 0 6.6 5.4 12 12 12h240.6c6.6 0 12-5.4 12-12C385 270.1 379.6 264.7 372.9 264.7z"/>
+                </svg>
+
+                <span>Boards</span>
+            </div>
+
+            <button class="button">
+                Calendar
+            </button>
         </div>
 
     </div>
