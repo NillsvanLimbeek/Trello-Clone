@@ -1,5 +1,7 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
+import { BoardView } from '../data/enums/enum';
+
 import { RootState } from '@/store/state/rootState';
 import { BoardsState } from '@/store/state/state';
 import { IBoard } from '@/data/models/types';
@@ -57,6 +59,9 @@ const state: BoardsState = {
             columnIds: [],
         },
     ],
+
+    currentView: BoardView.Board,
+
 };
 
 const getters: GetterTree<BoardsState, RootState> = {
@@ -70,6 +75,10 @@ const getters: GetterTree<BoardsState, RootState> = {
 
     getBoard: (state) => (boardId: number) => {
         return state.boards.find((board) => board.id === boardId);
+    },
+
+    getCurrentView: (state) => {
+        return state.currentView;
     },
 };
 
