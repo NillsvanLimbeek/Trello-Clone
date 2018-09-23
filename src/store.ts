@@ -54,6 +54,7 @@ const store = new Vuex.Store({
         items,
         sidebar,
         boards,
+        calendar,
     },
 });
 
