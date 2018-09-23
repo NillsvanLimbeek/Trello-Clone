@@ -6,9 +6,10 @@
 
 <script lang="ts">
     import { Vue, Component } from 'vue-property-decorator';
-    import { State } from 'vuex-class';
+    import { State, Getter } from 'vuex-class';
 
     import { BoardsState } from '@/store/state/state';
+
 
     import Board from '@/components/Board.vue';
 
@@ -19,7 +20,6 @@
     })
 
     export default class Test extends Vue {
-        // state
         @State('boards') private boards!: BoardsState;
 
         // computed

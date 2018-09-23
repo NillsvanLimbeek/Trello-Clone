@@ -1,6 +1,6 @@
-import { IColumn, IItem, ISidebar, IBoard } from '@/data/models/types';
+import { IColumn, IItem, ISidebar, IBoard, ICalendar } from '@/data/models/types';
 
-import { BoardView } from '../../data/enums/enum';
+import { BoardView, CalendarView } from '../../data/enums/enum';
 
 export interface ColumnState {
     columns: IColumn[];
@@ -17,4 +17,9 @@ export interface SidebarState {
 export interface BoardsState {
     boards: IBoard[];
     currentView: BoardView;
+}
+
+export interface CalendarState {
+    calendarDays: ICalendar;
+    calendarView: CalendarView;
 }

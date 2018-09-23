@@ -5,6 +5,7 @@ import { items } from './store/items';
 import { columns } from './store/columns';
 import { sidebar } from './store/sidebar';
 import { boards } from './store/boards';
+import { calendar } from './store/calendar';
 
 import { IItem } from '@/data/models/types';
 

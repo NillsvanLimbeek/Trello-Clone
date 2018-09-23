@@ -33,3 +33,8 @@ export interface IBoard {
     // user: string;
     // date: string;
 }
+
+export interface ICalendar {
+    daysInWeek: Date[];
+    daysInMonth: Date[];
+}

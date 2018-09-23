@@ -61,7 +61,6 @@ const state: BoardsState = {
     ],
 
     currentView: BoardView.Board,
-
 };
 
 const getters: GetterTree<BoardsState, RootState> = {
@@ -83,11 +82,15 @@ const getters: GetterTree<BoardsState, RootState> = {
 };
 
 const mutations: MutationTree<BoardsState>  = {
-
+    changeCurrentView: (state, newView: BoardView) => {
+        state.currentView = newView;
+    },
 };
 
 const actions: ActionTree<BoardsState, RootState> = {
-
+    setCurrentView({ commit }, newView: BoardView) {
+        commit('changeCurrentView', newView);
+    },
 };
 
 export const boards: Module<BoardsState, any> = {

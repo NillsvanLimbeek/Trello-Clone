@@ -1,0 +1,15 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    padding: 4rem;
+
+    &__list {
+        position: relative;
+        top: 7rem;
+
+        display: flex;
+    }
+}
