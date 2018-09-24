@@ -11,5 +11,31 @@
         top: 7rem;
 
         display: flex;
+
+        height: 75vh;
+    }
+
+    &__month {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+
+        width: 100%;
+
+        background: var(--color-white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--drop-shadow);
+    }
+
+    &__days {
+        display: flex;
+        justify-content: flex-end;
+
+        padding: 1.5rem;
+        border: 1px solid var(--color-grey-light);
+    }
+
+    &__days-title {
+        color: var(--color-grey-dark);
     }
 }

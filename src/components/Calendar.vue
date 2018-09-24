@@ -15,7 +15,16 @@
                 class="calendar__month"
                 v-if="calendarView === CalendarView.Month">
 
-                Calendar Month
+                <div
+                    class="calendar__days"
+                    v-for="day in monthDays"
+                    :key="day.id">
+
+                    <p class="calendar__days-title">
+                        {{ day | date('D') }}
+                    </p>
+
+                </div>
 
             </div>
 
@@ -44,7 +53,11 @@
 
         @Getter('getCalendarView') private calendarView!: CalendarView;
 
+        private monthDays: Date[] = [];
+        private weekDays: Date[] = [];
+
         private daysInMonth() {
+            this.monthDays = [];
             const dayList: Date[] = [];
 
             const startOfMonth = moment().startOf('month');
@@ -55,25 +68,26 @@
                 startOfMonth.add(1, 'days');
             }
 
-            // console.log(dayList);
+            this.monthDays = dayList;
         }
 
         private daysInWeek() {
             const dayList: Date[] = [];
 
-            const startOfWeek = moment().startOf('month');
-            const endOfWeek = moment().endOf('month');
+            const startOfWeek = moment().startOf('week');
+            const endOfWeek = moment().endOf('week');
 
             while (startOfWeek.diff(endOfWeek) < 0) {
                 dayList.push(startOfWeek.clone().toDate());
                 startOfWeek.add(1, 'days');
             }
 
-            // console.log(dayList);
+            this.weekDays = dayList;
         }
 
         private created() {
-
+            this.daysInMonth();
+            this.daysInWeek();
         }
     }
 </script>
