@@ -11,20 +11,33 @@
         top: 7rem;
 
         display: flex;
+        flex-direction: column;
 
         height: 75vh;
+
+        background: var(--color-white);
+        border-radius: var(--border-radius);
+        box-shadow: var(--drop-shadow);
+    }
+
+    &__list-header {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        justify-items: center;
+        align-items: center;
+
+        height: 50px;
+
+        border-bottom: 1px solid var(--color-grey);
     }
 
     &__month {
         display: grid;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-rows: repeat(6, 1fr);
 
         width: 100%;
-
-        background: var(--color-white);
-        border-radius: var(--border-radius);
-        box-shadow: var(--drop-shadow);
+        height: 100%;
     }
 
     &__days {
@@ -32,10 +45,27 @@
         justify-content: flex-end;
 
         padding: 1.5rem;
-        border: 1px solid var(--color-grey-light);
+        border-bottom: 1px solid var(--color-grey);
+        border-right: 1px solid var(--color-grey);
+
+        &:nth-child(7n) {
+            border-right: none;
+        }
+
+        &:nth-child(n+36) {
+            border-bottom: none;
+        }
     }
 
     &__days-title {
         color: var(--color-grey-dark);
     }
+
+    &__day-name {
+        color: var(--color-grey-dark);
+    }
+}
+
+.inactive {
+    background: var(--color-grey-light);
 }
