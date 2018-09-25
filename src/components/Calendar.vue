@@ -34,7 +34,9 @@
                     v-for="day in monthDays"
                     :key="day.id">
 
-                    <p class="calendar__days-title">
+                    <p
+                        class="calendar__days-title"
+                        :class="{ 'active-day': isSameDay(day) }">
                         {{ day | date('D') }}
                     </p>
 
@@ -93,6 +95,16 @@
             const today = moment();
 
             if (moment(date).isSame(today, 'month')) {
+                return true;
+            }
+
+            return false;
+        }
+
+        private isSameDay(date: Date) {
+            const today = moment();
+
+            if (moment(date).isSame(today, 'day')) {
                 return true;
             }
 

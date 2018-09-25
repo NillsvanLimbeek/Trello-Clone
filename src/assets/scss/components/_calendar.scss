@@ -44,7 +44,7 @@
         display: flex;
         justify-content: flex-end;
 
-        padding: 1.5rem;
+        padding: .5rem;
         border-bottom: 1px solid var(--color-grey);
         border-right: 1px solid var(--color-grey);
 
@@ -58,6 +58,11 @@
     }
 
     &__days-title {
+        @include flex-center;
+        align-self: flex-start;
+
+        padding: 7px;
+        border-radius: 50%;
         color: var(--color-grey-dark);
     }
 
@@ -68,4 +73,9 @@
 
 .inactive {
     background: var(--color-grey-light);
+}
+
+.active-day {
+    color: var(--color-white);
+    background: var(--label-blue);
 }

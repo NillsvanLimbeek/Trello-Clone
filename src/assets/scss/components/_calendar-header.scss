@@ -61,6 +61,17 @@
         color: var(--color-grey-dark);
     }
 
+    &__month {
+        @include flex-center-align;
+    }
+
+    &__arrow {
+        fill: var(--color-grey-dark);
+        margin-left: 1rem;
+        width: 1rem;
+        transform: rotate(90deg);
+    }
+
     &__right {
         display: flex;
     }
