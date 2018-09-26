@@ -1,0 +1,47 @@
+.calendar-week {
+    height: 93%;
+
+    &__list-header {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        justify-items: center;
+        align-items: center;
+
+        height: 50px;
+
+        border-bottom: 1px solid var(--color-grey);
+    }
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+
+        height: 100%;
+    }
+
+    &__days {
+        display: flex;
+        justify-content: flex-end;
+
+        padding: .5rem;
+        border-right: 1px solid var(--color-grey);
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    &__days-title {
+        @include flex-center;
+        align-self: flex-start;
+
+        padding: 7px;
+        border-radius: 50%;
+        color: var(--color-grey-dark);
+    }
+}
+
+.active-day {
+    color: var(--color-white);
+    background: var(--label-blue);
+}
