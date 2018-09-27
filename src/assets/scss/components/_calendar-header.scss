@@ -61,8 +61,26 @@
         color: var(--color-grey-dark);
     }
 
+    &__month-picker {
+        @include flex-center-align;
+        flex-direction: column;
+    }
+
     &__month {
         @include flex-center-align;
+        margin-bottom: .25rem;
+
+        & > p {
+            font-size: 1.75rem;
+            font-weight: 500;
+        }
+    }
+
+    &__year {
+        font-size: 1.4rem;
+        font-weight: 500;
+
+        color: var(--color-grey-dark);
     }
 
     &__arrow {

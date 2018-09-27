@@ -40,16 +40,23 @@
             </div>
         </div>
 
-        <div class="calendar-header__month">
-            September
+        <div class="calendar-header__month-picker">
 
-            <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 42 42"
-                class="calendar-header__arrow">
-                
-                <path d="M36.1 20.2l-29-20C6.8 0 6.4-0.1 6 0.1 5.7 0.3 5.5 0.6 5.5 1v40c0 0.4 0.2 0.7 0.5 0.9 0.1 0.1 0.3 0.1 0.5 0.1 0.2 0 0.4-0.1 0.6-0.2l29-20c0.3-0.2 0.4-0.5 0.4-0.8S36.3 20.4 36.1 20.2z"/>
-            </svg>
+            <div class="calendar-header__month">
+
+                <p>{{ currentDate | date('MMMM') }}</p>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 42 42"
+                    class="calendar-header__arrow">
+
+                    <path d="M36.1 20.2l-29-20C6.8 0 6.4-0.1 6 0.1 5.7 0.3 5.5 0.6 5.5 1v40c0 0.4 0.2 0.7 0.5 0.9 0.1 0.1 0.3 0.1 0.5 0.1 0.2 0 0.4-0.1 0.6-0.2l29-20c0.3-0.2 0.4-0.5 0.4-0.8S36.3 20.4 36.1 20.2z"/>
+                </svg>
+            </div>
+
+            <p class="calendar-header__year">{{ currentDate | date('YYYY') }}</p>
+
         </div>
 
         <div class="calendar-header__right">
@@ -101,6 +108,8 @@
 
     import { BoardView, CalendarView } from '@/data/enums/enum';
 
+    import * as moment from 'moment';
+
     @Component({})
 
     export default class CalendarHeader extends Vue {
@@ -109,6 +118,8 @@
 
         @Getter('getCurrentView') private currentView!: BoardView;
         @Getter('getCalendarView') private calendarView!: CalendarView;
+
+        private currentDate = moment.now();
 
         private changeCurrentView(newView: BoardView) {
             this.$store.dispatch('setCurrentView', newView);
