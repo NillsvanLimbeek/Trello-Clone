@@ -31,8 +31,6 @@
     import { Route } from 'vue-router';
     import { State, Getter } from 'vuex-class';
 
-    import Draggable from 'vuedraggable';
-
     import Column from './Column.vue';
     import BoardHeader from './BoardHeader.vue';
 
@@ -43,7 +41,6 @@
         components: {
             Column,
             BoardHeader,
-            Draggable,
         },
     })
 

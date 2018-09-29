@@ -56,8 +56,6 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Action } from 'vuex-class';
 
-    import draggable from 'vuedraggable';
-
     import Dropdown from './Dropdown.vue';
     import Item from './Item.vue';
 
@@ -68,7 +66,6 @@
         components: {
             Item,
             Dropdown,
-            draggable,
         },
     })
 
