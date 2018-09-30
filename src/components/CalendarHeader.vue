@@ -106,7 +106,7 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { BoardView, CalendarView } from '@/data/enums/enum';
+    import { BoardView, CalendarView } from '@enums/enum';
 
     import * as moment from 'moment';
 

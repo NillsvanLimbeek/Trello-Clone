@@ -25,9 +25,9 @@
 
     import BoardsBtn from './header/BoardsBtn.vue';
     import UserMenuBtn from './header/UserMenuBtn.vue';
-    import Search from '@/components/Search.vue';
-    import UserBtn from '@/components/user/UserBtn.vue';
-    import NotificationsBtn from '@/components/notifications/NotificationsBtn.vue';
+    import Search from '@components/Search.vue';
+    import UserBtn from '@components/user/UserBtn.vue';
+    import NotificationsBtn from '@components/notifications/NotificationsBtn.vue';
 
     @Component({
         components: {

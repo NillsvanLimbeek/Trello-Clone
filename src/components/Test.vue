@@ -8,10 +8,9 @@
     import { Vue, Component } from 'vue-property-decorator';
     import { State, Getter } from 'vuex-class';
 
-    import { BoardsState } from '@/store/state/state';
+    import { BoardsState } from '@state/state';
 
-
-    import Board from '@/components/Board.vue';
+    import Board from '@components/Board.vue';
 
     @Component({
         components: {

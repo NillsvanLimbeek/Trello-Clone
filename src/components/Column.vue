@@ -36,14 +36,14 @@
             </transition>
         </div>
 
-        <draggable v-model="getAllItems">
+        <!-- <draggable v-model="getAllItems"> -->
             <Item v-for="item in getAllItems"
                 :key="item.id"
                 :itemId="item.id"
                 :columnId="columnId">
                 <p class="item__input">{{ item.title }}</p>
             </Item>
-        </draggable>
+        <!-- </draggable> -->
 
         <div class="column__add-item"
              @click="addItem">
@@ -56,11 +56,11 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Action } from 'vuex-class';
 
-    import Dropdown from './Dropdown.vue';
-    import Item from './Item.vue';
+    import Dropdown from '@components/Dropdown.vue';
+    import Item from '@components/Item.vue';
 
-    import { ItemState } from '@/store/state/state';
-    import { IItem, IColumn } from '@/data/models/types';
+    import { ItemState } from '@state/state';
+    import { IItem, IColumn } from '@models/types';
 
     @Component({
         components: {

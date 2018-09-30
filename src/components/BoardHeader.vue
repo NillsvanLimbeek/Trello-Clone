@@ -74,7 +74,7 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { BoardView } from '@/data/enums/enum';
+    import { BoardView } from '@enums/enum';
 
     @Component({})
 

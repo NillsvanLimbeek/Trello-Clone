@@ -16,7 +16,7 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { IBoard } from '@/data/models/types';
+    import { IBoard } from '@models/types';
 
     import BoardItem from './BoardItem.vue';
 

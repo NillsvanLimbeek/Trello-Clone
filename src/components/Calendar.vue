@@ -13,13 +13,13 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { CalendarView } from '@/data/enums/enum';
+    import { CalendarView } from '@enums/enum';
 
     import * as moment from 'moment';
 
-    import CalendarHeader from '@/components/CalendarHeader.vue';
-    import CalendarMonth from '@/components/CalendarMonth.vue';
-    import CalendarWeek from '@/components/CalendarWeek.vue';
+    import CalendarHeader from '@components/CalendarHeader.vue';
+    import CalendarMonth from '@components/CalendarMonth.vue';
+    import CalendarWeek from '@components/CalendarWeek.vue';
 
     @Component({
         components: {

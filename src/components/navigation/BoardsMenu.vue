@@ -41,10 +41,10 @@
     import { Vue, Component } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { IBoard } from '@/data/models/types';
+    import { IBoard } from '@models/types';
 
-    import Search from '@/components/Search.vue';
-    import BoardsList from '@/components/boardsMenu/BoardsList.vue';
+    import Search from '@components/Search.vue';
+    import BoardsList from '@components/boardsMenu/BoardsList.vue';
 
     @Component({
         components: {

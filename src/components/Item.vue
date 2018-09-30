@@ -38,11 +38,12 @@
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Getter } from 'vuex-class';
-    import { ItemState } from '@/store/state/state';
-    import { IItem } from '@/data/models/types';
 
-    import Dropdown from './Dropdown.vue';
-    import CardColorLabel from './CardColorLabel.vue';
+    import { ItemState } from '@state/state';
+    import { IItem } from '@models/types';
+
+    import Dropdown from '@components/Dropdown.vue';
+    import CardColorLabel from '@components/CardColorLabel.vue';
 
     @Component({
         components: {

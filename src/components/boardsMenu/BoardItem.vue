@@ -47,7 +47,7 @@
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
 
-    import { IBoard } from '@/data/models/types';
+    import { IBoard } from '@models/types';
 
     @Component({})
 

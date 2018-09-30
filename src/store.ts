@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import { items } from './store/items';
-import { columns } from './store/columns';
-import { sidebar } from './store/sidebar';
-import { boards } from './store/boards';
-import { calendar } from './store/calendar';
+import { items } from '@store/items';
+import { columns } from '@store/columns';
+import { sidebar } from '@store/sidebar';
+import { boards } from '@store/boards';
+import { calendar } from '@store/calendar';
 
-import { IItem } from '@/data/models/types';
+import { IItem } from '@models/types';
 
 Vue.use(Vuex);
 

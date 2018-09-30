@@ -1,10 +1,10 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { BoardView } from '../data/enums/enum';
+import { BoardView } from '@enums/enum';
 
-import { RootState } from '@/store/state/rootState';
-import { BoardsState } from '@/store/state/state';
-import { IBoard } from '@/data/models/types';
+import { RootState } from '@state/rootState';
+import { BoardsState } from '@state/state';
+import { IBoard } from '@models/types';
 
 const state: BoardsState = {
     boards: [

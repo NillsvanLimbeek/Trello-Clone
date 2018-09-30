@@ -1,8 +1,8 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { RootState } from '@/store/state/rootState';
-import { ColumnState } from '@/store/state/state';
-import { IColumn, IItem } from '@/data/models/types';
+import { RootState } from '@state/rootState';
+import { ColumnState } from '@state/state';
+import { IColumn, IItem } from '@models/types';
 
 // state
 const state: ColumnState = {

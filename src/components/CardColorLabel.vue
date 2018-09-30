@@ -16,7 +16,7 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State } from 'vuex-class';
 
-    import { IItem } from '@/data/models/types';
+    import { IItem } from '@models/types';
 
     @Component({})
 

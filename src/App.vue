@@ -17,12 +17,12 @@
     import { Vue, Component } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { BoardView } from '@/data/enums/enum';
+    import { BoardView } from '@enums/enum';
 
-    import BoardsMenu from '@/components/navigation/BoardsMenu.vue';
-    import Header from '@/components/navigation/Header.vue';
-    import UserMenu from '@/components/navigation/UserMenu.vue';
-    import Calendar from '@/components/Calendar.vue';
+    import BoardsMenu from '@components/navigation/BoardsMenu.vue';
+    import Header from '@components/navigation/Header.vue';
+    import UserMenu from '@components/navigation/UserMenu.vue';
+    import Calendar from '@components/Calendar.vue';
 
     @Component({
         components: {

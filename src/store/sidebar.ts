@@ -1,8 +1,8 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { RootState } from '@/store/state/rootState';
-import { SidebarState } from '@/store/state/state';
-import { ISidebar } from '@/data/models/types';
+import { RootState } from '@state/rootState';
+import { SidebarState } from '@state/state';
+import { ISidebar } from '@models/types';
 
 const state: SidebarState = {
     sidebar: {

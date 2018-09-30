@@ -5,16 +5,16 @@
 
         <div class="board__board-list">
 
-            <Draggable
+            <!-- <Draggable
                 v-model="getAllColumns"
-                class="board__list">
+                class="board__list"> -->
                 <Column v-for="column in getAllColumns"
                         :key="column.id"
                         :columnId="column.id"
                         :state="column.state">
                     <input class="column__input" type="text" v-model="column.title">
                 </Column>
-            </Draggable>
+            <!-- </Draggable> -->
 
             <div class="board__add-button"
                 @click="addColumn">
@@ -34,8 +34,8 @@
     import Column from './Column.vue';
     import BoardHeader from './BoardHeader.vue';
 
-    import { ColumnState, BoardsState } from '@/store/state/state';
-    import { IItem, IColumn, IBoard } from '@/data/models/types';
+    import { ColumnState, BoardsState } from '@state/state';
+    import { IItem, IColumn, IBoard } from '@models/types';
 
     @Component({
         components: {
