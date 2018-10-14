@@ -40,7 +40,9 @@
             <Item v-for="item in getAllItems"
                 :key="item.id"
                 :itemId="item.id"
-                :columnId="columnId">
+                :columnId="columnId"
+                @open-modal="openModal">
+
                 <p class="item__input">{{ item.title }}</p>
             </Item>
         <!-- </draggable> -->
@@ -49,6 +51,12 @@
              @click="addItem">
             <p>Add Card</p>
         </div>
+
+        <Modal
+            v-if="showModal"
+            @close="showModal = false"
+        />
+
     </div>
 </template>
 
@@ -58,29 +66,28 @@
 
     import Dropdown from '@components/Dropdown.vue';
     import Item from '@components/Item.vue';
+    import Modal from './modal/Modal.vue';
 
     import { ItemState } from '@state/state';
     import { IItem, IColumn } from '@models/types';
 
     @Component({
         components: {
-            Item,
             Dropdown,
+            Item,
+            Modal,
         },
     })
 
     export default class Column extends Vue {
-        // props
         @Prop(Number) private columnId!: number;
         @Prop(String) private state!: string;
 
-        // state
         @State('items') private items!: ItemState;
 
-        // data
         private columnDropdown = false;
+        private showModal = false;
 
-        // computed
         public get getAllItems() {
             return this.$store.getters.getAllItems(this.columnId);
         }
@@ -96,9 +103,12 @@
             return items.filter((item: IItem) => column === item.columnId);
         }
 
-        // methods
         private openDropdown() {
             this.columnDropdown = !this.columnDropdown;
+        }
+
+        private openModal() {
+            this.showModal = true;
         }
 
         private addItem() {

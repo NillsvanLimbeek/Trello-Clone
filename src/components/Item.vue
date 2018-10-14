@@ -1,5 +1,7 @@
 <template>
-    <div class="item">
+    <div 
+        class="item"
+        @click="openModal">
 
         <div
             class="item__labels"
@@ -42,13 +44,15 @@
     import { ItemState } from '@state/state';
     import { IItem } from '@models/types';
 
-    import Dropdown from '@components/Dropdown.vue';
     import CardColorLabel from '@components/CardColorLabel.vue';
+    import Dropdown from '@components/Dropdown.vue';
+    import Modal from './modal/Modal.vue';
 
     @Component({
         components: {
-            Dropdown,
             CardColorLabel,
+            Dropdown,
+            Modal,
         },
     })
 
@@ -69,6 +73,10 @@
 
         private deleteElement() {
             this.$store.dispatch('deleteElements', { type: 'item', id: this.itemId });
+        }
+
+        private openModal() {
+            this.$emit('open-modal');
         }
 
         // computed
