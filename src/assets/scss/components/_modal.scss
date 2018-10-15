@@ -2,6 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
 
     display: flex;
     justify-content: center;
@@ -10,9 +11,44 @@
     height: 100%;
     width: 100%;
 
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
+
+    transition: var(--transition-3);
 }
 
 .modal {
+    position: relative;
 
+    width: 75rem;
+    height: 50rem;
+
+    background: var(--color-white);
+
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--drop-shadow);
+    transition: var(--transition-3);
+
+    &__close-icon {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+
+        width: 1.5rem;
+        fill: var(--color-grey);
+        cursor: pointer;
+        transition: var(--transition-3);
+
+        &:hover {
+            fill: var(--color-black);
+        }
+    }
+}
+
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-leave-active {
+    opacity: 0;
 }
