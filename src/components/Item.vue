@@ -83,10 +83,6 @@
             this.$store.dispatch('deleteElements', { type: 'item', id: this.itemId });
         }
 
-        private openModal() {
-            this.$emit('open-modal');
-        }
-
         // computed
         private get getColorlabels() {
             const item: IItem = this.$store.getters.getItem(this.itemId);
@@ -96,12 +92,6 @@
         private get getAttachment() {
             const item: IItem = this.$store.getters.getItem(this.itemId);
             return item.attachment;
-        }
-
-        private mounted() {
-            EventBus.$on('close-modal', () => {
-                this.showModal = false;
-            });
         }
     }
 </script>
