@@ -52,10 +52,7 @@
             <p>Add Card</p>
         </div>
 
-        <Modal
-            v-if="showModal"
-            @close="showModal = false"
-        />
+
 
     </div>
 </template>
@@ -66,7 +63,6 @@
 
     import Dropdown from '@components/Dropdown.vue';
     import Item from '@components/Item.vue';
-    import Modal from './modal/Modal.vue';
 
     import { ItemState } from '@state/state';
     import { IItem, IColumn } from '@models/types';
@@ -75,7 +71,6 @@
         components: {
             Dropdown,
             Item,
-            Modal,
         },
     })
 

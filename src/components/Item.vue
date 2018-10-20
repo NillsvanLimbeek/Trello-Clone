@@ -1,7 +1,7 @@
 <template>
-    <div 
+    <div
         class="item"
-        @click="openModal">
+        @click="showModal = true">
 
         <div
             class="item__labels"
@@ -34,12 +34,19 @@
             <p class="item__attachments-number">{{ getAttachment }}</p>
         </div>
 
+        <Modal
+            v-if="showModal"
+            @close-modal="showModal = false"
+        />
+
     </div>
 </template>
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Getter } from 'vuex-class';
+
+    import { EventBus } from '@/eventBus';
 
     import { ItemState } from '@state/state';
     import { IItem } from '@models/types';
@@ -65,6 +72,7 @@
 
         // data
         private itemDropdown = false;
+        private showModal = false;
 
         // methods
         private openDropdown() {
@@ -88,6 +96,12 @@
         private get getAttachment() {
             const item: IItem = this.$store.getters.getItem(this.itemId);
             return item.attachment;
+        }
+
+        private mounted() {
+            EventBus.$on('close-modal', () => {
+                this.showModal = false;
+            });
         }
     }
 </script>
