@@ -51,7 +51,10 @@
             <p>Add Card</p>
         </div>
 
-        <Modal v-if="showModal" />
+        <Modal
+            v-if="showModal"
+            :id="itemId"
+        />
 
     </div>
 </template>
@@ -85,6 +88,7 @@
 
         private columnDropdown = false;
         private showModal = false;
+        private itemId!: number;
 
         public get getAllItems() {
             return this.$store.getters.getAllItems(this.columnId);
@@ -106,7 +110,7 @@
         }
 
         private openModal(id: number) {
-            console.log(id);
+            this.itemId = id;
             this.showModal = true;
         }
 

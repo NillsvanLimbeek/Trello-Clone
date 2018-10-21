@@ -14,13 +14,15 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
+    import { Vue, Component, Prop } from 'vue-property-decorator';
 
     import { EventBus } from '@/eventBus';
 
     @Component({})
 
     export default class Modal extends Vue {
+        @Prop({ required: true }) private id!: number;
+
         private closeModal() {
             EventBus.$emit('close-modal');
         }
