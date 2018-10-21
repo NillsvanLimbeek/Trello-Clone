@@ -36,23 +36,22 @@
             </transition>
         </div>
 
-        <!-- <draggable v-model="getAllItems"> -->
-            <Item v-for="item in getAllItems"
-                :key="item.id"
-                :itemId="item.id"
-                :columnId="columnId"
-                @open-modal="openModal">
+        <Item
+            v-for="item in getAllItems"
+            :key="item.id"
+            :itemId="item.id"
+            :columnId="columnId"
+            @open-modal="openModal(item.id)">
 
-                <p class="item__input">{{ item.title }}</p>
-            </Item>
-        <!-- </draggable> -->
+            <p class="item__input">{{ item.title }}</p>
+        </Item>
 
         <div class="column__add-item"
              @click="addItem">
             <p>Add Card</p>
         </div>
 
-
+        <Modal v-if="showModal" />
 
     </div>
 </template>
@@ -61,6 +60,9 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { State, Action } from 'vuex-class';
 
+    import { EventBus } from '@/eventBus';
+
+    import Modal from './modal/Modal.vue';
     import Dropdown from '@components/Dropdown.vue';
     import Item from '@components/Item.vue';
 
@@ -71,6 +73,7 @@
         components: {
             Dropdown,
             Item,
+            Modal,
         },
     })
 
@@ -102,7 +105,8 @@
             this.columnDropdown = !this.columnDropdown;
         }
 
-        private openModal() {
+        private openModal(id: number) {
+            console.log(id);
             this.showModal = true;
         }
 
@@ -127,6 +131,12 @@
 
         private deleteElement() {
             this.$store.dispatch('deleteElements', { type: 'column', id: this.columnId });
+        }
+
+        private mounted() {
+            EventBus.$on('close-modal', () => {
+                this.showModal = false;
+            });
         }
     }
 </script>

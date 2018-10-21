@@ -1,7 +1,7 @@
 <template>
     <div
         class="item"
-        @click="showModal = true">
+        @click="$emit('open-modal')">
 
         <div
             class="item__labels"
@@ -34,11 +34,6 @@
             <p class="item__attachments-number">{{ getAttachment }}</p>
         </div>
 
-        <Modal
-            v-if="showModal"
-            @close-modal="showModal = false"
-        />
-
     </div>
 </template>
 
@@ -53,13 +48,11 @@
 
     import CardColorLabel from '@components/CardColorLabel.vue';
     import Dropdown from '@components/Dropdown.vue';
-    import Modal from './modal/Modal.vue';
 
     @Component({
         components: {
             CardColorLabel,
             Dropdown,
-            Modal,
         },
     })
 
@@ -72,7 +65,7 @@
 
         // data
         private itemDropdown = false;
-        private showModal = false;
+        private modal = false;
 
         // methods
         private openDropdown() {
