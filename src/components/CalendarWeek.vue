@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
+    import { Vue, Component } from '@/vue-script';
 
     import moment from 'moment';
 

@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
+    import { Vue, Component } from '@/vue-script';
 
     import BoardsBtn from './header/BoardsBtn.vue';
     import UserMenuBtn from './header/UserMenuBtn.vue';

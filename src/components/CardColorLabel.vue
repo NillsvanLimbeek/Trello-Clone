@@ -13,8 +13,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State } from 'vuex-class';
+    import { Vue, Component, Prop } from '@/vue-script';
 
     import { IItem } from '@models/types';
 

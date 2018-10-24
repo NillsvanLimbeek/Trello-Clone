@@ -38,9 +38,8 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from 'vue-property-decorator';
+    import { Vue, Component, Prop, State, Getter } from '@/vue-script';
     import { Route } from 'vue-router';
-    import { State, Getter } from 'vuex-class';
 
     import { EventBus } from '@/eventBus';
 

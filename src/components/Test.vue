@@ -5,8 +5,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
-    import { State, Getter } from 'vuex-class';
+    import { Vue, Component, State } from '@/vue-script';
 
     import { BoardsState } from '@state/state';
 

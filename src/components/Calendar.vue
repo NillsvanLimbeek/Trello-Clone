@@ -10,8 +10,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { Getter } from 'vuex-class';
+    import { Vue, Component, Prop, Getter } from '@/vue-script';
 
     import { CalendarView } from '@enums/enum';
 

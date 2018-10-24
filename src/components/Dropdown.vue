@@ -22,16 +22,13 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
+    import { Vue, Component, Prop } from '@/vue-script';
 
     @Component({})
 
     export default class Dropdown extends Vue {
         // props
-        @Prop(String) private type!: string;
-
-        @Emit() private close() {}
-        @Emit() private globalDelete() {}
+        @Prop() private type!: string;
     }
 
 </script>

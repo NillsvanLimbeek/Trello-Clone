@@ -54,8 +54,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { State, Action } from 'vuex-class';
+    import { Vue, Component, Prop, State } from '@/vue-script';
 
     import { EventBus } from '@/eventBus';
 
