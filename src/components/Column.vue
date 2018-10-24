@@ -32,16 +32,15 @@
                 <Dropdown
                     v-if="columnDropdown"
                     type="column"
-                    @global-delete="deleteElement"/>
+                />
             </transition>
         </div>
 
         <Item
-            v-for="item in getAllItems"
+            v-for="item in filterItems"
             :key="item.id"
             :itemId="item.id"
-            :columnId="columnId"
-            @open-modal="openModal(item.id)">
+            :columnId="columnId">
 
             <p class="item__input">{{ item.title }}</p>
         </Item>
@@ -50,11 +49,6 @@
              @click="addItem">
             <p>Add Card</p>
         </div>
-
-        <Modal
-            v-if="showModal"
-            :id="itemId"
-        />
 
     </div>
 </template>
@@ -65,7 +59,6 @@
 
     import { EventBus } from '@/eventBus';
 
-    import Modal from './modal/Modal.vue';
     import Dropdown from '@components/Dropdown.vue';
     import Item from '@components/Item.vue';
 
@@ -76,27 +69,16 @@
         components: {
             Dropdown,
             Item,
-            Modal,
         },
     })
 
     export default class Column extends Vue {
-        @Prop(Number) private columnId!: number;
-        @Prop(String) private state!: string;
+        @Prop() private columnId!: number;
+        @Prop() private state!: string;
 
         @State('items') private items!: ItemState;
 
         private columnDropdown = false;
-        private showModal = false;
-        private itemId!: number;
-
-        public get getAllItems() {
-            return this.$store.getters.getAllItems(this.columnId);
-        }
-
-        public set getAllItems(value: IItem[]) {
-            this.$store.commit('setItems', value);
-        }
 
         private get filterItems() {
             const { items } = this.items;
@@ -109,38 +91,8 @@
             this.columnDropdown = !this.columnDropdown;
         }
 
-        private openModal(id: number) {
-            this.itemId = id;
-            this.showModal = true;
-        }
-
         private addItem() {
-            const randomId = this.randomId();
-
-            const newItem: IItem = {
-                title: 'Item',
-                columnId: this.columnId,
-                id: randomId,
-                colorLabels: [],
-                members: [],
-                attachment: 0,
-            };
-
-            this.$store.dispatch('addItem', newItem);
-        }
-
-        private randomId() {
-            return Math.ceil(Math.random() * 1000);
-        }
-
-        private deleteElement() {
-            this.$store.dispatch('deleteElements', { type: 'column', id: this.columnId });
-        }
-
-        private mounted() {
-            EventBus.$on('close-modal', () => {
-                this.showModal = false;
-            });
+            this.$emit('add-item', this.columnId);
         }
     }
 </script>

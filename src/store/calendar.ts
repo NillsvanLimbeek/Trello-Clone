@@ -26,16 +26,16 @@ const getters: GetterTree<CalendarState, any> = {
 
 // mutations
 const mutations: MutationTree<CalendarState> = {
-    changeCalendarView: (state, newCalendar: CalendarView) => {
-        state.calendarView = newCalendar;
+    changeCalendarView: (state, newCalendarView: CalendarView) => {
+        state.calendarView = newCalendarView;
     },
 
 };
 
 // actions
 const actions: ActionTree<CalendarState, RootState> = {
-    setCurrentCalendar({ commit }, newCalendar: CalendarView) {
-        commit('changeCalendarView', newCalendar);
+    setCurrentCalendar({ commit }, newCalendarView: CalendarView) {
+        commit('changeCalendarView', newCalendarView);
     },
 
 };

@@ -1,7 +1,7 @@
 <template>
     <div
         class="item"
-        @click="$emit('open-modal')">
+        @click="openModal">
 
         <div
             class="item__labels"
@@ -60,23 +60,11 @@
         // props
         @Prop() private itemId!: number;
 
-        // state
         @State('items') private items!: ItemState;
 
-        // data
         private itemDropdown = false;
         private modal = false;
 
-        // methods
-        private openDropdown() {
-            this.itemDropdown = !this.itemDropdown;
-        }
-
-        private deleteElement() {
-            this.$store.dispatch('deleteElements', { type: 'item', id: this.itemId });
-        }
-
-        // computed
         private get getColorlabels() {
             const item: IItem = this.$store.getters.getItem(this.itemId);
             return item.colorLabels;
@@ -85,6 +73,14 @@
         private get getAttachment() {
             const item: IItem = this.$store.getters.getItem(this.itemId);
             return item.attachment;
+        }
+
+        private openDropdown() {
+            this.itemDropdown = !this.itemDropdown;
+        }
+
+        private openModal() {
+            EventBus.$emit('open-modal', this.itemId);
         }
     }
 </script>

@@ -4,13 +4,13 @@
             <div
                 class="board-header__svg"
                 :style="{
-                    background: board.color,
-                    boxShadow: boxShadow + board.colorFaded
+                    background: boardHeader.color,
+                    boxShadow: boxShadow + boardHeader.colorFaded
                     }">
             </div>
 
             <div class="board-header__info">
-                <p class="board-header__title">{{ board.title }}</p>
+                <p class="board-header__title">{{ boardHeader.title }}</p>
                 <p class="board-header__board-owner">Personal</p>
             </div>
 
@@ -83,12 +83,12 @@
 
         @Getter('getCurrentView') private currentView!: BoardView;
 
-        @Prop() private board!: object;
+        @Prop() private boardHeader!: object;
 
         private boxShadow = `0 .5rem 3rem .1rem`;
 
         private changeCurrentView(newView: BoardView) {
-            this.$store.dispatch('setCurrentView', newView);
+            this.$emit('change-view', newView);
         }
     }
 </script>
