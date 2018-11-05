@@ -50,6 +50,10 @@ const getters: GetterTree<ColumnState, any> = {
     getAllColumns: (state) => (boardId: number) => {
         return state.columns.filter((column) => column.boardId === boardId);
     },
+
+    getColumn: (state) => (columnId: number) => {
+        return state.columns.find((column) => column.id === columnId);
+    },
 };
 
 // mutations

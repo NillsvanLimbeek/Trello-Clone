@@ -47,6 +47,11 @@
             fill: var(--color-black);
         }
     }
+
+    &__list-name {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
 
 .modal-enter {

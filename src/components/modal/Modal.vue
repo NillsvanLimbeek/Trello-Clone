@@ -18,6 +18,10 @@
                     type="text"
                     class="column__input"
                     :placeholder="modal.title">
+
+                <p>
+                    In list <span class="modal__list-name">{{ column.title }}</span>
+                </p>
             </div>
         </div>
     </transition>
@@ -26,7 +30,7 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
-    import { IItem } from '@data/models/types';
+    import { IItem, IColumn } from '@data/models/types';
     import { EventBus } from '@/eventBus';
 
     @Component({})
@@ -41,6 +45,12 @@
         private get modal() {
             const item: IItem = this.$store.getters.getItem(this.id);
             return item;
+        }
+
+        private get column() {
+            const { columnId } = this.modal;
+            const column: IColumn = this.$store.getters.getColumn(columnId);
+            return column;
         }
     }
 </script>
