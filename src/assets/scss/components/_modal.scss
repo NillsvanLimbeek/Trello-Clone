@@ -23,6 +23,16 @@
     transform: translateX(-50%) translateY(-50%);
     z-index: 200;
 
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas:
+        "title card-actions"
+        "labels card-actions"
+        "description card-actions"
+        "comments card-actions"
+        "activity card-actions";
+
     width: 75rem;
     height: 50rem;
 
@@ -52,12 +62,25 @@
         text-decoration: underline;
         cursor: pointer;
     }
-}
 
-.modal-enter {
-    opacity: 0;
-}
+    // modal areas
+    &__title {
+        grid-area: title;
+    }
 
-.modal-leave-active {
-    opacity: 0;
+    &__labels {
+        grid-area: labels;
+    }
+
+    &__description {
+        grid-area: description;
+    }
+
+    &__comments {
+        grid-area: comments;
+    }
+
+    &__card-actions {
+        grid-area: card-actions;
+    }
 }
