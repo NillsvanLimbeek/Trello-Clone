@@ -7,26 +7,32 @@
         />
 
         <div class="board__board-list">
+            <transition-group
+                name="add-column"
+                tag="div"
+                class="flex">
 
-            <Column
-                v-for="column in getAllColumns"
-                :key="column.id"
-                :columnId="column.id"
-                :state="column.state"
-                @add-item="addItem">
+                <Column
+                    class="add-column-item"
+                    v-for="column in getAllColumns"
+                    :key="column.id"
+                    :columnId="column.id"
+                    :state="column.state"
+                    @add-item="addItem">
 
-                <input class="column__input" type="text" v-model="column.title">
+                    <input class="column__input" type="text" v-model="column.title">
 
-            </Column>
+                </Column>
 
-            <div
-                class="board__add-button"
-                @click="addColumn">
+                <div
+                    class="board__add-button add-column-item"
+                    @click="addColumn"
+                    key="addButton">
 
-                <p>Add List</p>
+                    <p>Add List</p>
 
-            </div>
-
+                </div>
+            </transition-group>
         </div>
 
         <Modal
@@ -138,3 +144,4 @@
         }
     }
 </script>
+

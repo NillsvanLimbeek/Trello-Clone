@@ -36,19 +36,28 @@
             </transition>
         </div>
 
-        <Item
-            v-for="item in filterItems"
-            :key="item.id"
-            :itemId="item.id"
-            :columnId="columnId">
+        <transition-group
+            name="add-item"
+            tag="div">
 
-            <p class="item__input">{{ item.title }}</p>
-        </Item>
+            <Item
+                class="add-item-item"
+                v-for="item in filterItems"
+                :key="item.id"
+                :itemId="item.id"
+                :columnId="columnId">
 
-        <div class="column__add-item"
-             @click="addItem">
-            <p>Add Card</p>
-        </div>
+                <p class="item__input">{{ item.title }}</p>
+            </Item>
+
+            <div
+                class="column__add-item add-item-item"
+                key="addButton"
+                @click="addItem">
+
+                <p>Add Card</p>
+            </div>
+        </transition-group>
 
     </div>
 </template>

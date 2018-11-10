@@ -16,3 +16,35 @@
 .modal-leave-active {
     opacity: 0;
 }
+
+// add column
+.add-column-item {
+    transition: all .5s;
+    margin-right: 1.5rem;
+}
+
+.add-column-enter,
+.add-column-leave-to {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.add-column-leave-active {
+    position: absolute;
+}
+
+// add item
+.add-item-item {
+    transition: all .5s;
+    // margin-right: 1.5rem;
+}
+
+.add-item-enter,
+.add-item-leave-to {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.add-item-leave-active {
+    position: absolute;
+}
