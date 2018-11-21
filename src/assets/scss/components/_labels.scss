@@ -1,0 +1,28 @@
+.labels {
+    display: flex;
+
+    &__color {
+        width: 4rem;
+        height: 4rem;
+
+        border: var(--border);
+        border-radius: 3px;
+        margin-right: 1rem;
+    }
+
+    &__add {
+        width: 4rem;
+        height: 4rem;
+
+        padding: 1rem;
+        border: var(--border);
+        border-radius: 3px;
+        cursor: pointer;
+        transition: var(--transition-3);
+
+        &:hover {
+            transition: var(--transition-3);
+            background: var(--color-grey-light);
+        }
+    }
+}

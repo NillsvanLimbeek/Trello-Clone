@@ -24,10 +24,10 @@
                     <div class="modal__content">
                         <input
                             type="text"
-                            class="column__input"
+                            class="modal__input"
                             :placeholder="modal.title">
 
-                        <p>
+                        <p class="modal__sub-title">
                             In list <span class="modal__list-name">{{ column.title }}</span>
                         </p>
                     </div>
@@ -44,7 +44,8 @@
                     </div>
 
                     <div class="modal__content">
-                        Labels
+                        <p class="modal__title">Labels</p>
+                        <Labels :labels="modal.colorLabels"/>
                     </div>
                 </div>
 
@@ -111,10 +112,16 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import Labels from './Labels.vue';
+
     import { IItem, IColumn } from '@data/models/types';
     import { EventBus } from '@/eventBus';
 
-    @Component({})
+    @Component({
+        components: {
+            Labels,
+        },
+    })
 
     export default class Modal extends Vue {
         @Prop({ required: true }) private id!: number;

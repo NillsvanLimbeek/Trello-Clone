@@ -63,6 +63,35 @@
         }
     }
 
+    &__input {
+        font-family: 'Raleway';
+        font-size: 1.6rem;
+        font-weight: 500;
+
+        width: 80%;
+
+        border-radius: .25rem;
+        padding: .75rem;
+        background: transparent;
+        border: 1px solid transparent;
+        transition:var(--transition);
+        transform: translate(-1rem, -8px);
+
+        &:focus {
+            border: 1px solid rgba(206, 206, 206, 0.5);
+            outline: none;
+        }
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+    }
+
+    &__sub-title {
+        font-size: 1.35rem;
+        transform: translateY(-7px);
+    }
+
     &__list-name {
         text-decoration: underline;
         cursor: pointer;
@@ -70,6 +99,7 @@
 
     &__content {
         padding-left: .75rem;
+        width: 100%;
     }
 
     // modal areas
