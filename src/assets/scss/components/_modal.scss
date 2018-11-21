@@ -43,6 +43,11 @@
     box-shadow: var(--drop-shadow);
     transition: var(--transition-3);
 
+    &__icon {
+        height: 100%;
+        margin-right: 1rem;
+    }
+
     &__close-icon {
         position: absolute;
         top: 2rem;
@@ -63,21 +68,34 @@
         cursor: pointer;
     }
 
+    &__content {
+        padding-left: .75rem;
+    }
+
     // modal areas
     &__title {
         grid-area: title;
+        display: flex;
     }
 
     &__labels {
         grid-area: labels;
+        display: flex;
     }
 
     &__description {
         grid-area: description;
+        display: flex;
     }
 
     &__comments {
         grid-area: comments;
+        display: flex;
+    }
+
+    &__activity {
+        grid-area: activity;
+        display: flex;
     }
 
     &__card-actions {
