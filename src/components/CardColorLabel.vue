@@ -2,12 +2,12 @@
     <div
         class="color-label"
         :class="{
-            'label-green': label === 1,
-            'label-yellow': label === 2,
-            'label-orange': label === 3,
-            'label-red': label === 4,
-            'label-purple': label === 5,
-            'label-blue': label === 6
+            'label-green': label === ColorLabel.Green,
+            'label-yellow': label === ColorLabel.Yellow,
+            'label-orange': label === ColorLabel.Orange,
+            'label-red': label === ColorLabel.Red,
+            'label-purple': label === ColorLabel.Purple,
+            'label-blue': label === ColorLabel.Blue
         }"
     />
 </template>
@@ -16,11 +16,13 @@
     import { Vue, Component, Prop } from '@/vue-script';
 
     import { IItem } from '@models/types';
+    import { ColorLabel } from '@enums/enum';
 
     @Component({})
 
     export default class CardColorLabel extends Vue {
-        // props
+        private ColorLabel: any = ColorLabel;
+
         @Prop() private label!: number;
     }
 </script>

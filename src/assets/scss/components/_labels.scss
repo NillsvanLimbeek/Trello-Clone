@@ -8,6 +8,31 @@
         border: var(--border);
         border-radius: 3px;
         margin-right: 1rem;
+        cursor: pointer;
+
+        &--label-green {
+            background: var(--label-green);
+        }
+
+        &--label-yellow {
+            background: var(--label-yellow);
+        }
+
+        &--label-orange {
+            background: var(--label-orange);
+        }
+
+        &--label-red {
+            background: var(--label-red);
+        }
+
+        &--label-purple {
+            background: var(--label-purple);
+        }
+
+        &--label-blue {
+            background: var(--label-blue);
+        }
     }
 
     &__add {
