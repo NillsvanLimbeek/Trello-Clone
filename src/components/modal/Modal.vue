@@ -5,11 +5,15 @@
                 class="modal"
                 v-click-outside="closeModal">
 
-                <IconClose class="modal__close-icon" @click="closeModal" />
+                <icon-base view-box="0 0 31.1 31.1" class="modal__close-icon" @click="closeModal">
+                    <icon-close />
+                </icon-base>
 
                 <div class="modal__title">
                     <div class="modal__icon">
-                        <IconFolder class="modal-icon"/>
+                        <icon-base view-box="0 0 60 60" class="modal-icon">
+                            <icon-folder />
+                        </icon-base>
                     </div>
 
                     <div class="modal__content">
@@ -26,7 +30,9 @@
 
                 <div class="modal__labels">
                     <div class="modal__icon">
-                        <IconLabel class="modal-icon" />
+                        <icon-base view-box="0 0 60 60" class="modal-icon">
+                            <icon-label />
+                        </icon-base>
                     </div>
 
                     <div class="modal__content">
@@ -37,7 +43,7 @@
 
                 <div class="modal__description">
                     <div class="modal__icon">
-                        <IconDescription class="modal-icon" />
+                        <!-- <IconDescription class="modal-icon" /> -->
                     </div>
 
                     <div class="modal__content">
@@ -47,7 +53,7 @@
 
                 <div class="modal__comments">
                     <div class="modal__icon">
-                        <IconComments class="modal-icon" />
+                        <!-- <IconComments class="modal-icon" /> -->
                     </div>
 
                     <div class="modal__content">
@@ -57,7 +63,7 @@
 
                 <div class="modal__activity">
                     <div class="modal__icon">
-                        <IconActivity class="modal-icon" />
+                        <!-- <IconActivity class="modal-icon" /> -->
                     </div>
 
                     <div class="modal__content">
@@ -75,14 +81,10 @@
     import { Vue, Component, Prop } from '@/vue-script';
 
     import Labels from './Labels.vue';
-    import {
-        IconClose,
-        IconFolder,
-        IconLabel,
-        IconDescription,
-        IconComments,
-        IconActivity,
-    } from '@components/icons';
+    import IconBase from '@components/icons/IconBase.vue';
+    import IconClose from '@components/icons/components/IconClose.vue';
+    import IconFolder from '@components/icons/components/IconFolder.vue';
+    import IconLabel from '@components/icons/components/IconLabel.vue';
 
     import { IItem, IColumn } from '@data/models/types';
     import { EventBus } from '@/eventBus';
@@ -90,12 +92,10 @@
     @Component({
         components: {
             Labels,
+            IconBase,
             IconClose,
             IconFolder,
             IconLabel,
-            IconDescription,
-            IconComments,
-            IconActivity,
         },
     })
 
