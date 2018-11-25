@@ -56,7 +56,6 @@
     })
 
     export default class Item extends Vue {
-        // props
         @Prop() private itemId!: number;
 
         @State('items') private items!: ItemState;

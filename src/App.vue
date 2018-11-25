@@ -22,7 +22,7 @@
     import BoardsMenu from '@components/navigation/BoardsMenu.vue';
     import Header from '@components/navigation/Header.vue';
     import UserMenu from '@components/navigation/UserMenu.vue';
-    import Calendar from '@components/Calendar.vue';
+    import Calendar from '@components/calendar/Calendar.vue';
 
     @Component({
         components: {

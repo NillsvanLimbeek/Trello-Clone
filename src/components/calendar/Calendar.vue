@@ -16,9 +16,9 @@
 
     import * as moment from 'moment';
 
-    import CalendarHeader from '@components/CalendarHeader.vue';
-    import CalendarMonth from '@components/CalendarMonth.vue';
-    import CalendarWeek from '@components/CalendarWeek.vue';
+    import CalendarHeader from './CalendarHeader.vue';
+    import CalendarMonth from './CalendarMonth.vue';
+    import CalendarWeek from './CalendarWeek.vue';
 
     @Component({
         components: {

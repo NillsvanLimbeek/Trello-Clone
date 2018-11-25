@@ -1,6 +1,8 @@
 .labels {
     display: flex;
 
+    position: relative;
+
     &__color {
         width: 4rem;
         height: 4rem;
