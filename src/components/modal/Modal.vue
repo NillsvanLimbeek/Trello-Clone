@@ -5,7 +5,11 @@
                 class="modal"
                 v-click-outside="closeModal">
 
-                <icon-base view-box="0 0 31.1 31.1" class="modal__close-icon" @click="closeModal">
+                <icon-base
+                    view-box="0 0 31.1 31.1"
+                    class="modal__close-icon"
+                    @click="closeModal">
+
                     <icon-close />
                 </icon-base>
 
@@ -43,7 +47,9 @@
 
                 <div class="modal__description">
                     <div class="modal__icon">
-                        <!-- <IconDescription class="modal-icon" /> -->
+                        <icon-base view-box="0 0 22.9 22.9" class="modal-icon">
+                            <icon-description />
+                        </icon-base>
                     </div>
 
                     <div class="modal__content">
@@ -53,7 +59,9 @@
 
                 <div class="modal__comments">
                     <div class="modal__icon">
-                        <!-- <IconComments class="modal-icon" /> -->
+                        <icon-base view-box="0 0 33 33" class="modal-icon">
+                            <icon-comments />
+                        </icon-base>
                     </div>
 
                     <div class="modal__content">
@@ -63,7 +71,9 @@
 
                 <div class="modal__activity">
                     <div class="modal__icon">
-                        <!-- <IconActivity class="modal-icon" /> -->
+                        <icon-base view-box="0 0 489.7 489.7" class="modal-icon">
+                            <icon-activity />
+                        </icon-base>
                     </div>
 
                     <div class="modal__content">
@@ -81,10 +91,15 @@
     import { Vue, Component, Prop } from '@/vue-script';
 
     import Labels from './Labels.vue';
-    import IconBase from '@components/icons/IconBase.vue';
-    import IconClose from '@components/icons/components/IconClose.vue';
-    import IconFolder from '@components/icons/components/IconFolder.vue';
-    import IconLabel from '@components/icons/components/IconLabel.vue';
+    import {
+        IconActivity,
+        IconBase,
+        IconClose,
+        IconComments,
+        IconDescription,
+        IconFolder,
+        IconLabel,
+    } from '@components/icons';
 
     import { IItem, IColumn } from '@data/models/types';
     import { EventBus } from '@/eventBus';
@@ -92,8 +107,11 @@
     @Component({
         components: {
             Labels,
+            IconActivity,
             IconBase,
             IconClose,
+            IconComments,
+            IconDescription,
             IconFolder,
             IconLabel,
         },

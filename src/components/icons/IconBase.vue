@@ -3,7 +3,8 @@
         xmlns="http://www.w3.org/2000/svg"
         :viewBox="viewBox"
         :height="height"
-        :width="width">
+        :width="width"
+        @click="$emit('click')">
 
         <g>
             <slot />
