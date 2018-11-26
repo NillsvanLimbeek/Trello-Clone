@@ -2,18 +2,18 @@
 export interface IColumn {
     title: string;
     id: number;
-    itemIds: number[];
     state: string;
     boardId: number;
+    itemIds: number[];
 }
 
 export interface IItem {
     title: string;
     columnId: number;
     id: number;
+    attachment: number;
     colorLabels: number[];
     members: object[];
-    attachment: number;
 }
 
 export interface ISidebar {
@@ -27,11 +27,10 @@ export interface IBoard {
     title: string;
     favorite: boolean;
     personal: boolean;
-    recent: boolean;
+    createdAt: Date;
     id: number;
     columnIds: number[];
     // user: string;
-    // date: string;
 }
 
 export interface ICalendar {
