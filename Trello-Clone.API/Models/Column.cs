@@ -7,7 +7,8 @@ namespace Trello_Clone.API.Models
         public string Title { get; set; }
         public int Id { get; set; }
         public string State { get; set; }
+        public Board Board { get; set; }
         public int BoardId { get; set; }
-        public ICollection<Column> Columns { get; set; }
+        public ICollection<Item> Item { get; set; }
     }
 }
