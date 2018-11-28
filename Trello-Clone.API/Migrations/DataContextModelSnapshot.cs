@@ -56,6 +56,22 @@ namespace TrelloClone.Migrations
                     b.ToTable("Boards");
                 });
 
+            modelBuilder.Entity("Trello_Clone.API.Models.ColorLabel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ColorId");
+
+                    b.Property<int?>("ItemId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ItemId");
+
+                    b.ToTable("ColorLabel");
+                });
+
             modelBuilder.Entity("Trello_Clone.API.Models.Column", b =>
                 {
                     b.Property<int>("Id")
@@ -81,8 +97,6 @@ namespace TrelloClone.Migrations
 
                     b.Property<int>("ColumnId");
 
-                    b.Property<int>("MyProperty");
-
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
@@ -96,6 +110,13 @@ namespace TrelloClone.Migrations
                 {
                     b.HasOne("Trello_Clone.API.Models.Item")
                         .WithMany("Attachments")
+                        .HasForeignKey("ItemId");
+                });
+
+            modelBuilder.Entity("Trello_Clone.API.Models.ColorLabel", b =>
+                {
+                    b.HasOne("Trello_Clone.API.Models.Item")
+                        .WithMany("ColorLabels")
                         .HasForeignKey("ItemId");
                 });
 

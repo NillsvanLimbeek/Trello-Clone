@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,12 +29,18 @@ namespace Trello_Clone
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+                .AddJsonOptions(opt => {
+                        opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    });
+            services.AddAutoMapper();
+            services.AddTransient<SeedData>();
+            services.AddScoped<IBoardsRepository, BoardsRepository>();
             services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedData seeder)
         {
             if (env.IsDevelopment())
             {
@@ -45,6 +52,7 @@ namespace Trello_Clone
             }
 
             // app.UseHttpsRedirection();
+            seeder.SeedBoards();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyHeader().AllowAnyOrigin());
             app.UseMvc();
         }
