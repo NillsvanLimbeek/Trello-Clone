@@ -11,7 +11,14 @@
 //         '{{repeat(1, 5)}}',
 //         {
 //           Title: '{{lorem(1, "words")}}',
-//           State: '{{integer(1, 3)}}'
+//           State: '{{integer(1, 3)}}',
+//           Items: [
+//             '{{repeat(1, 5)}}',
+//             {
+//              Title: '{{lorem(1, "words")}}',
+              
+//             }
+//           ]
 //         }
 //       ]
 //     }
