@@ -66,7 +66,7 @@ namespace TrelloClone.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Attachment",
+                name: "Attachments",
                 columns: table => new
                 {
                     Title = table.Column<string>(nullable: true),
@@ -78,9 +78,9 @@ namespace TrelloClone.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Attachment", x => x.Id);
+                    table.PrimaryKey("PK_Attachments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Attachment_Items_ItemId",
+                        name: "FK_Attachments_Items_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Items",
                         principalColumn: "Id",
@@ -88,7 +88,7 @@ namespace TrelloClone.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ColorLabel",
+                name: "ColorLabels",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -98,9 +98,9 @@ namespace TrelloClone.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ColorLabel", x => x.Id);
+                    table.PrimaryKey("PK_ColorLabels", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ColorLabel_Items_ItemId",
+                        name: "FK_ColorLabels_Items_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Items",
                         principalColumn: "Id",
@@ -108,13 +108,13 @@ namespace TrelloClone.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Attachment_ItemId",
-                table: "Attachment",
+                name: "IX_Attachments_ItemId",
+                table: "Attachments",
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ColorLabel_ItemId",
-                table: "ColorLabel",
+                name: "IX_ColorLabels_ItemId",
+                table: "ColorLabels",
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
@@ -131,10 +131,10 @@ namespace TrelloClone.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Attachment");
+                name: "Attachments");
 
             migrationBuilder.DropTable(
-                name: "ColorLabel");
+                name: "ColorLabels");
 
             migrationBuilder.DropTable(
                 name: "Items");

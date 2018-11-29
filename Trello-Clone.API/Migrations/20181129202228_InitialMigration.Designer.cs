@@ -9,7 +9,7 @@ using Trello_Clone.API.Data;
 namespace TrelloClone.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181128195842_InitialMigration")]
+    [Migration("20181129202228_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace TrelloClone.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("Attachment");
+                    b.ToTable("Attachments");
                 });
 
             modelBuilder.Entity("Trello_Clone.API.Models.Board", b =>
@@ -71,7 +71,7 @@ namespace TrelloClone.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("ColorLabel");
+                    b.ToTable("ColorLabels");
                 });
 
             modelBuilder.Entity("Trello_Clone.API.Models.Column", b =>
@@ -133,7 +133,7 @@ namespace TrelloClone.Migrations
             modelBuilder.Entity("Trello_Clone.API.Models.Item", b =>
                 {
                     b.HasOne("Trello_Clone.API.Models.Column", "Column")
-                        .WithMany("Item")
+                        .WithMany("Items")
                         .HasForeignKey("ColumnId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

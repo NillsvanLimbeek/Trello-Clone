@@ -15,7 +15,7 @@ namespace Trello_Clone.API.Data
 
         public void SeedBoards()
         {
-            var boardsData = System.IO.File.ReadAllText("Data/BoardsSeedData.json");
+            var boardsData = System.IO.File.ReadAllText("Data/BoardsData.json");
             var boards = JsonConvert.DeserializeObject<List<Board>>(boardsData);
 
             foreach (var board in boards)
