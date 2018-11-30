@@ -52,7 +52,10 @@ namespace Trello_Clone
             }
 
             // app.UseHttpsRedirection();
+
+            //Seed DB
             seeder.SeedBoards();
+
             app.UseCors(x => x.AllowAnyHeader().AllowAnyHeader().AllowAnyOrigin());
             app.UseMvc();
         }

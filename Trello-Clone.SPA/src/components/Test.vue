@@ -20,11 +20,14 @@
     export default class Test extends Vue {
         @State('boards') private boards!: BoardsState;
 
-        // computed
         private get getBoardIds() {
             const { boards } = this.boards;
 
             return Object.keys(boards);
+        }
+
+        private created() {
+            this.$store.dispatch('fetchBoards');
         }
     }
 
