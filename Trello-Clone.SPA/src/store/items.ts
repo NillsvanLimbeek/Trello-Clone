@@ -2,7 +2,7 @@ import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
 import { RootState } from '@state/rootState';
 import { ItemState } from '@state/state';
-import { IItem } from '@models/types';
+import { IItem } from '@models/index';
 
 // state
 const state: ItemState = {

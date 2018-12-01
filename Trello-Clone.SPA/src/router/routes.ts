@@ -1,13 +1,13 @@
 import { RouteConfig } from 'vue-router';
 
-import Test from '@/components/Test.vue';
-import Board from '@/components/Board.vue';
+import Boards from '@views/BoardsPage.vue';
+import Board from '@views/Board.vue';
 
 export const routes: RouteConfig[] = [
         {
             path: '/',
-            name: 'test',
-            component: Test,
+            name: 'boards',
+            component: Boards,
         },
         {
             path: '/board/:id',

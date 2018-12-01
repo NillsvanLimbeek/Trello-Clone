@@ -1,10 +1,10 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { BoardView } from '@enums/enum';
+import { BoardView } from '@enums/index';
 
 import { RootState } from '@state/rootState';
 import { BoardsState } from '@state/state';
-import { IBoard } from '@models/types';
+import { IBoard } from '@models/index';
 
 import axios from 'axios';
 
@@ -15,24 +15,25 @@ const state: BoardsState = {
 };
 
 const getters: GetterTree<BoardsState, RootState> = {
-    getPersonalBoards: (state) => {
-        return state.boards.filter((board) => board.personal === true);
-    },
-
-    getBoard: (state) => (boardId: number) => {
-        return state.boards.find((board) => board.id === boardId);
+    getBoards: (state) => {
+        return state.boards;
     },
 
     getCurrentView: (state) => {
         return state.currentView;
+    },
+
+    getBoard: (state) => (boardId: number) => {
+        return state.boards.find((board) => board.id === boardId);
     },
 };
 
 const mutations: MutationTree<BoardsState>  = {
     fetchBoards: (state) => {
         axios.get('http://localhost:5000/api/boards')
-            .then((response) => console.log(response))
-            .catch((error) => console.log(error));
+            .then((response) => {
+                state.boards = response.data;
+            });
     },
 
     changeCurrentView: (state, newView: BoardView) => {

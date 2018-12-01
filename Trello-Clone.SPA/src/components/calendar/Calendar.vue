@@ -12,7 +12,7 @@
 <script lang="ts">
     import { Vue, Component, Prop, Getter } from '@/vue-script';
 
-    import { CalendarView } from '@enums/enum';
+    import { CalendarView } from '@enums/index';
 
     import * as moment from 'moment';
 

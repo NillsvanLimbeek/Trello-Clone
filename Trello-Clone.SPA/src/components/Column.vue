@@ -69,7 +69,7 @@
     import Item from '@components/Item.vue';
 
     import { ItemState } from '@state/state';
-    import { IItem, IColumn } from '@models/types';
+    import { IItem, IColumn } from '@models/index';
 
     @Component({
         components: {

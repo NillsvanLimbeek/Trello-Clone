@@ -17,7 +17,7 @@
     import { Vue, Component } from 'vue-property-decorator';
     import { Getter } from 'vuex-class';
 
-    import { BoardView } from '@enums/enum';
+    import { BoardView } from '@enums/index';
 
     import BoardsMenu from '@components/navigation/BoardsMenu.vue';
     import Header from '@components/navigation/Header.vue';

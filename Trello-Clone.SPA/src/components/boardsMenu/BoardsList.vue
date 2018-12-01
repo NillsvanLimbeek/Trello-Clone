@@ -15,7 +15,7 @@
 <script lang="ts">
     import { Vue, Component, Prop, Getter } from '@/vue-script';
 
-    import { IBoard } from '@models/types';
+    import { IBoard } from '@models/index';
 
     import BoardItem from './BoardItem.vue';
 

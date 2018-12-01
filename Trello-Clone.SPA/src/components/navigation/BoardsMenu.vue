@@ -17,15 +17,7 @@
             placeholder="Search boards..."
         />
 
-        <BoardsList
-            title="Recent boards"
-            :boards="getRecentBoards"
-        />
-
-        <BoardsList
-            title="Personal boards"
-            :boards="getPersonalBoards"
-        />
+        <BoardsList :boards="boards" />
 
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +31,10 @@
 
 <script lang="ts">
     import { Vue, Component } from '@/vue-script';
-    import { Getter } from 'vuex-class';
+    import { Getter, State } from 'vuex-class';
 
-    import { IBoard } from '@models/types';
+    import { IBoard } from '@models/index';
+    import { BoardsState } from '@state/state';
 
     import Search from '@components/Search.vue';
     import BoardsList from '@components/boardsMenu/BoardsList.vue';
@@ -54,12 +47,9 @@
     })
 
     export default class Sidebar extends Vue {
-        // state
+        @State('boards') private boards!: BoardsState;
         @Getter('getBoardsMenuStatus') private getBoardsMenuStatus!: boolean;
-        @Getter('getRecentBoards') private getRecentBoards!: IBoard[];
-        @Getter('getPersonalBoards') private getPersonalBoards!: IBoard[];
 
-        // methods
         private closeSidebar() {
             this.$store.commit('closeSidebar', 'boardsMenu');
         }

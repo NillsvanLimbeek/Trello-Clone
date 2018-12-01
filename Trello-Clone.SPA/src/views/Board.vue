@@ -44,18 +44,18 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop, State, Getter } from '@/vue-script';
+    import { Vue, Component, Prop, State, Getter, Watch } from '@/vue-script';
     import { Route } from 'vue-router';
 
     import { EventBus } from '@/eventBus';
 
-    import BoardHeader from './BoardHeader.vue';
-    import Column from './Column.vue';
-    import Modal from './modal/Modal.vue';
+    import BoardHeader from '@components/BoardHeader.vue';
+    import Column from '@components/Column.vue';
+    import Modal from '@components/modal/Modal.vue';
 
     import { ColumnState, BoardsState } from '@state/state';
-    import { IItem, IColumn, IBoard } from '@models/types';
-    import { BoardView } from '@/data/enums/enum';
+    import { IItem, IColumn, IBoard } from '@models/index';
+    import { BoardView } from '@enums/index';
 
     @Component({
         components: {
@@ -66,15 +66,15 @@
     })
 
     export default class Board extends Vue {
-        // state
-        @State('boards') private boards!: BoardsState;
         @State('columns') private columns!: ColumnState;
+        @Getter('getBoards') private boards!: BoardsState;
 
         private showModal = false;
         private itemId!: number;
 
         public get getAllColumns() {
-            return this.$store.getters.getAllColumns(this.getBoardId);
+            const { id } = this.$route.params;
+            return this.$store.getters.getAllColumns(parseFloat(id));
         }
 
         private get getBoardId() {
@@ -82,7 +82,8 @@
             return parseFloat(id);
         }
 
-        private get getBoardHeader() {
+        @Watch('$route')
+        private getBoardHeader() {
             const { id } = this.$route.params;
             const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
 

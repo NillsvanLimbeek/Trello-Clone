@@ -101,7 +101,7 @@
         IconLabel,
     } from '@components/icons';
 
-    import { IItem, IColumn } from '@data/models/types';
+    import { IItem, IColumn } from '@models/index';
     import { EventBus } from '@/eventBus';
 
     @Component({

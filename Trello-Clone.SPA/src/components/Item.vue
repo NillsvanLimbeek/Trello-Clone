@@ -43,7 +43,7 @@
     import { EventBus } from '@/eventBus';
 
     import { ItemState } from '@state/state';
-    import { IItem } from '@models/types';
+    import { IItem } from '@models/index';
 
     import CardColorLabel from '@components/CardColorLabel.vue';
     import Dropdown from '@components/Dropdown.vue';

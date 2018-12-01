@@ -11887,11 +11887,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Trello-Clone\\Trello-Clone.API\\Trello-Clone.csproj",
+      "projectUniqueName": "d:\\Site Experimenten\\Trello-Clone\\Trello-Clone.API\\Trello-Clone.csproj",
       "projectName": "Trello-Clone",
-      "projectPath": "D:\\Projects\\Trello-Clone\\Trello-Clone.API\\Trello-Clone.csproj",
+      "projectPath": "d:\\Site Experimenten\\Trello-Clone\\Trello-Clone.API\\Trello-Clone.csproj",
       "packagesPath": "C:\\Users\\Nills\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Trello-Clone\\Trello-Clone.API\\obj\\",
+      "outputPath": "d:\\Site Experimenten\\Trello-Clone\\Trello-Clone.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

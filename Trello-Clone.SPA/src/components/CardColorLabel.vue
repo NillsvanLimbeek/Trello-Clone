@@ -15,8 +15,8 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
-    import { IItem } from '@models/types';
-    import { ColorLabel } from '@enums/enum';
+    import { IItem } from '@models/index';
+    import { ColorLabel } from '@enums/index';
 
     @Component({})
 

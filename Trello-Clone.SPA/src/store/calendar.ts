@@ -1,10 +1,10 @@
 import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
-import { CalendarView } from '@enums/enum';
+import { CalendarView } from '@enums/index';
 
 import { RootState } from '@state/rootState';
 import { CalendarState } from '@state/state';
-import { ICalendar } from '@models/types';
+import { ICalendar } from '@models/index';
 
 // state
 const state: CalendarState = {

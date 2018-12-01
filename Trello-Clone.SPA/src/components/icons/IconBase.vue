@@ -4,6 +4,7 @@
         :viewBox="viewBox"
         :height="height"
         :width="width"
+        :color="color"
         @click="$emit('click')">
 
         <g>
@@ -20,5 +21,6 @@
         @Prop({ default: 18 }) private width!: string | number;
         @Prop({ default: 18 }) private height!: string | number;
         @Prop({ default: '0 0 32 32' }) private viewBox!: string;
+        @Prop() private color!: string | number;
     }
 </script>

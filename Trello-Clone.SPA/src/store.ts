@@ -7,7 +7,7 @@ import { sidebar } from '@store/sidebar';
 import { boards } from '@store/boards';
 import { calendar } from '@store/calendar';
 
-import { IItem } from '@models/types';
+import { IItem } from '@models/index';
 
 Vue.use(Vuex);
 

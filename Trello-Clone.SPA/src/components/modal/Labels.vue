@@ -39,7 +39,7 @@
 
     import LabelModal from './LabelModal.vue';
 
-    import { ColorLabel } from '@enums/enum';
+    import { ColorLabel } from '@enums/index';
 
     @Component({
         components: {

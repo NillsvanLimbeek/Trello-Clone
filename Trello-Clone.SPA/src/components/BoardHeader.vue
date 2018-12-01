@@ -74,7 +74,7 @@
 <script lang="ts">
     import { Vue, Component, Prop, Getter } from '@/vue-script';
 
-    import { BoardView } from '@enums/enum';
+    import { BoardView } from '@enums/index';
 
     @Component({})
 

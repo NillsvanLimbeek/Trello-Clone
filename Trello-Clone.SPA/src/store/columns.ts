@@ -2,7 +2,7 @@ import { GetterTree, MutationTree, ActionTree, Module } from 'vuex';
 
 import { RootState } from '@state/rootState';
 import { ColumnState } from '@state/state';
-import { IColumn, IItem } from '@models/types';
+import { IColumn, IItem } from '@models/index';
 
 // state
 const state: ColumnState = {
