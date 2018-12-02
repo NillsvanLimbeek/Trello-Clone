@@ -26,7 +26,6 @@
     })
 
     export default class RecentBoards extends Vue {
-        // props
         @Prop() private title!: string;
         @Prop() private boards!: object[];
     }

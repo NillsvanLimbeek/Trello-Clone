@@ -7,8 +7,7 @@
             <IconBase
                 viewBox="0 0 459 459"
                 height="30"
-                width="30"
-                :color="board.color">
+                width="30">
 
                 <IconSquare />
             </IconBase>
@@ -57,13 +56,10 @@
         },
     })
     export default class BoardItem extends Vue {
-        // props
         @Prop() private board!: IBoard;
 
-        // data
         private hideActions = false;
 
-        // methods
         private clickLink() {
             const boardId = this.board.id;
 

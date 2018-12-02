@@ -1,6 +1,10 @@
 <template>
     <div>
-        <p v-for="board in boards" :key="board.id">{{ board.title }}</p>
+        <BoardItem
+            v-for="board in boards"
+            :key="board.id"
+            :board="board"
+        />
     </div>
 </template>
 
@@ -9,11 +13,11 @@
 
     import { IBoard } from '@models/index';
 
-    import Board from '@views/Board.vue';
+    import BoardItem from '@components/boardsMenu/BoardItem.vue';
 
     @Component({
         components: {
-            Board,
+            BoardItem,
         },
     })
 
