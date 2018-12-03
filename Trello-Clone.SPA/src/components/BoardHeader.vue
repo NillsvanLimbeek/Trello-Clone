@@ -1,8 +1,9 @@
 <template>
     <div class="board-header">
         <div class="board-header__left">
-            <div class="board-header__square">
-            </div>
+            <div
+                class="board-header__square"
+                :style="{ background: squareColor }" />
 
             <div class="board-header__info">
                 <p class="board-header__title">{{ boardHeader.title }}</p>
@@ -70,6 +71,8 @@
     import { Vue, Component, Prop, Getter } from '@/vue-script';
 
     import { BoardView } from '@enums/index';
+    import { Colors } from '@/utils/index';
+    import { IBoard } from '@/data/models';
 
     @Component({})
 
@@ -78,9 +81,14 @@
 
         @Getter('getCurrentView') private currentView!: BoardView;
 
-        @Prop() private boardHeader!: object;
+        @Prop() private boardHeader!: IBoard;
 
         private boxShadow = `0 .5rem 3rem .1rem`;
+
+        private get squareColor() {
+            const colors = new Colors();
+            return colors.setColor(parseFloat(this.boardHeader.color));
+        }
 
         private changeCurrentView(newView: BoardView) {
             this.$emit('change-view', newView);

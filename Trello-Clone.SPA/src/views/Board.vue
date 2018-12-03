@@ -3,8 +3,7 @@
 
         <BoardHeader
             :board-header="getBoardHeader"
-            @change-view="changeView"
-        />
+            @change-view="changeView" />
 
         <div class="board__board-list">
             <transition-group
@@ -37,8 +36,7 @@
 
         <Modal
             v-if="showModal"
-            :id="itemId"
-        />
+            :id="itemId" />
 
     </div>
 </template>
@@ -82,8 +80,7 @@
             return parseFloat(id);
         }
 
-        @Watch('$route')
-        private getBoardHeader() {
+        private get getBoardHeader() {
             const { id } = this.$route.params;
             const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
 

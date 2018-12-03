@@ -17,7 +17,7 @@
             placeholder="Search boards..."
         />
 
-        <BoardsList :boards="boards" />
+        <BoardItem v-for="board in boards" :key="board.id" :board="board" />
 
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,18 +37,18 @@
     import { BoardsState } from '@state/state';
 
     import Search from '@components/Search.vue';
-    import BoardsList from '@components/boardsMenu/BoardsList.vue';
+    import BoardItem from '@components/boardsMenu/BoardItem.vue';
 
     @Component({
         components: {
             Search,
-            BoardsList,
+            BoardItem,
         },
     })
 
     export default class Sidebar extends Vue {
-        @State('boards') private boards!: BoardsState;
         @Getter('getBoardsMenuStatus') private getBoardsMenuStatus!: boolean;
+        @Getter('getBoards') private boards!: IBoard[];
 
         private closeSidebar() {
             this.$store.commit('closeSidebar', 'boardsMenu');
