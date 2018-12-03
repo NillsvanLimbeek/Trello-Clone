@@ -1,12 +1,7 @@
 <template>
     <div class="board-header">
         <div class="board-header__left">
-            <div
-                class="board-header__svg"
-                :style="{
-                    background: boardHeader.color,
-                    boxShadow: boxShadow + boardHeader.colorFaded
-                    }">
+            <div class="board-header__square">
             </div>
 
             <div class="board-header__info">

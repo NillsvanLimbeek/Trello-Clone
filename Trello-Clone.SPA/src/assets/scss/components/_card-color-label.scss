@@ -1,30 +1,43 @@
-.color-label {
-    width: 3.5rem;
-    height: 2.5px;
-    border-radius: 3px;
-    margin-right: 5px;
+.label-green {
+    fill: var(--label-green);
 }
 
-.label-green {
-    background: var(--label-green);
+.label-light-green {
+    fill: var(--label-light-green);
 }
 
 .label-yellow {
-    background: var(--label-yellow);
+    fill: var(--label-yellow);
 }
 
 .label-orange {
-    background: var(--label-orange);
+    fill: var(--label-orange);
 }
 
 .label-red {
-    background: var(--label-red);
+    fill: var(--label-red);
 }
 
 .label-purple {
-    background: var(--label-purple);
+    fill: var(--label-purple);
 }
 
 .label-blue {
-    background: var(--label-blue);
+    fill: var(--label-blue);
+}
+
+.label-light-blue {
+    fill: var(--label-light-blue);
+}
+
+.label-blue {
+    fill: var(--label-blue);
+}
+
+.label-pink {
+    fill: var(--label-pink);
+}
+
+.label-bright-pink {
+    fill: var(--label-bright-pink);
 }
