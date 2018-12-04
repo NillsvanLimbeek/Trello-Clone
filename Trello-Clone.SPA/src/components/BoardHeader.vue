@@ -3,7 +3,10 @@
         <div class="board-header__left">
             <div
                 class="board-header__square"
-                :style="{ background: squareColor }" />
+                :style="{
+                    background: squareColor,
+                    'box-shadow': `0 .5rem 3rem .1rem ${squareColor}`
+                }" />
 
             <div class="board-header__info">
                 <p class="board-header__title">{{ boardHeader.title }}</p>
@@ -83,11 +86,9 @@
 
         @Prop() private boardHeader!: IBoard;
 
-        private boxShadow = `0 .5rem 3rem .1rem`;
-
         private get squareColor() {
             const colors = new Colors();
-            return colors.setColor(parseFloat(this.boardHeader.color));
+            return colors.setColor(this.boardHeader.color);
         }
 
         private changeCurrentView(newView: BoardView) {

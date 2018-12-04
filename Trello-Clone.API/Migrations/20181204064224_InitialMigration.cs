@@ -16,7 +16,7 @@ namespace TrelloClone.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Favorite = table.Column<bool>(nullable: false),
                     Personal = table.Column<bool>(nullable: false),
-                    Color = table.Column<string>(nullable: true),
+                    Color = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

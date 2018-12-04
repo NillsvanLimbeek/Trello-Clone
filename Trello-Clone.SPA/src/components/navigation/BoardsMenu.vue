@@ -17,7 +17,12 @@
             placeholder="Search boards..."
         />
 
-        <BoardItem v-for="board in boards" :key="board.id" :board="board" />
+        <div class="sidebar__list px-2">
+            <BoardItem
+                v-for="board in boards"
+                :key="board.id"
+                :board="board" />
+        </div>
 
         <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -9,7 +9,7 @@ namespace Trello_Clone.API.Models
         public int Id { get; set; }
         public bool Favorite { get; set; }
         public bool Personal { get; set; }
-        public string Color { get; set; }
+        public int Color { get; set; }
         public DateTime CreatedAt { get; set; }
         public ICollection<Column> Columns { get; set; }
     }

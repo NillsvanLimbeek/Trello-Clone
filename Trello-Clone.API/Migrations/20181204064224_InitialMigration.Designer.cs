@@ -9,7 +9,7 @@ using Trello_Clone.API.Data;
 namespace TrelloClone.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181129202228_InitialMigration")]
+    [Migration("20181204064224_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace TrelloClone.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Color");
+                    b.Property<int>("Color");
 
                     b.Property<DateTime>("CreatedAt");
 

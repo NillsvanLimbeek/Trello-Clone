@@ -41,7 +41,7 @@ namespace TrelloClone.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Color");
+                    b.Property<int>("Color");
 
                     b.Property<DateTime>("CreatedAt");
 

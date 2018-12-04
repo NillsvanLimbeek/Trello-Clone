@@ -1,5 +1,5 @@
 export interface IBoard {
-    color: string;
+    color: number;
     colorFaded: string;
     title: string;
     favorite: boolean;

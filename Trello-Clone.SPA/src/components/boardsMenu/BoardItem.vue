@@ -67,7 +67,7 @@
 
         private get squareColor() {
             const colors = new Colors();
-            return colors.setColor(parseFloat(this.board.color));
+            return colors.setColor(this.board.color);
         }
 
         private clickLink() {
