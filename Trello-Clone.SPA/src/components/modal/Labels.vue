@@ -3,14 +3,7 @@
 
         <div
             class="labels__color"
-            :class="{
-                'label-green': label === ColorLabel.Green,
-                'label-yellow': label === ColorLabel.Yellow,
-                'label-orange': label === ColorLabel.Orange,
-                'label-red': label === ColorLabel.Red,
-                'label-purple': label === ColorLabel.Purple,
-                'label-blue': label === ColorLabel.Blue
-            }"
+            :style="{ background: squareColor(label) }"
             v-for="(label, index) in labels"
             :key="label.id"
             @click="openLabelModal(index)" />
@@ -40,6 +33,7 @@
     import LabelModal from './LabelModal.vue';
 
     import { ColorLabel } from '@enums/index';
+    import { Colors } from '@/utils';
 
     @Component({
         components: {
@@ -47,7 +41,6 @@
         },
     })
     export default class Labels extends Vue {
-        private ColorLabel: any = ColorLabel;
 
         @Prop() private labels!: number[];
 
@@ -63,6 +56,11 @@
             if (!target.className.includes('labels__color')) {
                 this.showLabelModal = false;
             }
+        }
+
+        private squareColor(label: number) {
+            const colors = new Colors();
+            return colors.setColor(label);
         }
     }
 </script>

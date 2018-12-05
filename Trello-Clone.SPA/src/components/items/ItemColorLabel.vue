@@ -1,5 +1,5 @@
 <template>
-    <div class="color-label" />
+    <div class="color-label" :style="{ background: squareColor }" />
 </template>
 
 <script lang="ts">

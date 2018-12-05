@@ -7,11 +7,11 @@
             class="item__labels"
             v-if="getColorlabels.length >= 1">
 
-            <CardColorLabel
+            <ItemColorLabel
                 v-for="label in getColorlabels"
                 :key="label.id"
                 :label="label"
-                />
+            />
         </div>
 
         <div class="item__header">

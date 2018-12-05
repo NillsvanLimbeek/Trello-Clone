@@ -25,8 +25,8 @@
                 :board="board" />
         </div>
 
-        <IconBase 
-            viewBox="0 0 268.8 268.8" 
+        <IconBase
+            viewBox="0 0 268.8 268.8"
             class="sidebar__settings-icon">
 
             <IconSettings />
