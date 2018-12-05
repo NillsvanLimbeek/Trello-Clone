@@ -45,12 +45,12 @@
     import { ItemState } from '@state/state';
     import { IItem } from '@models/index';
 
-    import CardColorLabel from '@components/CardColorLabel.vue';
+    import ItemColorLabel from '@components/items/ItemColorLabel.vue';
     import Dropdown from '@components/Dropdown.vue';
 
     @Component({
         components: {
-            CardColorLabel,
+            ItemColorLabel,
             Dropdown,
         },
     })

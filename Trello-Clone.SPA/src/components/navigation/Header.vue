@@ -23,11 +23,11 @@
 <script lang="ts">
     import { Vue, Component } from '@/vue-script';
 
-    import BoardsBtn from './header/BoardsBtn.vue';
-    import UserMenuBtn from './header/UserMenuBtn.vue';
+    import BoardsBtn from '@components/header/BoardsBtn.vue';
+    import UserMenuBtn from '@components/header/UserMenuBtn.vue';
+    import UserBtn from '@components/header/UserBtn.vue';
+    import NotificationsBtn from '@components/header/NotificationsBtn.vue';
     import Search from '@components/Search.vue';
-    import UserBtn from '@components/user/UserBtn.vue';
-    import NotificationsBtn from '@components/notifications/NotificationsBtn.vue';
 
     @Component({
         components: {

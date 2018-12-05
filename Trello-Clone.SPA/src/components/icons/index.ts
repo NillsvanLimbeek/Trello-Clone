@@ -10,6 +10,7 @@ import IconStar from './svg/IconStar.vue';
 import IconWeek from './svg/IconWeek.vue';
 import IconMonth from './svg/IconMonth.vue';
 import IconArrow from './svg/IconArrow.vue';
+import IconSettings from './svg/IconSettings.vue';
 
 import IconBase from './IconBase.vue';
 
@@ -27,4 +28,5 @@ export {
     IconWeek,
     IconMonth,
     IconArrow,
+    IconSettings,
 };

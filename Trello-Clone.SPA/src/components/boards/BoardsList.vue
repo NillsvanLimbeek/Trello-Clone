@@ -17,7 +17,7 @@
 
     import { IBoard } from '@models/index';
 
-    import BoardItem from './BoardItem.vue';
+    import BoardItem from './boards/BoardItem.vue';
 
     @Component({
         components: {

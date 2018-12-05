@@ -47,7 +47,7 @@
 
     import { EventBus } from '@/eventBus';
 
-    import BoardHeader from '@components/BoardHeader.vue';
+    import BoardHeader from '@components/boards/BoardHeader.vue';
     import Column from '@components/Column.vue';
     import Modal from '@components/modal/Modal.vue';
 

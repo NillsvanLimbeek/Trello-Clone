@@ -66,7 +66,7 @@
     import { EventBus } from '@/eventBus';
 
     import Dropdown from '@components/Dropdown.vue';
-    import Item from '@components/Item.vue';
+    import Item from '@components/items/Item.vue';
 
     import { ItemState } from '@state/state';
     import { IItem, IColumn } from '@models/index';
