@@ -34,13 +34,12 @@ namespace Trello_Clone
                         opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                     });
             services.AddAutoMapper();
-            services.AddTransient<SeedData>();
             services.AddScoped<IBoardsRepository, BoardsRepository>();
             services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedData seeder)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -52,10 +51,6 @@ namespace Trello_Clone
             }
 
             // app.UseHttpsRedirection();
-
-            //Seed DB
-            // seeder.SeedBoards();
-
             app.UseCors(x => x.AllowAnyHeader().AllowAnyHeader().AllowAnyOrigin());
             app.UseMvc();
         }
