@@ -12,6 +12,7 @@ module.exports = {
                 "@enums": path.join(__dirname, "/src/data/enums"),
                 "@store": path.join(__dirname, "/src/store/"),
                 "@state": path.join(__dirname, "/src/store/state"),
+                "@utils": path.join(__dirname, "/src/utils/"),
             }
         }
     }

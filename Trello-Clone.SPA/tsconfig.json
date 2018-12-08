@@ -24,6 +24,7 @@
             "@enums/*": ["src/data/enums/*"],
             "@store/*": ["src/store/*"],
             "@state/*": ["src/store/state/*"],
+            "@utils/*": ["src/utils/*"],
         },
         "lib": [
             "esnext",

@@ -14,8 +14,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from 'vue-property-decorator';
-    import { Getter } from 'vuex-class';
+    import { Vue, Component, Getter } from '@/vue-script';
 
     import { BoardView } from '@enums/index';
 

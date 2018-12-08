@@ -1,10 +1,14 @@
 <template>
-    <div>
-        <BoardItem
+    <div class="boards-page pa-3">
+        <BoardCard
             v-for="board in boards"
             :key="board.id"
             :board="board"
         />
+
+        <div class="board-card board-card__add">
+            Add Card
+        </div>
     </div>
 </template>
 
@@ -13,11 +17,11 @@
 
     import { IBoard } from '@models/index';
 
-    import BoardItem from '@components/boards/BoardItem.vue';
+    import BoardCard from '@components/boards/BoardCard.vue';
 
     @Component({
         components: {
-            BoardItem,
+            BoardCard,
         },
     })
 
