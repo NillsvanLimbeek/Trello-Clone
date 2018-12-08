@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Trello_Clone.API.Data;
 using Trello_Clone.API.Dtos;
+using Trello_Clone.API.Models;
 
 namespace Trello_Clone.API.Controllers
 {
@@ -33,9 +34,30 @@ namespace Trello_Clone.API.Controllers
         public async Task<IActionResult> getBoard(int id)
         {
             var board = await _repo.GetBoard(id);
-            var boardToReturn = _mapper.Map<IEnumerable<BoardsForDetailDto>>(board);
+            // var boardToReturn = _mapper.Map<IEnumerable<BoardsForDetailDto>>(board);
 
-            return Ok(boardToReturn);
+            return Ok(board);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> addBoard(BoardToCreateDto boardToCreateDto)
+        {
+            var boardToCreate = new Board
+            {
+                Title = boardToCreateDto.Title
+            };
+
+            var createdBoard = await _repo.AddBoard(boardToCreate, boardToCreateDto.Title);
+
+            return Ok(createdBoard);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> removeBoard(int id)
+        {
+            var board = await _repo.DeleteBoard(id);
+
+            return Ok(board);
         }
     }
 }

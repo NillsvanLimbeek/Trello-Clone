@@ -24,5 +24,25 @@ namespace Trello_Clone.API.Data
             var boards = await _context.Boards.ToListAsync();
             return boards;
         }
+
+        public async Task<Board> AddBoard(Board board, string title)
+        {
+            board.Title = title;
+
+            await _context.Boards.AddAsync(board);
+            await _context.SaveChangesAsync();
+
+            return board;
+        }
+
+        public async Task<Board> DeleteBoard(int id)
+        {
+            var board = await _context.Boards.FirstOrDefaultAsync(x => x.Id == id);
+
+            _context.Boards.Remove(board);
+            await _context.SaveChangesAsync();
+
+            return board;
+        }
     }
 }
