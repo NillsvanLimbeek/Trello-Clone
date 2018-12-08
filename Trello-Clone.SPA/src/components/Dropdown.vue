@@ -3,7 +3,6 @@
         class="dropdown"
         :class="{ 'position-column': type === 'column', 'position-item': type === 'item' }">
 
-        <i class="fas fa-caret-up dropdown__arrow"></i>
         <div class="dropdown__body" @mouseleave="close">
             <p
                 class="dropdown__item"

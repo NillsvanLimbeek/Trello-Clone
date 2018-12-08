@@ -3,8 +3,7 @@
         <img
             src="../../assets/img/random-user.jpg"
             alt="User Img"
-            class="user-btn__img"
-        >
+            class="user-btn__img">
 
         <p class="user-btn__text">Hello, User!</p>
     </div>

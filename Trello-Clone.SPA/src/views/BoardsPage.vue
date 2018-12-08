@@ -24,9 +24,9 @@
     export default class BoardsPage extends Vue {
         @Getter('getBoards') private boards!: IBoard[];
 
-        private created() {
-            this.$store.dispatch('fetchBoards');
-        }
+        // private created() {
+        //     this.$store.dispatch('fetchBoards');
+        // }
     }
 
 </script>

@@ -11,6 +11,17 @@ import IconWeek from './svg/IconWeek.vue';
 import IconMonth from './svg/IconMonth.vue';
 import IconArrow from './svg/IconArrow.vue';
 import IconSettings from './svg/IconSettings.vue';
+import IconEye from './svg/IconEye.vue';
+import IconBoards from './svg/IconBoards.vue';
+import IconCalendar from './svg/IconCalendar.vue';
+import IconBoardsButton from './svg/IconBoardsButton.vue';
+import IconNotificationsButton from './svg/IconNotificationsButton.vue';
+import IconCircle from './svg/IconCircle.vue';
+import IconMenuButton from './svg/IconMenuButton.vue';
+import IconPaperclip from './svg/IconPaperclip.vue';
+import IconPlus from './svg/IconPlus.vue';
+import IconDots from './svg/IconDots.vue';
+import IconSearch from './svg/IconSearch.vue';
 
 import IconBase from './IconBase.vue';
 
@@ -29,4 +40,15 @@ export {
     IconMonth,
     IconArrow,
     IconSettings,
+    IconEye,
+    IconBoards,
+    IconCalendar,
+    IconBoardsButton,
+    IconNotificationsButton,
+    IconCircle,
+    IconMenuButton,
+    IconPaperclip,
+    IconPlus,
+    IconDots,
+    IconSearch,
 };

@@ -2,8 +2,8 @@
     <svg
         xmlns="http://www.w3.org/2000/svg"
         :viewBox="viewBox"
-        :height="height"
-        :width="width"
+        :height="size"
+        :width="size"
         @click="$emit('click')">
 
         <g :fill="color">
@@ -18,8 +18,7 @@
     @Component({})
     export default class IconBase extends Vue {
         @Prop() private color!: string | number;
-        @Prop({ default: 18 }) private width!: string | number;
-        @Prop({ default: 18 }) private height!: string | number;
+        @Prop({ default: 18 }) private size!: string | number;
         @Prop({ default: '0 0 32 32' }) private viewBox!: string;
     }
 </script>

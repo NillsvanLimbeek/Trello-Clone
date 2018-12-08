@@ -4,14 +4,14 @@
             @mouseover="hideActions = true"
             @mouseleave="hideActions = false">
 
-            <IconBase
+            <icon-base
                 viewBox="0 0 459 459"
                 :color="squareColor"
                 height="30"
                 width="30">
 
-                <IconSquare />
-            </IconBase>
+                <icon-square />
+            </icon-base>
 
             <p @click="clickLink">
                 {{ board.title }}
@@ -21,21 +21,21 @@
                 class="board-item__actions"
                 :class="{ hide: !hideActions }">
 
-                <IconBase
+                <icon-base
                     viewBox="0 0 486.4 486.4"
                     height="17.5"
                     width="17.5">
 
-                    <IconThrash/>
-                </IconBase>
+                    <icon-thrash />
+                </icon-base>
 
-                <IconBase
+                <icon-base
                     viewBox="0 0 487.2 487.2"
                     height="17.5"
                     width="17.5">
 
-                    <IconStar />
-                </IconBase>
+                    <icon-star />
+                </icon-base>
 
             </div>
         </div>

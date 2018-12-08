@@ -1,28 +1,35 @@
 <template>
     <div class="notifications-btn">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
+        <icon-base
             viewBox="0 0 229.2 229.2"
+            size="22.5"
             class="notifications-btn__icon">
 
-            <path d="M220.2 172.2c-20.6-17.8-39.7-43-39.7-105.7 0-36.4-29.6-65.9-65.9-65.9 -36.4 0-65.9 29.6-65.9 65.9 0 62.8-19.1 87.9-39.7 105.8C3.3 177.2 0 184.4 0 191.9c0 4.1 3.4 7.5 7.5 7.5h71.2c3.5 16.7 18.3 29.2 35.9 29.2s32.5-12.6 35.9-29.2h71.2c4.1 0 7.5-3.4 7.5-7.5C229.2 184.4 226 177.2 220.2 172.2zM114.6 213.7c-9.3 0-17.3-5.9-20.4-14.2H135C131.9 207.7 124 213.7 114.6 213.7zM18 184.4c0.3-0.3 0.6-0.6 0.9-0.8 31.4-27.1 44.9-62.2 44.9-117.1 0-28.1 22.9-50.9 50.9-50.9 28.1 0 50.9 22.8 50.9 50.9 0 54.9 13.4 89.9 44.9 117.1 0.3 0.3 0.6 0.5 0.9 0.8H18z"/>
-        </svg>
+            <icon-notifications-button />
+        </icon-base>
 
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
+        <icon-base
             viewBox="0 0 512 512"
+            size="8"
             class="notifications-btn__circle">
 
-            <path class="st0" d="M256,6C117.9,6,6,117.9,6,256s111.9,250,250,250s250-111.9,250-250S394.1,6,256,6z M256,414.1 c-87.2,0-158.1-70.7-158.1-158.1c0-87.2,70.7-158.1,158.1-158.1S414.1,168.8,414.1,256S343.2,414.1,256,414.1z"/>
-        </svg>
+            <icon-circle />
+        </icon-base>
     </div>
 </template>
 
 <script lang="ts">
     import { Vue, Component } from '@/vue-script';
 
-    @Component({})
+    import { IconBase, IconNotificationsButton, IconCircle } from '@components/icons';
 
+    @Component({
+        components: {
+            IconBase,
+            IconNotificationsButton,
+            IconCircle,
+        },
+    })
     export default class NotificationsBtn extends Vue {
 
     }

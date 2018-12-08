@@ -1,24 +1,26 @@
 <template>
     <div class="user-menu-btn">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
+        <icon-base
             viewBox="0 0 50 50"
             class="user-menu-btn__icon"
             @click="openUserMenu">
 
-            <rect y="2" width="50" height="4"/>
-            <rect y="16" width="50" height="4"/>
-            <rect y="30" width="50" height="4"/>
-            <rect y="44" width="50" height="4"/>
-        </svg>
+            <icon-menu-button />
+        </icon-base>
     </div>
 </template>
 
 <script lang="ts">
     import { Vue, Component } from '@/vue-script';
 
-    @Component({})
+    import { IconBase, IconMenuButton } from '@components/icons';
 
+    @Component({
+        components: {
+            IconBase,
+            IconMenuButton,
+        },
+    })
     export default class UserMenuBtn extends Vue {
         // methods
         private openUserMenu() {

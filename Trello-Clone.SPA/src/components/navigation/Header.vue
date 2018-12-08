@@ -10,7 +10,6 @@
             />
         </div>
 
-
         <div class="header__right-menu">
             <UserBtn />
             <NotificationsBtn />

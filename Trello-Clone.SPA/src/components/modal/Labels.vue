@@ -12,12 +12,9 @@
             class="labels__add"
             @click="openLabelModal(labels.lenght + 1)">
 
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 42 42">
-
-                <polygon points="42 20 22 20 22 0 20 0 20 20 0 20 0 22 20 22 20 42 22 42 22 22 42 22 "/>
-            </svg>
+            <icon-base viewBox="0 0 42 42">
+                <icon-plus />
+            </icon-base>
         </div>
 
         <LabelModal
@@ -31,6 +28,7 @@
     import { Vue, Component, Prop } from '@/vue-script';
 
     import LabelModal from './LabelModal.vue';
+    import { IconBase, IconPlus } from '@components/icons';
 
     import { ColorLabel } from '@enums/index';
     import { Colors } from '@/utils';
@@ -38,6 +36,8 @@
     @Component({
         components: {
             LabelModal,
+            IconBase,
+            IconPlus,
         },
     })
     export default class Labels extends Vue {

@@ -10,8 +10,6 @@
     }
 
     &__icon {
-        width: 2.25rem;
-
         margin: 0 3rem;
         fill: var(--color-grey);
         transition: var(--transition-3);
@@ -21,8 +19,6 @@
         position: absolute;
         top: -5px;
         right: 2.5rem;
-
-        width: .8rem;
 
         fill: var(--label-blue);
     }

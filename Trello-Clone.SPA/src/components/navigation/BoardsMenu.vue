@@ -3,15 +3,15 @@
         class="sidebar boards-menu"
         :class="{ 'boards-closed': !getBoardsMenuStatus }">
 
-        <IconBase
+        <icon-base
             viewBox="0 0 31.1 31.1"
             width="15"
             height="15"
             class="sidebar__close-icon"
             @click="closeSidebar">
 
-            <IconClose />
-        </IconBase>
+            <icon-close />
+        </icon-base>
 
         <Search
             :boards-menu="true"
@@ -25,12 +25,12 @@
                 :board="board" />
         </div>
 
-        <IconBase
+        <icon-base
             viewBox="0 0 268.8 268.8"
             class="sidebar__settings-icon">
 
-            <IconSettings />
-        </IconBase>
+            <icon-settings />
+        </icon-base>
 
     </div>
 </template>
