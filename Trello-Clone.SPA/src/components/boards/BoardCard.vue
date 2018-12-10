@@ -1,6 +1,7 @@
 <template>
     <div
         class="board-card"
+        @click="clickLink"
         :style="{ background: cardColor }">
 
         {{ board.title }}
@@ -21,6 +22,11 @@
         private get cardColor() {
             const color = new Colors();
             return color.setColor(this.board.color);
+        }
+
+        private clickLink() {
+            const boardId = this.board.id;
+            this.$router.push({ name: 'board', params: { id: boardId.toString() }});
         }
     }
 </script>

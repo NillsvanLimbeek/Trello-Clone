@@ -25,9 +25,10 @@ namespace Trello_Clone.API.Data
             return boards;
         }
 
-        public async Task<Board> AddBoard(Board board, string title)
+        public async Task<Board> AddBoard(Board board, string title, int color)
         {
             board.Title = title;
+            board.Color = color;
 
             await _context.Boards.AddAsync(board);
             await _context.SaveChangesAsync();

@@ -44,10 +44,11 @@ namespace Trello_Clone.API.Controllers
         {
             var boardToCreate = new Board
             {
-                Title = boardToCreateDto.Title
+                Title = boardToCreateDto.Title,
+                Color = boardToCreateDto.Color,
             };
 
-            var createdBoard = await _repo.AddBoard(boardToCreate, boardToCreateDto.Title);
+            var createdBoard = await _repo.AddBoard(boardToCreate, boardToCreateDto.Title, boardToCreateDto.Color);
 
             return Ok(createdBoard);
         }
