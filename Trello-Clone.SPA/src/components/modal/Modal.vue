@@ -12,10 +12,10 @@
 
                     <icon-close />
                 </icon-base>
+
+                <slot />
+
             </div>
-
-            <slot />
-
         </div>
     </transition>
 </template>

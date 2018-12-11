@@ -36,7 +36,10 @@
 
         <Modal
             v-if="showModal"
-            :id="itemId" />
+            :id="itemId">
+
+            <ModalItem :id="itemId" />
+        </Modal>
 
     </div>
 </template>
@@ -50,6 +53,7 @@
     import BoardHeader from '@components/boards/BoardHeader.vue';
     import Column from '@components/Column.vue';
     import Modal from '@components/modal/Modal.vue';
+    import ModalItem from '@components/modal/content/ModalItem.vue';
 
     import { ColumnState, BoardsState } from '@state/state';
     import { IItem, IColumn, IBoard } from '@models/index';
@@ -60,6 +64,7 @@
             Column,
             BoardHeader,
             Modal,
+            ModalItem,
         },
     })
 
@@ -130,7 +135,7 @@
             this.$store.dispatch('setCurrentView', newView);
         }
 
-        private mounted() {
+        private created() {
             EventBus.$on('open-modal', (itemId: number) => {
                 this.showModal = true;
                 this.itemId = itemId;
