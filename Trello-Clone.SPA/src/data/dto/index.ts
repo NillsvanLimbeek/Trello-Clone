@@ -1,0 +1,1 @@
+export { BoardToCreateDto } from './BoardToCreateDto';

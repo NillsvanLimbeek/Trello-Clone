@@ -51,7 +51,7 @@ namespace Trello_Clone
             }
 
             // app.UseHttpsRedirection();
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyHeader().AllowAnyOrigin());
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseMvc();
         }
     }

@@ -5,6 +5,7 @@ import { BoardView } from '@enums/index';
 import { RootState } from '@state/rootState';
 import { BoardsState } from '@state/state';
 import { IBoard } from '@models/index';
+import { BoardToCreateDto } from '../data/dto/BoardToCreateDto';
 
 import axios from 'axios';
 
@@ -79,12 +80,17 @@ const mutations: MutationTree<BoardsState>  = {
         axios.get('http://localhost:5000/api/boards')
             .then((response) => {
                 state.boards = response.data;
-            });
+            })
+            // tslint:disable-next-line
+            .catch((error) => console.log(error))
     },
 
-    createBoard: (state, payload: any) => {
-        axios.post('http://localhost:5000/api/boards', payload)
-            .then((response) => console.log(response))
+    createBoard: (state, newBoard: BoardToCreateDto) => {
+        axios.post('http://localhost:5000/api/boards', newBoard)
+            .then((response) => {
+                state.boards.push(response.data);
+            })
+            // tslint:disable-next-line
             .catch((error) => console.log(error));
     },
 
@@ -98,8 +104,8 @@ const actions: ActionTree<BoardsState, RootState> = {
         await commit('fetchBoards');
     },
 
-    async createboard({ commit }, payload: any) {
-        await commit('createBoard', payload);
+    async createBoard({ commit }, newBoard: BoardToCreateDto) {
+        await commit('createBoard', newBoard);
     },
 
     setCurrentView({ commit }, newView: BoardView) {

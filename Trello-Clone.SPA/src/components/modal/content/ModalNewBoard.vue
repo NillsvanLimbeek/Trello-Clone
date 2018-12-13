@@ -2,7 +2,7 @@
     <div class="modal-new-board">
         <p class="modal-new-board__title mb-1">Add a new board</p>
 
-        <form @submit.prevent="$emit('create-board', newBoard)">
+        <form @submit.prevent="createBoard">
             <input
                 type="text"
                 class="modal-new-board__input"
@@ -37,7 +37,16 @@
 <script lang="ts">
     import { Vue, Component } from '@/vue-script';
 
+    import { BoardToCreateDto } from '@data/dto/index';
+
     export default class NewBoard extends Vue {
-        private newBoard = {};
+        private newBoard: BoardToCreateDto = {
+            title: '',
+            color: 0,
+        };
+
+        private createBoard() {
+            this.$emit('create-board', this.newBoard);
+        }
     }
 </script>

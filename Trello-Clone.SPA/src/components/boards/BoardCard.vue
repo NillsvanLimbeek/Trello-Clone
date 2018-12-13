@@ -4,7 +4,19 @@
         @click="clickLink"
         :style="{ background: cardColor }">
 
-        {{ board.title }}
+        <p class="board-card__title">
+            {{ board.title }}
+        </p>
+
+        <div class="board-card__actions">
+            <icon-base
+                @click="$emit('click')"
+                viewBox="0 0 487.2 487.2"
+                class="board-card__star">
+
+                <icon-star />
+            </icon-base>
+        </div>
     </div>
 </template>
 
@@ -12,10 +24,16 @@
     import { Vue, Component, Prop } from '@/vue-script';
 
     import { IBoard } from '@/data/models';
-
     import { Colors } from '@utils/index';
+    import { IconBase, IconStar, IconThrash } from '@components/icons';
 
-    @Component({})
+    @Component({
+        components: {
+            IconBase,
+            IconStar,
+        },
+    })
+
     export default class BoardCard extends Vue {
         @Prop({ required: true }) private board!: IBoard;
 

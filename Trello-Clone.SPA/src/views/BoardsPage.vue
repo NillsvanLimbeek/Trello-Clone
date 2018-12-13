@@ -24,6 +24,7 @@
     import { EventBus } from '@/eventBus';
 
     import { IBoard } from '@models/index';
+    import { BoardToCreateDto } from '@/data/dto';
 
     import BoardCard from '@components/boards/BoardCard.vue';
     import Modal from '@components/modal/Modal.vue';
@@ -42,8 +43,9 @@
 
         private showModal = false;
 
-        private createBoard(payload: any) {
-            console.log(payload);
+        private createBoard(payload: BoardToCreateDto) {
+            this.$store.dispatch('createBoard', payload);
+
             this.showModal = false;
         }
 

@@ -1,18 +1,27 @@
 .board-card {
-    @include flex-align;
-
-    height: 7.5rem;
+    @include flex-center-align;
+    flex-direction: column;
 
     margin: 1.5rem;
-    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--drop-shadow);
     cursor: pointer;
-    transition: var(--transition-3);
-    backface-visibility: hidden;
 
-    &__add {
-        background: var(--color-grey-light);
-        border: 1px solid var(--color-grey);
+    &__title {
+        transform: translateY(-5px);
+        padding: 1rem;
+    }
+
+    &__actions {
+
+    }
+
+    &__star {
+        // position: absolute;
+        // right: 0;
+        // bottom: 5px;
+
+        // transition: var(--transition-2);
+        // fill: transparent;
     }
 }
