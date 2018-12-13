@@ -82,14 +82,24 @@ const mutations: MutationTree<BoardsState>  = {
             });
     },
 
+    createBoard: (state, payload: any) => {
+        axios.post('http://localhost:5000/api/boards', payload)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error));
+    },
+
     changeCurrentView: (state, newView: BoardView) => {
         state.currentView = newView;
     },
 };
 
 const actions: ActionTree<BoardsState, RootState> = {
-    fetchBoards({ commit }) {
-        commit('fetchBoards');
+    async fetchBoards({ commit }) {
+        await commit('fetchBoards');
+    },
+
+    async createboard({ commit }, payload: any) {
+        await commit('createBoard', payload);
     },
 
     setCurrentView({ commit }, newView: BoardView) {

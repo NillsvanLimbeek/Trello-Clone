@@ -13,7 +13,7 @@
         </div>
 
         <Modal v-if="showModal">
-            <ModalNewBoard />
+            <ModalNewBoard @create-board="createBoard($event)" />
         </Modal>
     </div>
 </template>
@@ -42,11 +42,14 @@
 
         private showModal = false;
 
-        // private created() {
-        //     this.$store.dispatch('fetchBoards');
-        // }
+        private createBoard(payload: any) {
+            console.log(payload);
+            this.showModal = false;
+        }
 
         private created() {
+            // this.$store.dispatch('fetchBoards');
+
             EventBus.$on('close-modal', () => {
                 this.showModal = false;
             });
