@@ -5,29 +5,29 @@
         <form @submit.prevent="createBoard">
             <input
                 type="text"
-                class="modal-new-board__input"
+                class="input"
                 placeholder="Board Title"
                 v-model="newBoard.title">
 
             <input
                 type="text"
-                class="modal-new-board__input"
+                class="input"
                 placeholder="Board Team"
                 v-model="newBoard.team">
 
             <input
                 type="text"
-                class="modal-new-board__input"
+                class="input"
                 placeholder="Board Visibility"
                 v-model="newBoard.visibility">
 
             <input
                 type="text"
-                class="modal-new-board__input"
+                class="input"
                 placeholder="Board Color"
                 v-model="newBoard.color">
 
-            <button>
+            <button class="button">
                 Add board
             </button>
         </form>

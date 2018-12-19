@@ -3,6 +3,9 @@
         <div class="modal-background">
             <div
                 class="modal"
+                :class="{
+                    'modal__small': size === 'small',
+                    'modal__medium': size === 'medium' }"
                 v-click-outside="closeModal">
 
                 <icon-base
@@ -21,7 +24,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component } from '@/vue-script';
+    import { Vue, Component, Prop } from '@/vue-script';
 
     import {
         IconBase,
@@ -37,6 +40,8 @@
         },
     })
     export default class Modal extends Vue {
+        @Prop({ default: 'medium'}) private size!: string;
+
         private closeModal() {
             EventBus.$emit('close-modal');
         }

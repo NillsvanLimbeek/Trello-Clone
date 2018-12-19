@@ -12,7 +12,10 @@
             Add Card
         </div>
 
-        <Modal v-if="showModal">
+        <Modal
+            v-if="showModal"
+            size="small">
+
             <ModalNewBoard @create-board="createBoard($event)" />
         </Modal>
     </div>
@@ -50,7 +53,7 @@
         }
 
         private created() {
-            // this.$store.dispatch('fetchBoards');
+            this.$store.dispatch('fetchBoards');
 
             EventBus.$on('close-modal', () => {
                 this.showModal = false;
