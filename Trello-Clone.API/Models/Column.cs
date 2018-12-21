@@ -9,6 +9,6 @@ namespace Trello_Clone.API.Models
         public string State { get; set; }
         public Board Board { get; set; }
         public int BoardId { get; set; }
-        public ICollection<Item> Items { get; set; }
+        // public ICollection<Item> Items { get; set; }
     }
 }
