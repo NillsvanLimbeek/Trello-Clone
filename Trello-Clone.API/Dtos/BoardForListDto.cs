@@ -2,7 +2,7 @@ using System;
 
 namespace Trello_Clone.API.Dtos
 {
-    public class BoardsForListDto
+    public class BoardForListDto
     {
         public string Title { get; set; }
         public int Id { get; set; }

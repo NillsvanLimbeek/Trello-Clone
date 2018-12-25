@@ -1,8 +1,8 @@
 namespace Trello_Clone.API.Dtos
 {
-    public class BoardToCreateDto
+    public class ColumnDto
     {
+        public int Id { get; set; }
         public string Title { get; set; }
-        public int Color { get; set; }
     }
 }

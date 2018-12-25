@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Trello_Clone.API.Data;
 using Trello_Clone.API.Dtos;
@@ -10,14 +9,12 @@ namespace Trello_Clone.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BoardsController : ControllerBase
+    public class BoardsController : Controller
     {
         private readonly IBoardsRepository _repo;
-        private readonly IMapper _mapper;
 
-        public BoardsController(IBoardsRepository repo, IMapper mapper)
+        public BoardsController(IBoardsRepository repo)
         {
-            _mapper = mapper;
             _repo = repo;
         }
 
@@ -25,30 +22,28 @@ namespace Trello_Clone.API.Controllers
         public async Task<IActionResult> GetBoards()
         {
             var boards = await _repo.GetBoards();
-            var boardsToReturn = _mapper.Map<IEnumerable<BoardsForListDto>>(boards);
 
-            return Ok(boardsToReturn);
+            return Ok(boards);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> getBoard(int id)
         {
             var board = await _repo.GetBoard(id);
-            // var boardToReturn = _mapper.Map<IEnumerable<BoardsForDetailDto>>(board);
 
             return Ok(board);
         }
 
         [HttpPost]
-        public async Task<IActionResult> addBoard(BoardToCreateDto boardToCreateDto)
+        public async Task<IActionResult> addBoard(BoardForCreationDto boardForCreationDto)
         {
             var boardToCreate = new Board
             {
-                Title = boardToCreateDto.Title,
-                Color = boardToCreateDto.Color,
+                Title = boardForCreationDto.Title,
+                Color = boardForCreationDto.Color,
             };
 
-            var createdBoard = await _repo.AddBoard(boardToCreate, boardToCreateDto.Title, boardToCreateDto.Color);
+            var createdBoard = await _repo.AddBoard(boardToCreate, boardForCreationDto.Title, boardForCreationDto.Color);
 
             return Ok(createdBoard);
         }

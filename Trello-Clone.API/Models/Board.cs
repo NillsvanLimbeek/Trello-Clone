@@ -19,10 +19,5 @@ namespace Trello_Clone.API.Models
         {
             Columns = new Collection<Column>();
         }
-
-        // todo
-        // public Access Access { get; set; }
-        // public ICollection<Team> Teams { get; set; }
-        // public ICollection<Member> Members { get; set; }
     }
 }

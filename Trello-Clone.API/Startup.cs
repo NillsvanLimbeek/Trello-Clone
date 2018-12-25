@@ -28,14 +28,10 @@ namespace Trello_Clone
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                .AddJsonOptions(opt => {
-                        opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                    });
             services.AddAutoMapper();
-            services.AddScoped<IBoardsRepository, BoardsRepository>();
-            services.AddCors();
+            services.AddDbContext<TrelloCloneContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // services.AddScoped<IBoardsRepository, BoardsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,11 +43,10 @@ namespace Trello_Clone
             }
             else
             {
-                // app.UseHsts();
+                app.UseHsts();
             }
 
-            // app.UseHttpsRedirection();
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

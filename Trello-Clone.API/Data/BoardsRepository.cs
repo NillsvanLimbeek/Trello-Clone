@@ -7,8 +7,8 @@ namespace Trello_Clone.API.Data
 {
     public class BoardsRepository : IBoardsRepository
     {
-        private readonly DataContext _context;
-        public BoardsRepository(DataContext context)
+        private readonly TrelloCloneContext _context;
+        public BoardsRepository(TrelloCloneContext context)
         {
             _context = context;
 
