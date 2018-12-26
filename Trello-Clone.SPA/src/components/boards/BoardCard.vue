@@ -2,7 +2,7 @@
     <div
         class="board-card"
         @click="clickLink"
-        :style="{ background: cardColor }">
+        :style="{ border: `2px solid ${cardColor}` }">
 
         <p class="board-card__title">
             {{ board.title }}
@@ -10,7 +10,6 @@
 
         <div class="board-card__actions">
             <icon-base
-                @click="$emit('click')"
                 viewBox="0 0 487.2 487.2"
                 class="board-card__star">
 
@@ -42,9 +41,13 @@
             return color.setColor(this.board.color);
         }
 
-        private clickLink() {
-            const boardId = this.board.id;
-            this.$router.push({ name: 'board', params: { id: boardId.toString() }});
+        private clickLink(e: Event) {
+            const target = e.target as Element;
+
+            if (target.className === 'board-card') {
+                const boardId = this.board.id;
+                this.$router.push({ name: 'board', params: { id: boardId.toString() }});
+            }
         }
     }
 </script>

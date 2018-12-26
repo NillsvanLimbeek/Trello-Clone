@@ -34,7 +34,9 @@ namespace Trello_Clone
                     .AddJsonOptions(opt => {
                                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                             });
-            // services.AddScoped<IBoardsRepository, BoardsRepository>();
+
+            // remove later
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,10 +48,14 @@ namespace Trello_Clone
             }
             else
             {
-                app.UseHsts();
+                // app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
+
+            // remove later
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
             app.UseMvc();
         }
     }
