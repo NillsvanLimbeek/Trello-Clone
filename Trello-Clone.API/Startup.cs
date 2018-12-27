@@ -30,10 +30,10 @@ namespace Trello_Clone
         {
             services.AddAutoMapper();
             services.AddDbContext<TrelloCloneContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-                    .AddJsonOptions(opt => {
-                                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+                    // .AddJsonOptions(opt => {
+                    //             opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                    //         });
 
             // remove later
             services.AddCors();
