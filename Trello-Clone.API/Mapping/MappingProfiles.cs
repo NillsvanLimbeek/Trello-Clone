@@ -1,3 +1,4 @@
+using System.Linq;
 using AutoMapper;
 using Trello_Clone.API.Dtos;
 using Trello_Clone.API.Models;
@@ -8,8 +9,8 @@ namespace Trello_Clone.API.Mapping
     {
         public MappingProfiles()
         {
-            CreateMap<Board, BoardForListDto>();
-            CreateMap<Board, BoardForDetailDto>();
+            CreateMap<Board, BoardDto>()
+                .ForMember(dto => dto.Columns, opt => opt.MapFrom(b => b.Columns.Select(c => c.Id)));
         }
     }
 }

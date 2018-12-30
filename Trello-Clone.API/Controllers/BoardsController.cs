@@ -9,7 +9,6 @@ using Trello_Clone.API.Models;
 
 namespace Trello_Clone.API.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
     public class BoardsController : Controller
     {
@@ -25,19 +24,19 @@ namespace Trello_Clone.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBoards()
         {
-            var boards = await _context.Boards.ToListAsync();
-            var boardsToReturn = _mapper.Map<List<Board>, List<BoardForListDto>>(boards);
+            var boards = await _context.Boards.Include(b => b.Columns).ToListAsync();
+            var boardsToReturn = _mapper.Map<List<Board>, List<BoardDto>>(boards);
 
             return Ok(boardsToReturn);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> getBoard(int id)
+        public async Task<IActionResult> GetBoard(int id)
         {
             var board = await _context.Boards.Include(b => b.Columns).FirstOrDefaultAsync(b => b.Id == id);
-            var boardToReturn = _mapper.Map<Board, BoardForDetailDto>(board);
+            var boardToReturn = _mapper.Map<Board, BoardDto>(board);
 
-            return Ok(board);
+            return Ok(boardToReturn);
         }
 
         // [HttpPost]

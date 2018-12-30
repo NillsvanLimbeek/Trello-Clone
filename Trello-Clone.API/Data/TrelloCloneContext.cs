@@ -7,6 +7,7 @@ namespace Trello_Clone.API.Data
     {
         public DbSet<Board> Boards { get; set; }
         public DbSet<Column> Columns { get; set; }
+        public DbSet<Item> Items { get; set; }
 
         public TrelloCloneContext(DbContextOptions<TrelloCloneContext> options) : base(options)
         {
