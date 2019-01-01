@@ -66,9 +66,13 @@ const mutations: MutationTree<ColumnState> = {
             .catch((error) => console.log(error));
     },
 
-    addColumn: (state, payload) => state.columns.push(payload),
+    addColumn: (state, payload) => {
+        state.columns.push(payload);
+    },
 
-    deleteColumn: (state, id) => state.columns = state.columns.filter((column) => column.id !== id),
+    deleteColumn: (state, id) => {
+        state.columns = state.columns.filter((column) => column.id !== id);
+    },
 
     setColumns: (state, payload: IColumn[]) => {
         state.columns = payload;

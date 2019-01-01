@@ -77,7 +77,9 @@
 
         public get getAllColumns() {
             const { id } = this.$route.params;
-            return this.$store.getters.getAllColumns(parseFloat(id));
+            const columns = this.$store.getters.getAllColumns(parseFloat(id));
+
+            return columns;
         }
 
         private get getBoardId() {

@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Trello_Clone.API.Data;
+using Trello_Clone.API.Dtos;
+using Trello_Clone.API.Models;
 
 namespace Trello_Clone.API.Controllers
 {
@@ -20,9 +23,10 @@ namespace Trello_Clone.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetColumns()
         {
-            var columns = await _context.Columns.ToListAsync();
+            var columns = await _context.Columns.Include(c => c.Items).ToListAsync();
+            var columnsToReturn = _mapper.Map<List<Column>, List<ColumnDto>>(columns);
 
-            return Ok(columns);
+            return Ok(columnsToReturn);
         }
 
         [HttpGet("{id}")]
