@@ -13,6 +13,7 @@ namespace Trello_Clone.API.Models
         public string Title { get; set; }
         public Column Column { get; set; }
         public int ColumnId { get; set; }
+        public string Description { get; set; }
 
         public ICollection<ColorLabel> ColorLabels { get; set; }
         // public ICollection<Comment> Comments { get; set; }
