@@ -39,19 +39,12 @@ namespace Trello_Clone.API.Controllers
             return Ok(boardToReturn);
         }
 
-        // [HttpPost]
-        // public async Task<IActionResult> addBoard(BoardForCreationDto boardForCreationDto)
-        // {
-        //     var boardToCreate = new Board
-        //     {
-        //         Title = boardForCreationDto.Title,
-        //         Color = boardForCreationDto.Color,
-        //     };
-
-        //     var createdBoard = await _repo.AddBoard(boardToCreate, boardForCreationDto.Title, boardForCreationDto.Color);
-
-        //     return Ok(createdBoard);
-        // }
+        [HttpPost]
+        public async Task<IActionResult> AddBoard([FromBody] BoardForCreationDto boardForCreationDto)
+        {
+            var board = boardForCreationDto;
+            return Ok(boardForCreationDto);
+        }
 
         // [HttpDelete("{id}")]
         // public async Task<IActionResult> removeBoard(int id)

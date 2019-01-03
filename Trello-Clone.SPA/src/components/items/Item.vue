@@ -3,8 +3,7 @@
         class="item"
         @click="openModal">
 
-        <div class="item__labels">
-        <!-- v-if="getColorlabels.length >= 1 -->
+        <div class="item__labels" v-if="getColorlabels.length >= 1">
 
             <ItemColorLabel
                 v-for="label in getColorlabels"

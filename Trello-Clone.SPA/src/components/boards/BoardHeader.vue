@@ -30,7 +30,7 @@
         <div class="board-header__right">
             <div
                 class="button border-radius-left"
-                :class="{ active: currentView === BoardView.Board }"
+                :class="{ 'button__active': currentView === BoardView.Board }"
                 @click="changeCurrentView(BoardView.Board)">
 
                 <icon-base
@@ -46,7 +46,7 @@
 
             <div
                 class="button border-radius-right"
-                :class="{ active: currentView === BoardView.Calendar }"
+                :class="{ 'button__active': currentView === BoardView.Calendar }"
                 @click="changeCurrentView(BoardView.Calendar)">
 
                 <icon-base

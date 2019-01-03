@@ -3,7 +3,7 @@
         <div class="calendar-header__left">
             <div
                 class="button border-radius-left"
-                :class="{ active: calendarView === CalendarView.Week }"
+                :class="{ 'button__active': calendarView === CalendarView.Week }"
                 @click="changeCalendarView(BoardView.Board)"
                 >
 
@@ -21,7 +21,7 @@
 
             <div
                 class="button border-radius-right"
-                :class="{ active: calendarView === CalendarView.Month }"
+                :class="{ 'button__active': calendarView === CalendarView.Month }"
                 @click="changeCalendarView(CalendarView.Month)">
 
                 <icon-base
