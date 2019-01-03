@@ -14,13 +14,13 @@ namespace Trello_Clone.API.Models
         public Column Column { get; set; }
         public int ColumnId { get; set; }
 
-        // public ICollection<Label> Labels { get; set; }
+        public ICollection<ColorLabel> ColorLabels { get; set; }
         // public ICollection<Comment> Comments { get; set; }
         // public ICollection<Activity> Activities { get; set; }
 
         public Item()
         {
-            // Labels = new Collection<Label>();
+            ColorLabels = new Collection<ColorLabel>();
             // Comments = new Collection<Comment>();
             // Activities = new Collection<Activity>();
         }
