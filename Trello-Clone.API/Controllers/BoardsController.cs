@@ -42,8 +42,18 @@ namespace Trello_Clone.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBoard([FromBody] BoardForCreationDto boardForCreationDto)
         {
-            var board = boardForCreationDto;
-            return Ok(boardForCreationDto);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var board = _mapper.Map<BoardForCreationDto, Board>(boardForCreationDto);
+
+            _context.Add(board);
+            await _context.SaveChangesAsync();
+
+            var boardToReturn = _mapper.Map<Board, BoardDto>(board);
+            return Ok(boardToReturn);
         }
 
         // [HttpDelete("{id}")]
