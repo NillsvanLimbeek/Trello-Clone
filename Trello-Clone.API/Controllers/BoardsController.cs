@@ -40,7 +40,7 @@ namespace Trello_Clone.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBoard([FromBody] BoardForCreationDto boardForCreationDto)
+        public async Task<IActionResult> CreateBoard([FromBody] BoardForCreationDto boardForCreationDto)
         {
             if (!ModelState.IsValid)
             {
@@ -56,12 +56,21 @@ namespace Trello_Clone.API.Controllers
             return Ok(boardToReturn);
         }
 
-        // [HttpDelete("{id}")]
-        // public async Task<IActionResult> removeBoard(int id)
-        // {
-        //     var board = await _repo.DeleteBoard(id);
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateBoard(int id, [FromBody] BoardDto boardDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-        //     return Ok(board);
-        // }
+            var board = await _context.Boards.FindAsync(id);
+            _mapper.Map<BoardDto, Board>(boardDto, board);
+
+            await _context.SaveChangesAsync();
+
+            var boardToReturn = _mapper.Map<Board, BoardDto>(board);
+            return Ok(boardToReturn);
+        }
     }
 }

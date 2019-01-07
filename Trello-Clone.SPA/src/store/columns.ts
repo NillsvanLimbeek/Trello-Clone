@@ -57,13 +57,8 @@ const getters: GetterTree<ColumnState, any> = {
 };
 
 const mutations: MutationTree<ColumnState> = {
-    fetchColumns: (state) => {
-        axios.get('http://localhost:5000/api/columns')
-            .then((response) => {
-                state.columns = response.data;
-            })
-            // tslint:disable-next-line
-            .catch((error) => console.log(error));
+    fetchColumns: (state, columns: IColumn[]) => {
+        state.columns = columns;
     },
 
     addColumn: (state, payload) => {
@@ -81,7 +76,8 @@ const mutations: MutationTree<ColumnState> = {
 
 const actions: ActionTree<ColumnState, RootState> = {
     async fetchColumns({ commit }) {
-        await commit('fetchColumns');
+        const columns = await axios.get('http://localhost:5000/api/columns');
+        commit('fetchColumns', columns.data);
     },
 };
 

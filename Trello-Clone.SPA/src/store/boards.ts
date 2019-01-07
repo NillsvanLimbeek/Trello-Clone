@@ -76,22 +76,12 @@ const getters: GetterTree<BoardsState, RootState> = {
 };
 
 const mutations: MutationTree<BoardsState>  = {
-    fetchBoards: (state) => {
-        axios.get('http://localhost:5000/api/boards')
-            .then((response) => {
-                state.boards = response.data;
-            })
-            // tslint:disable-next-line
-            .catch((error) => console.log(error))
+    fetchBoards: (state, boards: IBoard[]) => {
+        state.boards = boards;
     },
 
-    createBoard: (state, newBoard: BoardToCreateDto) => {
-        axios.post('http://localhost:5000/api/boards', newBoard)
-            .then((response) => {
-                state.boards.push(response.data);
-            })
-            // tslint:disable-next-line
-            .catch((error) => console.log(error));
+    createBoard: (state, newBoard: IBoard) => {
+        state.boards.push(newBoard);
     },
 
     changeCurrentView: (state, newView: BoardView) => {
@@ -101,11 +91,14 @@ const mutations: MutationTree<BoardsState>  = {
 
 const actions: ActionTree<BoardsState, RootState> = {
     async fetchBoards({ commit }) {
-        await commit('fetchBoards');
+        const boards = await axios.get('http://localhost:5000/api/boards');
+        commit('fetchBoards', boards.data);
     },
 
-    async createBoard({ commit }, newBoard: BoardToCreateDto) {
-        await commit('createBoard', newBoard);
+    async createBoard({ commit, dispatch }, newBoard: IBoard) {
+        const boardToCreate = await axios.post('http://localhost:5000/api/boards', newBoard);
+        commit('createBoard', newBoard);
+        dispatch('fetchBoards');
     },
 
     setCurrentView({ commit }, newView: BoardView) {

@@ -36,5 +36,17 @@ namespace Trello_Clone.API.Controllers
 
             return Ok(column);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateColumn([FromBody] ColumnDto columnDto)
+        {
+            var column = _mapper.Map<ColumnDto, Column>(columnDto);
+
+            _context.Add(column);
+            await _context.SaveChangesAsync();
+
+            var columntoReturn = _mapper.Map<Column, ColumnDto>(column);
+            return Ok(column);
+        }
     }
 }

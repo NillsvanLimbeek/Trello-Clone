@@ -37,5 +37,17 @@ namespace Trello_Clone.API.Controllers
 
             return Ok(item);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateItem([FromBody] ItemDto itemDto)
+        {
+            var item = _mapper.Map<ItemDto, Item>(itemDto);
+
+            _context.Add(item);
+            await _context.SaveChangesAsync();
+
+            var itemToReturn = _mapper.Map<Item, ItemDto>(item);
+            return Ok(itemToReturn);
+        }
     }
 }

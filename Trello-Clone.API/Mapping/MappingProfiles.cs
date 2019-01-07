@@ -19,6 +19,10 @@ namespace Trello_Clone.API.Mapping
 
             // API to domain
             CreateMap<BoardForCreationDto, Board>();
+            CreateMap<BoardDto, Board>()
+                .ForMember(b => b.Id, opt => opt.Ignore());
+            CreateMap<ColumnDto, Column>();
+            CreateMap<ItemDto, Item>();
         }
     }
 }

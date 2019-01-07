@@ -54,13 +54,8 @@ const getters: GetterTree<ItemState, RootState> = {
 };
 
 const mutations: MutationTree<ItemState> = {
-    fetchItems: (state) => {
-        axios.get('http://localhost:5000/api/items')
-            .then((response) => {
-                state.items = response.data;
-            })
-            // tslint:disable-next-line
-            .catch((error) => console.log(error));
+    fetchItems: (state, items: IItem[]) => {
+        state.items = items;
     },
 
     deleteItem: (state, id: number) => {
@@ -75,8 +70,9 @@ const mutations: MutationTree<ItemState> = {
 };
 
 const actions: ActionTree<ItemState, RootState> = {
-    fetchItems({ commit }) {
-        commit('fetchItems');
+    async fetchItems({ commit }) {
+        const items = await axios.get('http://localhost:5000/api/items');
+        commit('fetchItems', items.data);
     },
 };
 

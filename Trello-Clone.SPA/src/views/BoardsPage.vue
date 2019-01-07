@@ -9,7 +9,7 @@
         <div
             class="board-card board-card__add"
             @click="showModal = true">
-            Add Card
+            Add Board
         </div>
 
         <Modal
