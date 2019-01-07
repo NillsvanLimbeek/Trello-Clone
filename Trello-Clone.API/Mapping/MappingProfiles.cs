@@ -18,10 +18,12 @@ namespace Trello_Clone.API.Mapping
                 .ForMember(dto => dto.ColorLabels, opt => opt.MapFrom(i => i.ColorLabels.Select(cl => cl.Id)));
 
             // API to domain
-            CreateMap<BoardForCreationDto, Board>();
             CreateMap<BoardDto, Board>()
                 .ForMember(b => b.Id, opt => opt.Ignore());
-            CreateMap<ColumnDto, Column>();
+            CreateMap<BoardForCreationDto, Board>();
+            CreateMap<ColumnDto, Column>()
+                .ForMember(c => c.Id, opt => opt.Ignore());
+            CreateMap<ColumnForCreationDto, Column>();
             CreateMap<ItemDto, Item>();
         }
     }

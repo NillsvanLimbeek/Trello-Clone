@@ -34,6 +34,11 @@ namespace Trello_Clone.API.Controllers
         public async Task<IActionResult> GetBoard(int id)
         {
             var board = await _context.Boards.Include(b => b.Columns).FirstOrDefaultAsync(b => b.Id == id);
+
+            if (board == null) {
+                return NotFound();
+            }
+
             var boardToReturn = _mapper.Map<Board, BoardDto>(board);
 
             return Ok(boardToReturn);
@@ -64,13 +69,35 @@ namespace Trello_Clone.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var board = await _context.Boards.FindAsync(id);
+            var board = await _context.Boards.Include(b => b.Columns).FirstOrDefaultAsync(b => b.Id == id);
+
+            if (board == null)
+            {
+                return NotFound();
+            }
+
             _mapper.Map<BoardDto, Board>(boardDto, board);
 
             await _context.SaveChangesAsync();
 
             var boardToReturn = _mapper.Map<Board, BoardDto>(board);
             return Ok(boardToReturn);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBoard(int id)
+        {
+            var board = await _context.Boards.FindAsync(id);
+
+            if (board == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(board);
+            await _context.SaveChangesAsync();
+
+            return Ok(id);
         }
     }
 }
