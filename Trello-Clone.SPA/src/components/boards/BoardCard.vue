@@ -11,9 +11,10 @@
         <div class="board-card__actions">
             <icon-base
                 viewBox="0 0 487.2 487.2"
-                class="board-card__star">
+                class="board-card__star"
+                @click="$emit('favorite', board)">
 
-                <icon-star />
+                <icon-star :class="{ 'board-card__star--active': isFavorite }" />
             </icon-base>
         </div>
     </div>
@@ -24,7 +25,7 @@
 
     import { IBoard } from '@/data/models';
     import { Colors } from '@utils/index';
-    import { IconBase, IconStar, IconThrash } from '@components/icons';
+    import { IconBase, IconStar } from '@components/icons';
 
     @Component({
         components: {
@@ -48,6 +49,10 @@
                 const boardId = this.board.id;
                 this.$router.push({ name: 'board', params: { id: boardId.toString() }});
             }
+        }
+
+        private get isFavorite() {
+            return this.board.favorite;
         }
     }
 </script>

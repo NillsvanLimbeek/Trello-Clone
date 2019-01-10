@@ -10,6 +10,10 @@
             />
         </div>
 
+        <router-link :to="{ name: 'boards' }">
+            Trello-Clone
+        </router-link>
+
         <div class="header__right-menu">
             <UserBtn />
             <NotificationsBtn />

@@ -4,6 +4,7 @@
             v-for="board in boards"
             :key="board.id"
             :board="board"
+            @favorite="makeFavorite($event)"
         />
 
         <div
@@ -50,6 +51,12 @@
             this.$store.dispatch('createBoard', payload);
 
             this.showModal = false;
+        }
+
+        private makeFavorite(board: IBoard) {
+            board.favorite = true;
+
+            this.$store.dispatch('updateBoard', board);
         }
 
         private created() {
