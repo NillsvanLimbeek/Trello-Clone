@@ -84,9 +84,9 @@ const mutations: MutationTree<BoardsState>  = {
         state.boards.push(newBoard);
     },
 
-    favoriteBoard: (state, favoriteBoard: IBoard) => {
-        let board = state.boards.find((board) => board.id === favoriteBoard.id);
-        board = favoriteBoard;
+    updateBoard: (state, updateBoard: IBoard) => {
+        let board = state.boards.find((board) => board.id === updateBoard.id);
+        board = updateBoard;
     },
 
     changeCurrentView: (state, newView: BoardView) => {
@@ -106,9 +106,9 @@ const actions: ActionTree<BoardsState, RootState> = {
         dispatch('fetchBoards');
     },
 
-    async favoriteBoard({ commit }, favoriteBoard: IBoard ) {
-        const boardForFavorite = await axios.put(`http://localhost:5000/api/boards/${favoriteBoard.id}`, favoriteBoard);
-        commit('favoriteBoard', favoriteBoard);
+    async updateBoard({ commit }, updateBoard: IBoard ) {
+        const boardForUpdate = await axios.put(`http://localhost:5000/api/boards/${updateBoard.id}`, updateBoard);
+        commit('updateBoard', boardForUpdate);
     },
 
     setCurrentView({ commit }, newView: BoardView) {

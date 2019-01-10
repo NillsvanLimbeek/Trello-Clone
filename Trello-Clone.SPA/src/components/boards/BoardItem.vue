@@ -30,13 +30,12 @@
                 </icon-base>
 
                 <icon-base
-                    viewBox="0 0 487.2 487.2"
-                    height="17.5"
-                    width="17.5">
+                    v-if="board.favorite"
+                    viewBox="0 0 490.7 490.7"
+                    size="17.5">
 
                     <icon-star />
                 </icon-base>
-
             </div>
         </div>
 </template>
@@ -44,7 +43,7 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
-    import { IconBase, IconSquare, IconThrash, IconStar } from '@components/icons';
+    import { IconBase, IconSquare, IconThrash, IconStar, IconStarSolid } from '@components/icons';
 
     import { IBoard } from '@models/index';
     import { SquareColors } from '@enums/index';
@@ -56,6 +55,7 @@
             IconSquare,
             IconThrash,
             IconStar,
+            IconStarSolid,
         },
     })
     export default class BoardItem extends Vue {

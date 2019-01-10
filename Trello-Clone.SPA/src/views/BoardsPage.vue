@@ -47,15 +47,14 @@
 
         private showModal = false;
 
-        private createBoard(payload: BoardToCreateDto) {
-            this.$store.dispatch('createBoard', payload);
+        private createBoard(board: BoardToCreateDto) {
+            this.$store.dispatch('createBoard', board);
 
             this.showModal = false;
         }
 
         private makeFavorite(board: IBoard) {
             board.favorite = true;
-
             this.$store.dispatch('updateBoard', board);
         }
 

@@ -7,6 +7,7 @@ import IconLabel from './svg/IconLabel.vue';
 import IconSquare from './svg/IconSquare.vue';
 import IconThrash from './svg/IconThrash.vue';
 import IconStar from './svg/IconStar.vue';
+import IconStarSolid from './svg/IconStarSolid.vue';
 import IconWeek from './svg/IconWeek.vue';
 import IconMonth from './svg/IconMonth.vue';
 import IconArrow from './svg/IconArrow.vue';
@@ -51,4 +52,5 @@ export {
     IconPlus,
     IconDots,
     IconSearch,
+    IconStarSolid,
 };

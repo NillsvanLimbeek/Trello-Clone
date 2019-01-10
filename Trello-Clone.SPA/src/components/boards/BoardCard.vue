@@ -10,11 +10,21 @@
 
         <div class="board-card__actions">
             <icon-base
+                v-if="!board.favorite"
                 viewBox="0 0 487.2 487.2"
                 class="board-card__star"
                 @click="$emit('favorite', board)">
 
-                <icon-star :class="{ 'board-card__star--active': isFavorite }" />
+                <icon-star />
+            </icon-base>
+
+            <icon-base
+                v-else
+                viewBox="0 0 49.9 49.9"
+                size="17.5"
+                class="board-card__star">
+
+                <icon-star-solid />
             </icon-base>
         </div>
     </div>
@@ -25,12 +35,13 @@
 
     import { IBoard } from '@/data/models';
     import { Colors } from '@utils/index';
-    import { IconBase, IconStar } from '@components/icons';
+    import { IconBase, IconStar, IconStarSolid } from '@components/icons';
 
     @Component({
         components: {
             IconBase,
             IconStar,
+            IconStarSolid,
         },
     })
 
