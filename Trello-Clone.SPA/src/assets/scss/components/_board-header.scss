@@ -14,6 +14,8 @@
     }
 
     &__square {
+        @include flex-center-align;
+
         height: 4rem;
         width: 4rem;
 
@@ -21,9 +23,9 @@
         border-radius: var(--border-radius);
     }
 
-    &__square {
-        width: 4rem;
-        margin-right: 2rem;
+    &__star {
+        transform: translateY(-1px);
+        fill: var(--color-white);
     }
 
     &__info {

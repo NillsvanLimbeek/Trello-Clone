@@ -61,16 +61,12 @@ const mutations: MutationTree<ColumnState> = {
         state.columns = columns;
     },
 
-    addColumn: (state, payload) => {
-        state.columns.push(payload);
+    createColumn: (state, newColumn: IColumn) => {
+        state.columns.push(newColumn);
     },
 
     deleteColumn: (state, id) => {
         state.columns = state.columns.filter((column) => column.id !== id);
-    },
-
-    setColumns: (state, payload: IColumn[]) => {
-        state.columns = payload;
     },
 };
 
@@ -79,6 +75,12 @@ const actions: ActionTree<ColumnState, RootState> = {
         const columns = await axios.get('http://localhost:5000/api/columns');
         commit('fetchColumns', columns.data);
     },
+
+    async createColumn({ commit }, newColumn: IColumn) {
+        const columns = await axios.post('http://localhost:5000/api/columns');
+        commit('createColumn', newColumn);
+    },
+
 };
 
 export const columns: Module<ColumnState, any> = {

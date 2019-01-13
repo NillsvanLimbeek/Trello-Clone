@@ -6,8 +6,17 @@
                 :style="{
                     background: squareColor,
                     'box-shadow': `0 .5rem 3rem .1rem ${squareColor}`
-                    }"
-                />
+                }">
+
+                <icon-base
+                    v-if="boardHeader.favorite"
+                    viewBox="0 0 49.9 49.9"
+                    size="17"
+                    class="board-header__star">
+
+                    <icon-star-solid />
+                </icon-base>
+            </div>
 
             <div class="board-header__info">
                 <p class="board-header__title">{{ boardHeader.title }}</p>
@@ -67,7 +76,7 @@
 <script lang="ts">
     import { Vue, Component, Prop, Getter } from '@/vue-script';
 
-    import { IconBase, IconEye, IconBoards, IconCalendar } from '@components/icons';
+    import { IconBase, IconEye, IconBoards, IconCalendar, IconStarSolid } from '@components/icons';
 
     import { BoardView } from '@enums/index';
     import { Colors } from '@/utils/index';
@@ -79,6 +88,7 @@
             IconEye,
             IconBoards,
             IconCalendar,
+            IconStarSolid,
         },
     })
 

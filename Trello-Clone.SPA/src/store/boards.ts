@@ -73,6 +73,10 @@ const getters: GetterTree<BoardsState, RootState> = {
     getBoard: (state) => (boardId: number) => {
         return state.boards.find((board) => board.id === boardId);
     },
+
+    getFavoriteBoards: (state) => {
+        return state.boards.filter((board) => board.favorite === true);
+    },
 };
 
 const mutations: MutationTree<BoardsState>  = {

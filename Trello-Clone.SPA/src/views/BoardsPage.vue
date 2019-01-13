@@ -1,17 +1,16 @@
 <template>
     <div class="boards-page pa-3">
-        <BoardCard
-            v-for="board in boards"
-            :key="board.id"
-            :board="board"
-            @favorite="makeFavorite($event)"
-        />
+        <BoardsList
+            v-if="favoriteBoards.length > 0"
+            title="Favorite Boards"
+            :boards="favoriteBoards"
+            :add-board="false"
+            @show-modal="showModal = true" />
 
-        <div
-            class="board-card board-card__add"
-            @click="showModal = true">
-            Add Board
-        </div>
+        <BoardsList
+            title="All Boards"
+            :boards="boards"
+            @show-modal="showModal = true" />
 
         <Modal
             v-if="showModal"
@@ -28,14 +27,15 @@
     import { EventBus } from '@/eventBus';
 
     import { IBoard } from '@models/index';
-    import { BoardToCreateDto } from '@/data/dto';
 
+    import BoardsList from '@components/boards/BoardsList.vue';
     import BoardCard from '@components/boards/BoardCard.vue';
     import Modal from '@components/modal/Modal.vue';
     import ModalNewBoard from '@components/modal/content/ModalNewBoard.vue';
 
     @Component({
         components: {
+            BoardsList,
             BoardCard,
             Modal,
             ModalNewBoard,
@@ -44,18 +44,14 @@
 
     export default class BoardsPage extends Vue {
         @Getter('getBoards') private boards!: IBoard[];
+        @Getter('getFavoriteBoards') private favoriteBoards!: IBoard[];
 
         private showModal = false;
 
-        private createBoard(board: BoardToCreateDto) {
+        private createBoard(board: IBoard) {
             this.$store.dispatch('createBoard', board);
 
             this.showModal = false;
-        }
-
-        private makeFavorite(board: IBoard) {
-            board.favorite = true;
-            this.$store.dispatch('updateBoard', board);
         }
 
         private created() {
@@ -65,6 +61,10 @@
 
             EventBus.$on('close-modal', () => {
                 this.showModal = false;
+            });
+
+            EventBus.$on('favorite', (board: IBoard) => {
+                this.$store.dispatch('updateBoard', board);
             });
         }
     }

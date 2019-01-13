@@ -10,19 +10,50 @@
     box-shadow: var(--drop-shadow);
     cursor: pointer;
 
+    transition: var(--transition-2);
+
+    &:hover {
+        transform: translateY(-.5rem);
+        box-shadow: var(--drop-shadow-hover);
+
+        transition: var(--transition-2);
+
+        .board-card__star {
+            fill: var(--color-white);
+        }
+    }
+
+    &__title {
+        color: white;
+    }
+
     &__star {
         position: absolute;
         right: 7px;
         bottom: 7px;
 
-        transition: var(--transition-2);
+        fill: transparent;
 
-        &--active {
-            fill: rgb(219, 219, 0);
-        }
+        transition: var(--transition-2);
 
         &:hover {
             transform: scale(1.25);
+            transition: var(--transition-2);
+        }
+    }
+
+    &__star-favorite {
+        position: absolute;
+        right: 7px;
+        bottom: 7px;
+
+        fill: yellow;
+
+        transition: var(--transition-2);
+
+        &:hover {
+            transform: scale(1.25);
+            transition: var(--transition-2);
         }
     }
 }
