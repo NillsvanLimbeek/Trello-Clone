@@ -100,7 +100,7 @@
                 boardId: this.getBoardId,
             };
 
-            this.$store.commit('createColumn', newColumn);
+            this.$store.dispatch('createColumn', newColumn);
         }
 
         private changeView(newView: BoardView) {

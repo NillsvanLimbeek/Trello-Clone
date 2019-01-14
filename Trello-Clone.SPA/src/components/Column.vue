@@ -31,28 +31,23 @@
             </transition>
         </div>
 
-        <transition-group
-            name="add-item"
-            tag="div">
+        <Item
+            class="add-item-item"
+            v-for="item in filterItems"
+            :key="item.id"
+            :itemId="item.id"
+            :columnId="columnId">
 
-            <Item
-                class="add-item-item"
-                v-for="item in filterItems"
-                :key="item.id"
-                :itemId="item.id"
-                :columnId="columnId">
+            <p class="item__input">{{ item.title }}</p>
+        </Item>
 
-                <p class="item__input">{{ item.title }}</p>
-            </Item>
+        <div
+            class="column__add-item add-item-item"
+            key="addButton"
+            @click="addItem">
 
-            <div
-                class="column__add-item add-item-item"
-                key="addButton"
-                @click="addItem">
-
-                <p>Add Card</p>
-            </div>
-        </transition-group>
+            <p>Add Card</p>
+        </div>
     </div>
 </template>
 
@@ -98,7 +93,14 @@
         }
 
         private addItem() {
-            this.$emit('add-item', this.columnId);
+            const newItem: IItem = {
+                title: 'Item',
+                columnId: this.columnId,
+                colorLabels: [],
+            };
+
+            this.$store.dispatch('createItem', newItem);
+            // this.$emit('add-item', this.columnId);
         }
     }
 </script>

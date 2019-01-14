@@ -39,9 +39,14 @@ namespace Trello_Clone.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateItem([FromBody] ItemDto itemDto)
+        public async Task<IActionResult> CreateItem([FromBody] ItemForCreationDto itemForCreationDto)
         {
-            var item = _mapper.Map<ItemDto, Item>(itemDto);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var item = _mapper.Map<ItemForCreationDto, Item>(itemForCreationDto);
 
             _context.Add(item);
             await _context.SaveChangesAsync();

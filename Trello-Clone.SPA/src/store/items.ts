@@ -66,13 +66,21 @@ const mutations: MutationTree<ItemState> = {
         state.items = state.items.filter((item) => item.columnId !== id);
     },
 
-    addItem: (state, payload) => state.items.push(payload),
+    createItem: (state, newItem: IItem) => state.items.push(newItem),
 };
 
 const actions: ActionTree<ItemState, RootState> = {
     async fetchItems({ commit }) {
         const items = await axios.get('http://localhost:5000/api/items');
         commit('fetchItems', items.data);
+    },
+
+    async createItem({ commit }, newItem: IItem) {
+        const itemToCreate = await axios.post('http://localhost:5000/api/items', newItem);
+        console.log(itemToCreate);
+        console.log(newItem);
+
+        commit('createItem', newItem);
     },
 };
 
