@@ -11,8 +11,7 @@
                 v-for="column in getAllColumns"
                 :key="column.id"
                 :columnId="column.id"
-                :state="column.state"
-                @add-item="addItem">
+                :state="column.state">
 
                 <input class="column__input" type="text" v-model="column.title">
 
@@ -20,7 +19,7 @@
 
             <div
                 class="board__add-button add-column-item"
-                @click="addColumn"
+                @click="createColumn"
                 key="addButton">
 
                 <p>Add List</p>
@@ -39,7 +38,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop, State, Getter, Watch } from '@/vue-script';
+    import { Vue, Component, Prop, State, Getter } from '@/vue-script';
     import { Route } from 'vue-router';
 
     import { EventBus } from '@/eventBus';
@@ -65,6 +64,7 @@
     export default class Board extends Vue {
         @State('columns') private columns!: ColumnState;
         @Getter('getBoards') private boards!: BoardsState;
+        @Prop() private board!: IBoard;
 
         private showModal = false;
         private itemId!: number;
@@ -92,7 +92,7 @@
             return Math.ceil(Math.random() * 1000);
         }
 
-        private addColumn() {
+        private createColumn() {
             const newColumn: IColumn = {
                 title: 'Column',
                 itemIds: [],
@@ -101,21 +101,6 @@
             };
 
             this.$store.commit('createColumn', newColumn);
-        }
-
-        private addItem(columnId: number) {
-            const randomId = this.randomId();
-
-            const newItem: IItem = {
-                title: 'Item',
-                columnId,
-                id: randomId,
-                colorLabels: [],
-                members: [],
-                attachment: 0,
-            };
-
-            this.$store.dispatch('addItem', newItem);
         }
 
         private changeView(newView: BoardView) {

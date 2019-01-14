@@ -26,3 +26,17 @@ D:\Projects\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.A
 D:\Projects\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.RazorTargetAssemblyInfo.cache
 D:\Projects\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.dll
 D:\Projects\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.pdb
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\bin\Debug\netcoreapp2.1\Trello-Clone.deps.json
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\bin\Debug\netcoreapp2.1\Trello-Clone.runtimeconfig.json
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\bin\Debug\netcoreapp2.1\Trello-Clone.runtimeconfig.dev.json
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\bin\Debug\netcoreapp2.1\Trello-Clone.dll
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\bin\Debug\netcoreapp2.1\Trello-Clone.pdb
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.csprojAssemblyReference.cache
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.csproj.CoreCompileInputs.cache
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.RazorAssemblyInfo.cache
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.RazorAssemblyInfo.cs
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.AssemblyInfoInputs.cache
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.AssemblyInfo.cs
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.RazorTargetAssemblyInfo.cache
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.dll
+D:\Projects\trello-clone-2\Trello-Clone\Trello-Clone.API\obj\Debug\netcoreapp2.1\Trello-Clone.pdb

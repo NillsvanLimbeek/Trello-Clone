@@ -77,7 +77,7 @@ const actions: ActionTree<ColumnState, RootState> = {
     },
 
     async createColumn({ commit }, newColumn: IColumn) {
-        const columns = await axios.post('http://localhost:5000/api/columns');
+        const columns = await axios.post('http://localhost:5000/api/columns', newColumn);
         commit('createColumn', newColumn);
     },
 
