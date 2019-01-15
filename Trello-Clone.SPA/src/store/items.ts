@@ -77,9 +77,6 @@ const actions: ActionTree<ItemState, RootState> = {
 
     async createItem({ commit }, newItem: IItem) {
         const itemToCreate = await axios.post('http://localhost:5000/api/items', newItem);
-        console.log(itemToCreate);
-        console.log(newItem);
-
         commit('createItem', newItem);
     },
 };

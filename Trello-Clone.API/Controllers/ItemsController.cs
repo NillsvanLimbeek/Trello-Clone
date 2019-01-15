@@ -54,5 +54,43 @@ namespace Trello_Clone.API.Controllers
             var itemToReturn = _mapper.Map<Item, ItemDto>(item);
             return Ok(itemToReturn);
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateItem(int id, [FromBody] ItemDto itemDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var item = await _context.Items.FirstOrDefaultAsync(i => i.Id == id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map<ItemDto, Item>(itemDto, item);
+            await _context.SaveChangesAsync();
+
+            var itemToReturn = _mapper.Map<Item, ItemDto>(item);
+            return Ok(itemToReturn);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteItem(int id)
+        {
+            var item = await _context.Items.FindAsync(id);
+
+            if (item == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(item);
+            await _context.SaveChangesAsync();
+
+            return Ok(id);
+        }
     }
 }

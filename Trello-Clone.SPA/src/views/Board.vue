@@ -13,7 +13,12 @@
                 :columnId="column.id"
                 :state="column.state">
 
-                <input class="column__input" type="text" v-model="column.title">
+                <input
+                    class="input"
+                    type="text"
+                    v-model="column.title"
+                    v-focus
+                    ref="title">
 
             </Column>
 
@@ -116,6 +121,15 @@
             EventBus.$on('close-modal', () => {
                 this.showModal = false;
             });
+        }
+
+        private mounted() {
+            const title = this.$refs.title as HTMLFormElement;
+            if (title.length > 0) {
+                title.forEach((el: HTMLFormElement) => {
+                    el.blur();
+                });
+            }
         }
     }
 </script>

@@ -76,7 +76,6 @@ namespace Trello_Clone.API.Controllers
             }
 
             _mapper.Map<ColumnDto, Column>(columnDto, column);
-
             await _context.SaveChangesAsync();
 
             var columnToReturn = _mapper.Map<Column, ColumnDto>(column);

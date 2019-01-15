@@ -33,7 +33,7 @@
 
         <Item
             class="add-item-item"
-            v-for="item in filterItems"
+            v-for="item in getItems"
             :key="item.id"
             :itemId="item.id"
             :columnId="columnId">
@@ -60,7 +60,7 @@
     import Item from '@components/items/Item.vue';
     import { IconBase, IconCircle, IconDots } from '@components/icons';
 
-    import { ItemState } from '@state/state';
+    import { ColumnState, ItemState } from '@state/state';
     import { IItem, IColumn } from '@models/index';
 
     @Component({
@@ -77,15 +77,19 @@
         @Prop() private columnId!: number;
         @Prop() private state!: string;
 
+        @State('columns') private columns!: ColumnState;
         @State('items') private items!: ItemState;
 
         private columnDropdown = false;
 
-        private get filterItems() {
-            const { items } = this.items;
-            const column = this.columnId;
+        private get column() {
+            const { columns } = this.columns;
+            return columns.find((column: IColumn) => column.id === this.columnId);
+        }
 
-            return items.filter((item: IItem) => column === item.columnId);
+        private get getItems() {
+            const { items } = this.items;
+            return items.filter((item: IItem) => this.columnId === item.columnId);
         }
 
         private openDropdown() {
@@ -100,7 +104,6 @@
             };
 
             this.$store.dispatch('createItem', newItem);
-            // this.$emit('add-item', this.columnId);
         }
     }
 </script>
