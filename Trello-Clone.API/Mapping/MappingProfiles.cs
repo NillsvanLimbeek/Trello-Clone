@@ -27,7 +27,7 @@ namespace Trello_Clone.API.Mapping
             CreateMap<ColumnForCreationDto, Column>();
 
             CreateMap<ItemDto, Item>()
-                .ForMember(c => c.Id, opt => opt.Ignore());
+                .ForMember(i => i.Id, opt => opt.Ignore());
             CreateMap<ItemForCreationDto, Item>();
         }
     }

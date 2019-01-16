@@ -74,27 +74,21 @@
         private showModal = false;
         private itemId!: number;
 
-        public get getAllColumns() {
-            const { id } = this.$route.params;
-            const columns = this.$store.getters.getAllColumns(parseFloat(id));
-
-            return columns;
-        }
-
         private get getBoardId() {
             const { id } = this.$route.params;
             return parseFloat(id);
         }
 
-        private get getBoardHeader() {
-            const { id } = this.$route.params;
-            const board: IBoard = this.$store.getters.getBoard(parseFloat(id));
+        public get getAllColumns() {
+            const columns = this.$store.getters.getAllColumns(this.getBoardId);
 
-            return board;
+            return columns;
         }
 
-        private randomId() {
-            return Math.ceil(Math.random() * 1000);
+        private get getBoardHeader() {
+            const board: IBoard = this.$store.getters.getBoard(this.getBoardId);
+
+            return board;
         }
 
         private createColumn() {
@@ -113,6 +107,8 @@
         }
 
         private created() {
+
+
             EventBus.$on('open-modal', (itemId: number) => {
                 this.showModal = true;
                 this.itemId = itemId;
@@ -124,6 +120,9 @@
         }
 
         private mounted() {
+            // todo
+            // fetch board
+
             const title = this.$refs.title as HTMLFormElement;
             if (title.length > 0) {
                 title.forEach((el: HTMLFormElement) => {

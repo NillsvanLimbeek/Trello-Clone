@@ -12,15 +12,18 @@
 
         width: 13rem;
         padding: 1rem 0;
+        border: 1px solid rgb(214, 214, 214);
         border-radius: .5rem;
         background: var(--color-white);
     }
 
     &__item {
         padding: .75rem;
+        cursor: pointer;
 
         &:hover {
-            background: rgba(0, 0, 0, 0.1)
+            background: var(--color-primary);
+            color: var(--color-white);
         }
     }
 

@@ -76,9 +76,10 @@ const actions: ActionTree<ColumnState, RootState> = {
         commit('fetchColumns', columns.data);
     },
 
-    async createColumn({ commit }, newColumn: IColumn) {
+    async createColumn({ commit, dispatch }, newColumn: IColumn) {
         const columnToCreate = await axios.post('http://localhost:5000/api/columns', newColumn);
         commit('createColumn', newColumn);
+        dispatch('fetchColumns');
     },
 
 };

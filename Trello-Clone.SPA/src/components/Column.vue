@@ -23,12 +23,10 @@
                 <icon-dots />
             </icon-base>
 
-            <transition name="fade">
-                <Dropdown
-                    v-if="columnDropdown"
-                    type="column"
-                />
-            </transition>
+            <Dropdown
+                v-if="columnDropdown"
+                type="column"
+                @close-dropdown="columnDropdown = false" />
         </div>
 
         <Item

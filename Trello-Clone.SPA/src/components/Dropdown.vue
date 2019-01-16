@@ -1,18 +1,18 @@
 <template>
     <div
+        v-click-outside="closeDropdown"
         class="dropdown"
-        :class="{ 'position-column': type === 'column', 'position-item': type === 'item' }">
+        :class="{
+            'position-column': type === 'column',
+            'position-item': type === 'item'
+        }">
 
-        <div class="dropdown__body" @mouseleave="close">
-            <p
-                class="dropdown__item"
-                @click="globalDelete">
-                <i class="dropdown__icon fas fa-trash"/>
+        <div class="dropdown__body">
+            <p class="dropdown__item">
                 Delete
             </p>
 
             <p class="dropdown__item">
-                <i class="dropdown__icon fas fa-copy"/>
                 Copy
             </p>
         </div>
@@ -24,10 +24,12 @@
     import { Vue, Component, Prop } from '@/vue-script';
 
     @Component({})
-
     export default class Dropdown extends Vue {
-        // props
         @Prop() private type!: string;
+
+        private closeDropdown() {
+            this.$emit('close-dropdown');
+        }
     }
 
 </script>
