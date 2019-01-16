@@ -104,6 +104,11 @@ const actions: ActionTree<BoardsState, RootState> = {
         commit('fetchBoards', boards.data);
     },
 
+    async fetchBoard({ commit }, id: number) {
+        const board = await axios.get(`http://localhost:5000/api/boards/${id}`);
+        return board;
+    },
+
     async createBoard({ commit, dispatch }, newBoard: IBoard) {
         const boardToCreate = await axios.post('http://localhost:5000/api/boards', newBoard);
         commit('createBoard', newBoard);

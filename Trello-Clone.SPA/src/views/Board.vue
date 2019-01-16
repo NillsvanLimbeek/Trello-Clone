@@ -2,13 +2,13 @@
     <div class="board">
 
         <BoardHeader
-            :board-header="getBoardHeader"
+            :board-header="board"
             @change-view="changeView" />
 
         <div class="board__board-list">
             <Column
                 class="add-column-item"
-                v-for="column in getAllColumns"
+                v-for="column in columns"
                 :key="column.id"
                 :columnId="column.id"
                 :state="column.state">
@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop, State, Getter } from '@/vue-script';
+    import { Vue, Component, State, Getter } from '@/vue-script';
     import { Route } from 'vue-router';
 
     import { EventBus } from '@/eventBus';
@@ -67,28 +67,17 @@
     })
 
     export default class Board extends Vue {
-        @State('columns') private columns!: ColumnState;
-        @Getter('getBoards') private boards!: BoardsState;
-        @Prop() private board!: IBoard;
-
         private showModal = false;
         private itemId!: number;
+        private boardId!: number;
+        private boardOjb = {};
 
-        private get getBoardId() {
-            const { id } = this.$route.params;
-            return parseFloat(id);
+        public get columns() {
+            return this.$store.getters.getAllColumns(this.boardId);
         }
 
-        public get getAllColumns() {
-            const columns = this.$store.getters.getAllColumns(this.getBoardId);
-
-            return columns;
-        }
-
-        private get getBoardHeader() {
-            const board: IBoard = this.$store.getters.getBoard(this.getBoardId);
-
-            return board;
+        private get board() {
+            return this.boardOjb;
         }
 
         private createColumn() {
@@ -96,7 +85,7 @@
                 title: 'Column',
                 itemIds: [],
                 state: 'inactive',
-                boardId: this.getBoardId,
+                boardId: this.boardId,
             };
 
             this.$store.dispatch('createColumn', newColumn);
@@ -107,7 +96,14 @@
         }
 
         private created() {
+            this.boardId = parseFloat(this.$route.params.id);
 
+            this.$store.dispatch('fetchBoard', this.boardId)
+                .then((response) => {
+                    this.boardOjb = response.data;
+                    this.$store.dispatch('fetchColumns');
+                    this.$store.dispatch('fetchItems');
+                });
 
             EventBus.$on('open-modal', (itemId: number) => {
                 this.showModal = true;
@@ -120,11 +116,9 @@
         }
 
         private mounted() {
-            // todo
-            // fetch board
-
             const title = this.$refs.title as HTMLFormElement;
-            if (title.length > 0) {
+
+            if (title && title.length > 0) {
                 title.forEach((el: HTMLFormElement) => {
                     el.blur();
                 });
