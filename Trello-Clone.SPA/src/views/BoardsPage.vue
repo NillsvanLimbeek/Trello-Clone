@@ -56,8 +56,6 @@
 
         private created() {
             this.$store.dispatch('fetchBoards');
-            this.$store.dispatch('fetchColumns');
-            this.$store.dispatch('fetchItems');
 
             EventBus.$on('close-modal', () => {
                 this.showModal = false;
