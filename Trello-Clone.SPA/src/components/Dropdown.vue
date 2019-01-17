@@ -8,12 +8,16 @@
         }">
 
         <div class="dropdown__body">
-            <p class="dropdown__item">
+            <p
+                class="dropdown__item"
+                @click="$emit('delete-column')">
                 Delete
             </p>
 
-            <p class="dropdown__item">
-                Copy
+            <p
+                class="dropdown__item"
+                @click="$emit('duplicate-column')">
+                Duplicate
             </p>
         </div>
     </div>

@@ -30,5 +30,9 @@
         background: var(--color-white);
         box-shadow: var(--drop-shadow);
         cursor: pointer;
+
+        &:hover {
+            color: var(--color-primary);
+        }
     }
 }

@@ -18,7 +18,7 @@
             <icon-base
                 viewBox="0 0 60 60"
                 class="column__btn"
-                @click="openDropdown">
+                @click="columnDropdown = true">
 
                 <icon-dots />
             </icon-base>
@@ -26,7 +26,8 @@
             <Dropdown
                 v-if="columnDropdown"
                 type="column"
-                @close-dropdown="columnDropdown = false" />
+                @close-dropdown="columnDropdown = false"
+                @delete-column="deleteColumn" />
         </div>
 
         <Item
@@ -40,7 +41,7 @@
         </Item>
 
         <div
-            class="column__add-item add-item-item"
+            class="column__add-item"
             key="addButton"
             @click="addItem">
 
@@ -90,10 +91,6 @@
             return items.filter((item: IItem) => this.columnId === item.columnId);
         }
 
-        private openDropdown() {
-            this.columnDropdown = !this.columnDropdown;
-        }
-
         private addItem() {
             const newItem: IItem = {
                 title: 'Item',
@@ -102,6 +99,10 @@
             };
 
             this.$store.dispatch('createItem', newItem);
+        }
+
+        private deleteColumn() {
+            this.$store.dispatch('deleteColumn', this.columnId);
         }
     }
 </script>

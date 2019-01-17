@@ -57,7 +57,13 @@
         align-items: center;
 
         border-radius: 1rem;
+        transition: var(--transition-2);
         cursor: pointer;
+
+        &:hover {
+            color: var(--color-primary);
+            transition: var(--transition-2);
+        }
     }
 }
 

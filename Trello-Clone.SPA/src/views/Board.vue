@@ -118,7 +118,7 @@
         private mounted() {
             const title = this.$refs.title as HTMLFormElement;
 
-            if (title && title.length > 0) {
+            if (title) {
                 title.forEach((el: HTMLFormElement) => {
                     el.blur();
                 });

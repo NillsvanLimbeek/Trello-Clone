@@ -82,6 +82,11 @@ const actions: ActionTree<ColumnState, RootState> = {
         dispatch('fetchColumns');
     },
 
+    async deleteColumn({ commit, dispatch }, id: number) {
+        const columnToDelete = await axios.delete(`http://localhost:5000/api/columns/${id}`);
+        commit('deleteColumn', id);
+        dispatch('fetchColumns');
+    },
 };
 
 export const columns: Module<ColumnState, any> = {
