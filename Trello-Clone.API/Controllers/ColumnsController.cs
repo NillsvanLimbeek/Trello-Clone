@@ -68,7 +68,7 @@ namespace Trello_Clone.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var column = await _context.Columns.Include(c => c.Items).FirstOrDefaultAsync(c => c.Id == id);
+            var column = await _context.Columns.FirstOrDefaultAsync(c => c.Id == id);
 
             if (column == null)
             {

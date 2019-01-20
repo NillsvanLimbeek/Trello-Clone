@@ -57,8 +57,19 @@
         fill: var(--color-grey-dark);
     }
 
+    &__menu {
+        fill: var(--color-grey-dark);
+        transform: translateY(3px);
+        cursor: pointer;
+
+        &:hover {
+            fill: var(--color-primary);
+        }
+    }
+
     &__text {
         color: var(--color-grey-dark);
+        margin-right: 2.5rem;
     }
 
     &__right {

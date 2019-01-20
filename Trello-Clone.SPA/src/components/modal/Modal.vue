@@ -26,12 +26,13 @@
 <script lang="ts">
     import { Vue, Component, Prop } from '@/vue-script';
 
+    import { EventBus } from '@/eventBus';
+    import { BoardToUpdateDto } from '@/data/dto';
+
     import {
         IconBase,
         IconClose,
     } from '@components/icons';
-
-    import { EventBus } from '@/eventBus';
 
     @Component({
         components: {
@@ -44,6 +45,12 @@
 
         private closeModal() {
             EventBus.$emit('close-modal');
+        }
+
+        private created() {
+            EventBus.$on('edit-board', (updateBoard: BoardToUpdateDto) => {
+                this.$store.dispatch('updateBoard', updateBoard);
+            });
         }
     }
 </script>

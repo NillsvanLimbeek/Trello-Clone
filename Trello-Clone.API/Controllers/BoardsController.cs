@@ -69,7 +69,7 @@ namespace Trello_Clone.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var board = await _context.Boards.Include(b => b.Columns).FirstOrDefaultAsync(b => b.Id == id);
+            var board = await _context.Boards.FirstOrDefaultAsync(b => b.Id == id);
 
             if (board == null)
             {

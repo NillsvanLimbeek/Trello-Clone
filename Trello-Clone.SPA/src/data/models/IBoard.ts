@@ -3,7 +3,6 @@ export interface IBoard {
     title: string;
     favorite: boolean;
     personal: boolean;
-    createdAt: Date;
     id: number;
-    columnIds: number[];
+    columnIds?: number[];
 }

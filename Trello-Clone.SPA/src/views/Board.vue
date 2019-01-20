@@ -3,7 +3,8 @@
 
         <BoardHeader
             :board-header="board"
-            @change-view="changeView" />
+            @change-view="changeView"
+            @open-board-modal="boardModal = true" />
 
         <div class="board__board-list">
             <Column
@@ -32,11 +33,15 @@
             </div>
         </div>
 
-        <Modal
-            v-if="showModal"
-            :id="itemId">
-
+        <Modal v-if="itemModal">
             <ModalItem :id="itemId" />
+        </Modal>
+
+        <Modal
+            v-if="boardModal"
+            size="small">
+
+            <ModalEditBoard :id="boardId" />
         </Modal>
 
     </div>
@@ -48,10 +53,11 @@
 
     import { EventBus } from '@/eventBus';
 
+    import Column from '@views/Column.vue';
     import BoardHeader from '@components/boards/BoardHeader.vue';
-    import Column from '@components/Column.vue';
     import Modal from '@components/modal/Modal.vue';
     import ModalItem from '@components/modal/content/ModalItem.vue';
+    import ModalEditBoard from '@components/modal/content/ModalEditBoard.vue';
 
     import { ColumnState, BoardsState } from '@state/state';
     import { IItem, IColumn, IBoard } from '@models/index';
@@ -63,11 +69,13 @@
             BoardHeader,
             Modal,
             ModalItem,
+            ModalEditBoard,
         },
     })
 
     export default class Board extends Vue {
-        private showModal = false;
+        private itemModal = false;
+        private boardModal = false;
         private itemId!: number;
         private boardId!: number;
         private boardOjb = {};
@@ -105,13 +113,14 @@
                     this.$store.dispatch('fetchItems');
                 });
 
-            EventBus.$on('open-modal', (itemId: number) => {
-                this.showModal = true;
-                this.itemId = itemId;
+            EventBus.$on('open-item', (id: number) => {
+                this.itemId = id;
+                this.itemModal = true;
             });
 
             EventBus.$on('close-modal', () => {
-                this.showModal = false;
+                this.itemModal = false;
+                this.boardModal = false;
             });
         }
 

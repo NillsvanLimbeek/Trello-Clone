@@ -55,8 +55,8 @@
 
     import { EventBus } from '@/eventBus';
 
+    import Item from '@views/Item.vue';
     import Dropdown from '@components/Dropdown.vue';
-    import Item from '@components/items/Item.vue';
     import { IconBase, IconCircle, IconDots } from '@components/icons';
 
     import { ColumnState, ItemState } from '@state/state';

@@ -1,7 +1,7 @@
 <template>
     <div
         class="item"
-        @click="openModal">
+        @click="openItem">
 
         <div class="item__labels" v-if="getColorlabels.length >= 1">
 
@@ -75,8 +75,8 @@
             this.itemDropdown = !this.itemDropdown;
         }
 
-        private openModal() {
-            EventBus.$emit('open-modal', this.itemId);
+        private openItem() {
+            EventBus.$emit('open-item', this.itemId);
         }
     }
 </script>

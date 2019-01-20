@@ -34,6 +34,14 @@
 
                 <p class="board-header__text">Private</p>
             </div>
+
+            <icon-base
+                class="board-header__menu"
+                viewBox="0 0 60 60"
+                @click="$emit('open-board-modal')">
+
+                <icon-dots />
+            </icon-base>
         </div>
 
         <div class="board-header__right">
@@ -76,7 +84,7 @@
 <script lang="ts">
     import { Vue, Component, Prop, Getter } from '@/vue-script';
 
-    import { IconBase, IconEye, IconBoards, IconCalendar, IconStarSolid } from '@components/icons';
+    import { IconBase, IconEye, IconBoards, IconCalendar, IconStarSolid, IconDots } from '@components/icons';
 
     import { BoardView } from '@enums/index';
     import { Colors } from '@/utils/index';
@@ -89,6 +97,7 @@
             IconBoards,
             IconCalendar,
             IconStarSolid,
+            IconDots,
         },
     })
 
