@@ -48,7 +48,7 @@
 </template>
 
 <script lang="ts">
-    import { Vue, Component, State, Getter } from '@/vue-script';
+    import { Vue, Component } from '@/vue-script';
     import { Route } from 'vue-router';
 
     import { EventBus } from '@/eventBus';
@@ -85,7 +85,13 @@
         }
 
         private get board() {
-            return this.boardOjb;
+            const board = this.$store.getters.getBoard(this.boardId);
+
+            if (!board) {
+                return this.boardOjb;
+            } else {
+                return board;
+            }
         }
 
         private createColumn() {

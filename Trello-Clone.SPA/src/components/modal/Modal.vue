@@ -49,7 +49,10 @@
 
         private created() {
             EventBus.$on('edit-board', (updateBoard: BoardToUpdateDto) => {
-                this.$store.dispatch('updateBoard', updateBoard);
+                this.$store.dispatch('updateBoard', updateBoard)
+                    .then(() => {
+                        this.closeModal();
+                    });
             });
         }
     }

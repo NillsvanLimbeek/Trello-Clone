@@ -115,9 +115,10 @@ const actions: ActionTree<BoardsState, RootState> = {
         dispatch('fetchBoards');
     },
 
-    async updateBoard({ commit }, updateBoard: IBoard ) {
+    async updateBoard({ commit, dispatch }, updateBoard: IBoard ) {
         const boardForUpdate = await axios.put(`http://localhost:5000/api/boards/${updateBoard.id}`, updateBoard);
         commit('updateBoard', boardForUpdate);
+        dispatch('fetchBoards');
     },
 
     setCurrentView({ commit }, newView: BoardView) {
