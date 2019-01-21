@@ -18,6 +18,7 @@ namespace Trello_Clone.API.Data
             modelBuilder.ApplyConfiguration(new BoardConfiguration());
             modelBuilder.ApplyConfiguration(new ColumnConfiguration());
             modelBuilder.ApplyConfiguration(new ItemConfiguration());
+            modelBuilder.ApplyConfiguration(new ColorLabelConfiguration());
 
             // one to many
             modelBuilder.Entity<Item>()
